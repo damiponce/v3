@@ -14,7 +14,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Lorem Ipsum
 
-$\int^{\infty}_0 \frac{1}{x} dx$
+$\int\limits^{\infty}_0 \dfrac{1}{x} dx$
 
 `LINE = "one line of code"`
 
@@ -25,7 +25,24 @@ of
 code`;
 ```
 
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+```
+
+```python
+def main():
+    print("Hello, World!")
+    return 0
+```
+
 ~~hola~~
+
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://myoctocat.com/assets/images/base-octocat.svg)
 
 A paragraph with _emphasis_ and **strong importance**.
 

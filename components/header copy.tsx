@@ -72,7 +72,7 @@ const ToCItem = ({
   return (
     <li
       className={cn(
-        indent ? "ml-5 peer" : "",
+        indent ? "ml-6 peer" : "",
         Array.isArray(id)
           ? "peer-hover:[&>a>span:first-child]:w-[5rem] peer-hover:[&>a>span:first-child]:bg-neutral-200 peer-hover:[&>a>span:last-child]:text-neutral-200 "
           : ""
@@ -98,11 +98,11 @@ const ToCItem = ({
               ? "group-hover:w-[5rem] group-hover:bg-neutral-200 group-focus-visible:w-[5rem] group-focus-visible:bg-neutral-200"
               : "",
             indent
-              ? "ml-2 w-4 data-[active=true]:w-[3.25rem] group-hover:w-[3.25rem] group-focus-visible:w-12"
+              ? "ml-2 w-3 data-[active=true]:w-12 group-hover:w-12 group-focus-visible:w-12"
               : ""
           )}
         />
-        {/* <span
+        <span
           data-active={active ? "true" : "false"}
           className={cn(
             indent
@@ -133,7 +133,7 @@ const ToCItem = ({
                 )
               : ""
           )}
-        /> */}
+        />
         <span
           data-active={active ? "true" : "false"}
           className={cn(
@@ -173,7 +173,7 @@ const Header = () => {
           web.
         </p>
         <nav className="hidden lg:block">
-          <ul className="mt-2 w-max flex flex-col relative">
+          <ul className="mt-2 w-max flex flex-col">
             <ToCItem name="About" id="about" activeId={activeId} order={1} />
             <ToCItem
               name="Experience"
@@ -208,17 +208,12 @@ const Header = () => {
               indent
               order={7}
             />
-            {/* <ToCItem
+            <ToCItem
               name="Projects"
               id={["freelance", "coding", "engineering"]}
               activeId={activeId}
               order={4}
-            /> */}
-            <span className={cn(
-              "absolute left-0 -translate-x-[7.5rem] origin-top-right -rotate-90 top-[7.5rem] w-[7.5rem]",
-              "text-xs font-bold text-center uppercase tracking-widest text-neutral-500 h-5 leading-5"
-            )}
-            >Projects</span>
+            />
           </ul>
         </nav>
       </div>

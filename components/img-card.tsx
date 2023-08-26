@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { cn } from '../lib/utils';
+import Link from 'next/link';
 
 type Props = {
   children?: React.ReactNode;
@@ -25,7 +27,7 @@ const ImgCard = ({
         <div className='absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(38,38,38,0.1)] lg:group-hover:drop-shadow-lg'></div>
         <div className='z-10 sm:order-2 sm:col-span-6'>
           <h3>
-            <a
+            <Link
               className='inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-highlight  group/link text-base'
               href={url}
               target='_blank'
@@ -52,7 +54,7 @@ const ImgCard = ({
                   </svg>
                 </span>
               </span>
-            </a>
+            </Link>
           </h3>
           {description && (
             <p className='mt-2 text-sm leading-normal'>{description}</p>
@@ -61,7 +63,7 @@ const ImgCard = ({
             <ul className='mt-2 flex flex-wrap' aria-label='Related links'>
               {links.map((item) => (
                 <li className='mr-4'>
-                  <a
+                  <Link
                     className='relative mt-2 inline-flex items-center text-sm font-medium text-neutral-300 hover:text-highlight focus-visible:text-highlight'
                     href={item.url}
                     target='_blank'
@@ -78,7 +80,7 @@ const ImgCard = ({
                       <path d='M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z'></path>
                     </svg>
                     <span>{item.name}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -98,7 +100,12 @@ const ImgCard = ({
             </ul>
           )}
         </div>
-        <div className='max-w-[200px] max-h-[130px] aspect-auto rounded border-2 border-neutral-200/10 transition group-hover:border-neutral-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1 '>
+        <div
+          className={cn(
+            'max-w-[200px] h-fit overflow-hidden object-contain',
+            'rounded border-2 border-neutral-200/10 transition group-hover:border-neutral-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1',
+          )}
+        >
           <Image
             src={img}
             width={200}
@@ -107,7 +114,7 @@ const ImgCard = ({
             decoding='async'
             data-nimg='1'
             alt='' // !!!!!!!!
-            style={{ color: 'transparent' }}
+            className='w-full h-auto max-h-[130px] text-transparent object-cover '
           />
         </div>
         {/* <img

@@ -4,9 +4,10 @@ type Props = {
   children?: React.ReactNode;
   id: string;
   name: string;
+  className?: string;
 };
 
-const Section = ({ children, id, name }: Props) => {
+const Section = ({ children, id, name, className }: Props) => {
   return (
     <section
       id={id}
@@ -14,6 +15,7 @@ const Section = ({ children, id, name }: Props) => {
       className={cn(
         'mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24',
         false ? 'border-dashed border-red-600 border-2' : '',
+        className,
       )}
     >
       <div className='sticky top-0 z-20 -mx-6 mb-4 w-screen bg-neutral-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0'>

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 type Props = {};
 
 const About = ({}: Props) => {
@@ -7,41 +9,41 @@ const About = ({}: Props) => {
       and tumbled head first into the rabbit hole of coding and web development.
       Fast-forward to today, and I’ve had the privilege of building software for
       an{' '}
-      <a
+      <Link
         className='font-medium text-slate-200 hover:text-highlight focus-visible:text-highlight'
         href='https://us.mullenlowe.com/'
         target='_blank'
         rel='noreferrer'
       >
         advertising agency
-      </a>
+      </Link>
       , a{' '}
-      <a
+      <Link
         className='font-medium text-slate-200 hover:text-highlight focus-visible:text-highlight'
         href='https://starry.com/'
         target='_blank'
         rel='noreferrer'
       >
         start-up
-      </a>
+      </Link>
       , a{' '}
-      <a
+      <Link
         className='font-medium text-slate-200 hover:text-highlight focus-visible:text-highlight'
         href='https://scout.camd.northeastern.edu/'
         target='_blank'
         rel='noreferrer'
       >
         student-led design studio
-      </a>
+      </Link>
       , and a{' '}
-      <a
+      <Link
         className='font-medium text-slate-200 hover:text-highlight focus-visible:text-highlight'
         href='https://www.apple.com/apple-music/'
         target='_blank'
         rel='noreferrer'
       >
         huge corporation
-      </a>
+      </Link>
       .
     </p>
   );

@@ -11,3 +11,16 @@
 a {
   cursor: pointer;
 }
+
+.debug {
+  border: 1px dashed red;
+}
+
+.debug.alt {
+  border: 1px dashed yellow;
+}
+
+.debug.fill {
+  border: 1px dashed cyan;
+  background-color: cyan;
+}

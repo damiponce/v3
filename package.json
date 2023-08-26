@@ -7,6 +7,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@pmndrs/assets": "^1.6.0",
+    "@react-three/drei": "^9.80.6",
+    "@react-three/fiber": "^8.13.7",
+    "@react-three/gpu-pathtracer": "^0.1.1",
+    "@types/three": "^0.155.1",
     "@wooorm/starry-night": "^2.1.1",
     "classnames": "^2.3.1",
     "clsx": "^2.0.0",
@@ -14,6 +19,8 @@
     "gray-matter": "^4.0.3",
     "hast-util-to-jsx-runtime": "^2.0.0",
     "i18next": "^23.4.4",
+    "image-size": "^1.0.2",
+    "leva": "^0.9.35",
     "next": "latest",
     "next-i18next": "^14.0.0",
     "react": "^18.2.0",
@@ -29,9 +36,12 @@
     "remark": "^14.0.2",
     "remark-gfm": "^3.0.1",
     "remark-html": "^15.0.1",
+    "remark-images": "^3.1.0",
     "remark-math": "^5.1.1",
     "remark-rehype": "^10.1.0",
+    "suspend-react": "^0.1.3",
     "tailwind-merge": "^1.14.0",
+    "three": "^0.155.0",
     "typescript": "^4.7.4"
   },
   "devDependencies": {

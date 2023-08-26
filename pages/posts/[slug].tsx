@@ -13,6 +13,9 @@ import markdownToHtml from '../../lib/markdownToHtml';
 import type PostType from '../../interfaces/post';
 import Meta from '../../components/meta';
 import { serialize } from 'react-serialize';
+import sizeOf from 'image-size';
+import { join } from 'path';
+import Back from '../../components/back';
 
 type Props = {
   post: PostType;
@@ -33,8 +36,8 @@ export default function Post({ post, morePosts, preview }: Props) {
       </Head>
       <Meta />
       <div className=''>
-        <div className='mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0'>
-          <div className='lg:py-24'>
+        <div className='mx-auto min-h-screen max-w-screen-xl  px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0'>
+          <div className='lg:py-24 max-w-2xl mx-auto'>
             {/* <Layout preview={preview}> */}
             {/* <Container> */}
             {/* <Header /> */}
@@ -42,6 +45,7 @@ export default function Post({ post, morePosts, preview }: Props) {
               <PostTitle>Loading…</PostTitle>
             ) : (
               <>
+                <Back />
                 <article className='mb-32'>
                   <Head>
                     <title>{title}</title>
@@ -49,11 +53,15 @@ export default function Post({ post, morePosts, preview }: Props) {
                   </Head>
                   <PostHeader
                     title={post.title}
+                    subtitle={post.subtitle}
                     coverImage={post.coverImage}
                     date={post.date}
                     author={post.author}
                   />
-                  <PostBody content={post.content} />
+                  <PostBody
+                    content={post.content}
+                    imageSizes={post.imageSizes}
+                  />
                 </article>
               </>
             )}
@@ -75,6 +83,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, [
     'title',
+    'subtitle',
     'date',
     'slug',
     'author',
@@ -85,11 +94,27 @@ export async function getStaticProps({ params }: Params) {
   // const content = serialize(await markdownToHtml(post.content || ''));
   const content = post.content;
 
+  const imageSizes: Props['post']['imageSizes'] = {};
+
+  // A regular expression to iterate on all images in the post
+  const iterator = post.content.matchAll(/\!\[.*]\((.*)\)/g);
+  let match: IteratorResult<RegExpMatchArray, any>;
+  while (!(match = iterator.next()).done) {
+    const [, src] = match.value;
+    try {
+      const { width, height } = sizeOf(join('public', src));
+      imageSizes[src] = { width, height };
+    } catch (err) {
+      console.error(`Can’t get dimensions for ${src}:`, err);
+    }
+  }
+
   return {
     props: {
       post: {
         ...post,
         content,
+        imageSizes,
       },
     },
   };

@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import Image from 'next/image';
 
 import 'katex/dist/katex.min.css';
 
@@ -14,13 +15,18 @@ import { qtcreator_dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Grammar, common, createStarryNight } from '@wooorm/starry-night';
 import { Root } from 'hast';
 import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
+// @ts-ignore
 import { Fragment, jsx, jsxs } from 'react/jsx-runtime';
 
 import { deserialize } from 'react-serialize';
 import { toHtml } from 'hast-util-to-html';
+import { Nodes } from 'hast-util-to-jsx-runtime/lib';
+import remarkImages from 'remark-images';
+import PostType from '../interfaces/post';
 
 type Props = {
   content: string;
+  imageSizes: PostType['imageSizes'];
 };
 
 type StarryNightType = {
@@ -31,14 +37,14 @@ type StarryNightType = {
   scopes: () => string[];
 };
 
-const PostBody = ({ content }: Props) => {
+const PostBody = ({ content, imageSizes }: Props) => {
   const [starryNight, setStarryNight] = useState<StarryNightType>();
 
   function starryNightInstance(flag: string, content) {
     if (!starryNight) return null;
     const scope = starryNight.flagToScope(flag);
     const tree = starryNight.highlight(content.toString(), scope);
-    const reactNode = toJsxRuntime(tree, { Fragment, jsx, jsxs });
+    const reactNode = toJsxRuntime(tree as Nodes, { Fragment, jsx, jsxs });
     console.log(reactNode);
     return reactNode;
   }
@@ -49,34 +55,11 @@ const PostBody = ({ content }: Props) => {
 
   return (
     <div className='max-w-2xl mx-auto'>
-      <div
-        // className={markdownStyles['markdown']}
-        // className={githubMarkdownStyles['markdown-body']}
-        className='markdown-body'
-        // dangerouslySetInnerHTML={{ __html: content }}
-      >
+      <div className='markdown-body'>
         <ReactMarkdown
           children={content}
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeKatex]}
-          // components={{
-          //   code({ node, inline, className, children, ...props }) {
-          //     const match = /language-(\w+)/.exec(className || '');
-          //     return !inline && match ? (
-          //       <SyntaxHighlighter
-          //         {...props}
-          //         children={String(children).replace(/\n$/, '')}
-          //         style={qtcreator_dark}
-          //         language={match[1]}
-          //         PreTag='div'
-          //       />
-          //     ) : (
-          //       <code {...props} className={className}>
-          //         {children}
-          //       </code>
-          //     );
-          //   },
-          // }}
           components={{
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || '');
@@ -89,6 +72,24 @@ const PostBody = ({ content }: Props) => {
                   {children}
                 </code>
               );
+            },
+            img(props) {
+              if (imageSizes[props.src]) {
+                const { src, alt } = props;
+                const { width, height } = imageSizes[props.src];
+                return (
+                  <Image
+                    src={src}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                    sizes='(max-width: 760px) 100vw, 760px'
+                    className='object-cover w-full h-auto max-h-[calc(42rem_/_16*9)]'
+                  />
+                );
+              } else {
+                return <img {...props} />;
+              }
             },
           }}
         />

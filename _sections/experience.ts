@@ -9,34 +9,82 @@ type CardText = {
 
 type Experience = {
   key: string;
-  url: string;
+  url?: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
   es: CardText;
   en: CardText;
 };
 
+const weirdDash = '→';
+
 const EXPERIENCE: Experience[] = [
   {
-    key: "lab-assistant",
-    url: "https://frh.utn.edu.ar",
-    technologies: ["SMD", "PCB"],
+    key: 'lab-assistant',
+    url: 'https://frh.utn.edu.ar',
+    // technologies: ["SMD", "PCB"],
     es: {
-      date: "Jul 2023 — presente",
-      title: "Ayudante de Laboratorio de Electrónica",
-      place: "UTN FRH",
-      position: "Estudiante",
+      date: 'Jul 2023 → presente',
+      title: 'Ayudante de Laboratorio de Electrónica',
+      place: 'UTN FRH',
+      position: 'Ingeniería',
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, diam quis aliqua aliquam, nunc.",
-      technologies: ["SMD", "PCB", "Soldadura"],
+        'Asistencia para los estudiantes que desean utilizar los laboratorios de electrónica.',
+      technologies: ['SMD', 'Diseño de PCB', 'Soldadura'],
     },
     en: {
-      date: "Jul 2023 — present",
-      title: "Electronics Lab Assistant",
-      place: "UTN FRH",
-      // position: "Engineer",
+      date: 'Jul 2023 → present',
+      title: 'Electronics Lab Assistant',
+      place: 'UTN FRH',
+      position: 'Engineering',
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, diam quis aliqua aliquam, nunc.",
+        'Assistance for students who want to use the electronics laboratories.',
+      technologies: ['SMD', 'PCB design', 'Soldering'],
+    },
+  },
+  {
+    key: 'freelance-webdev',
+    url: '#freelance',
+    technologies: [
+      'React',
+      'Node.js',
+      'Next.js',
+      'Vercel',
+      'Express',
+      'MongoDB',
+    ],
+    es: {
+      date: 'May 2022 → presente',
+      title: 'Desarrollador Web Freelance',
+      place: 'Remoto',
+      position: 'Freelance',
+      description:
+        'Desarrollo de sitios web, aplicaciones web y aplicaciones móviles para clientes varios.',
+    },
+    en: {
+      date: 'May 2022 → present',
+      title: 'Freelance Web Developer',
+      place: 'Remote',
+      position: 'Freelance',
+      description:
+        'Website, web app and mobile app development for various clients.',
+    },
+  },
+  {
+    key: 'interpreter',
+    es: {
+      date: 'Dic 2022 →\nEne 2023',
+      title: 'Intérprete Español-Inglés',
+      place: 'Remoto - EEUU',
+      description:
+        'Interpretación de conversaciones entre un cliente y un proveedor de servicios en tiempo real.',
+    },
+    en: {
+      date: 'Dec 2022 →\nJan 2023',
+      title: 'Spanish-English Interpreter',
+      place: 'Remote - USA',
+      description:
+        'Interpretation of conversations between a client and a service provider in real time.',
     },
   },
 ];

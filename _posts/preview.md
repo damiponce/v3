@@ -1,10 +1,11 @@
 ---
 title: 'Preview Mode for Static Generation'
+subtitle: 'This is a preview of the blog post that will be generated statically.'
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
 coverImage: '/assets/blog/preview/cover.jpg'
 date: '2020-03-16T05:35:07.322Z'
 author:
-  name: Joe Haddad
+  name: Damián Ponce
   picture: '/assets/blog/authors/joe.jpeg'
 ogImage:
   url: '/assets/blog/preview/cover.jpg'
@@ -42,7 +43,7 @@ def main():
 
 ~~hola~~
 
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://myoctocat.com/assets/images/base-octocat.svg)
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](/assets/images/3dnoise.png)
 
 A paragraph with _emphasis_ and **strong importance**.
 

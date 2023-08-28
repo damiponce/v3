@@ -10,7 +10,7 @@ const About = ({}: Props) => {
       Fast-forward to today, and I’ve had the privilege of building software for
       an{' '}
       <Link
-        className='font-medium text-slate-200 hover:text-highlight focus-visible:text-highlight'
+        className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
         href='https://us.mullenlowe.com/'
         target='_blank'
         rel='noreferrer'
@@ -19,7 +19,7 @@ const About = ({}: Props) => {
       </Link>
       , a{' '}
       <Link
-        className='font-medium text-slate-200 hover:text-highlight focus-visible:text-highlight'
+        className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
         href='https://starry.com/'
         target='_blank'
         rel='noreferrer'
@@ -28,7 +28,7 @@ const About = ({}: Props) => {
       </Link>
       , a{' '}
       <Link
-        className='font-medium text-slate-200 hover:text-highlight focus-visible:text-highlight'
+        className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
         href='https://scout.camd.northeastern.edu/'
         target='_blank'
         rel='noreferrer'
@@ -37,7 +37,7 @@ const About = ({}: Props) => {
       </Link>
       , and a{' '}
       <Link
-        className='font-medium text-slate-200 hover:text-highlight focus-visible:text-highlight'
+        className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
         href='https://www.apple.com/apple-music/'
         target='_blank'
         rel='noreferrer'

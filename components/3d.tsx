@@ -216,8 +216,8 @@ const Container = ({ children }: Props) => {
         /> */}
         {/* <Box /> */}
         <Shadow />
-        {/* <Model /> */}
-        <Macbook />
+         <Model /> 
+        {/* <Macbook /> */}
         {/* <Stats /> */}
         <StatsGl />
       </Suspense>

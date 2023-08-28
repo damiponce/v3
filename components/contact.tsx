@@ -9,7 +9,7 @@ const Contact = ({ children }: Props) => {
     <ul className='ml-1 lg:mt-8 flex items-center' aria-label='Social media'>
       <li className='mr-5 text-xs'>
         <Link
-          className='block hover:text-slate-200'
+          className='block hover:text-neutral-200'
           href='https://github.com/bchiang7'
           target='_blank'
           rel='noreferrer'
@@ -29,7 +29,7 @@ const Contact = ({ children }: Props) => {
 
       <li className='mr-5 text-xs'>
         <Link
-          className='block hover:text-slate-200'
+          className='block hover:text-neutral-200'
           href='https://www.linkedin.com/in/bchiang7/'
           target='_blank'
           rel='noreferrer'

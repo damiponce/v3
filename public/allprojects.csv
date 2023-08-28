@@ -1,0 +1,16 @@
+group;key;img;url;date;title;description;technologies;links
+freelance;dreambuilders;;dreambuilders.cl;;DreamBuilders;DreamBuilders es una empresa especializada en la construcción de casas de madera. El sitio web fue creado para mostrar información sobre la empresa, demostrar sus capacidades y proyectos, y para que los clientes puedan contactarlos.;React, Next.js, Vercel, Tailwind CSS, TypeScript;
+freelance;botaaguas;;botaaguas.cl;;Botaaguas;Botaaguas es una empresa que se dedica a la fabricación y venta de bota aguas para camiones. El sitio web fue creado para mostrar información sobre los productos que venden, y para que los clientes puedan comprarlos.;React, Next.js, Vercel, Tailwind CSS, TypeScript;
+coding;wpp-stats;;;2022;Estadísticas de WhatsApp;Una aplicación web front-end que calcula y muestra varias estadísticas de un historial de chat de WhatsApp importado. Diseñado pensando en la confianza del usuario, realiza todo el procesamiento en el navegador, por lo que ninguna cantidad de los datos (muy personales) se transfiere fuera de la computadora del usuario.;React, Next.js, Python, Pandas;
+coding;3d-noise;;;2022;Ruido 3D;Una demostración gráfica de ruidos multidimensionales de una manera elegante.;React, Gatsby, three.js;
+coding;portfolio-v1;;;2021;Portfolio v1;Mi primer intento de hacer un sitio web personal para mostrar mis capacidades y habilidades.;React, Next.js;
+coding;portfolio-v2;;;2022;Portfolio v2;;React, Next.js;
+coding;notee;;;;;;;
+coding;weather-web;;;;;;;
+coding;book-sorter;;;;;;;
+coding;penworld;;;;;;;
+coding;morse-code;;;;;;;
+coding;simple-calc;;;;;;;
+coding;minesweeper;;;;;;;
+coding;pendulum;;;;;;;
+engineering;weather-station;;;2023;;;;

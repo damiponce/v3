@@ -1,3 +1,4 @@
+@import url("https://use.typekit.net/ods7pkb.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +7,18 @@
   body {
     @apply bg-neutral-900 bg-gradient-to-b from-neutral-900 to-neutral-900  leading-relaxed text-neutral-400 antialiased selection:bg-purple-300 selection:text-purple-900;
   }
+}
+
+
+/*  */
+*:not(.katex  *, code *) {
+  font-family: var(--inter-font); 
+  
+}
+
+*:is(code *) {
+  font-family: "bakemono-variable", sans-serif;
+  font-variation-settings: "MONO" 500, "wght" 400;
 }
 
 a {

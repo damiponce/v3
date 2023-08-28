@@ -10,21 +10,17 @@ import ImgCard from '../components/img-card';
 
 import { useTranslation, Trans } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import EXPERIENCE from '../_sections/experience';
 import EDUCATION from '../_sections/education';
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import markdownToHtml from '../lib/markdownToHtml';
+import FREELANCE from '../_sections/freelance';
+import CODING from '../_sections/coding';
+import ENGINEERING from '../_sections/engineering';
 
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkHtml from 'remark-html';
-import rehypeParse from 'rehype-parse';
-import rehypeReact from 'rehype-react';
-import { Fragment, createElement, useEffect, useState } from 'react';
-import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import ViewFull from '../components/view-full';
 import Footer from '../components/footer';
+
 import ThreeD from '../components/3d';
 
 type Props = {
@@ -79,7 +75,7 @@ export default function Index(
                 <ol className='group/list'>
                   {EDUCATION.map((item, index) => (
                     <TextCard
-                      key={`experience-${index}`}
+                      key={item.key}
                       url={item.url}
                       date={item[lang].date}
                       title={item[lang].title}
@@ -96,29 +92,42 @@ export default function Index(
               </Section>
               <Section id='freelance' name='Freelance'>
                 <ul className='group/list'>
-                  <ImgCard
-                    img='/assets/images/3dnoise.png'
-                    url='https://x.com'
-                    title='Lead Engineer'
-                    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, diam quis aliqua aliquam, nunc.'
-                    links={[{ name: 'Youtube', url: 'youtube.com' }]}
-                    technologies={['Yo', 'Mama']}
-                  />
-                  <ImgCard
-                    img='/images/projects/course-card.png'
-                    url='https://x.com'
-                    title='Lead Engineer'
-                    description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, diam quis aliqua aliquam, nunc.'
-                    links={[{ name: 'Youtube', url: 'youtube.com' }]}
-                    technologies={['Yo', 'Mama']}
-                  />
+                  {FREELANCE.map((item) => <ImgCard
+                    key={item.key}
+                    img={item.img}
+                    url={item.url}
+                    title={item[lang].title}
+                    description={item[lang].description}
+                    links={item.links}
+                    technologies={item[lang].technologies ?? item.technologies}
+                  />)}
                 </ul>
               </Section>
               <Section id='coding' name='Coding'>
-                <p className='h-[400px]'></p>
+              <ul className='group/list'>
+                  {CODING.map((item) => <ImgCard
+                    key={item.key}
+                    img={item.img}
+                    url={item.url}
+                    title={item[lang].title}
+                    description={item[lang].description}
+                    links={item.links}
+                    technologies={item[lang].technologies ?? item.technologies}
+                  />)}
+                </ul>
               </Section>
               <Section id='engineering' name='Engineering'>
-                <p className='h-[400px]'></p>
+              <ul className='group/list'>
+                  {ENGINEERING.map((item) => <ImgCard
+                    key={item.key}
+                    img={item.img}
+                    url={item.url}
+                    title={item[lang].title}
+                    description={item[lang].description}
+                    links={item.links}
+                    technologies={item[lang].technologies ?? item.technologies}
+                  />)}
+                </ul>
                 <ViewFull text={t('viewProjects')} url='projects' />
               </Section>
               <Footer />

@@ -30,7 +30,7 @@ type Props = {
 export default function Index(
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const { t, i18n } = useTranslation('');
+  const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
   return (
@@ -42,7 +42,7 @@ export default function Index(
       <div className=''>
         <div className='mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0'>
           <div className='lg:flex lg:justify-between lg:gap-4'>
-            <Header />
+            <Header subtitle={t('subtitle')} description={t('description')} />
             <main className=' pt-24 lg:w-1/2 lg:py-24'>
               {/* <Section id='3d' name='3D' className='h-[600px]'>
                 <ThreeD />
@@ -92,41 +92,53 @@ export default function Index(
               </Section>
               <Section id='freelance' name='Freelance'>
                 <ul className='group/list'>
-                  {FREELANCE.map((item) => <ImgCard
-                    key={item.key}
-                    img={item.img}
-                    url={item.url}
-                    title={item[lang].title}
-                    description={item[lang].description}
-                    links={item.links}
-                    technologies={item[lang].technologies ?? item.technologies}
-                  />)}
+                  {FREELANCE.map((item) => (
+                    <ImgCard
+                      key={item.key}
+                      img={item.img}
+                      url={item.url}
+                      title={item[lang].title}
+                      description={item[lang].description}
+                      links={item.links}
+                      technologies={
+                        item[lang].technologies ?? item.technologies
+                      }
+                    />
+                  ))}
                 </ul>
               </Section>
               <Section id='coding' name='Coding'>
-              <ul className='group/list'>
-                  {CODING.map((item) => <ImgCard
-                    key={item.key}
-                    img={item.img}
-                    url={item.url}
-                    title={item[lang].title}
-                    description={item[lang].description}
-                    links={item.links}
-                    technologies={item[lang].technologies ?? item.technologies}
-                  />)}
+                <ul className='group/list'>
+                  {CODING.map((item) => (
+                    <ImgCard
+                      key={item.key}
+                      img={item.img}
+                      url={item.url}
+                      title={item[lang].title}
+                      description={item[lang].description}
+                      links={item.links}
+                      technologies={
+                        item[lang].technologies ?? item.technologies
+                      }
+                    />
+                  ))}
                 </ul>
               </Section>
               <Section id='engineering' name='Engineering'>
-              <ul className='group/list'>
-                  {ENGINEERING.map((item) => <ImgCard
-                    key={item.key}
-                    img={item.img}
-                    url={item.url}
-                    title={item[lang].title}
-                    description={item[lang].description}
-                    links={item.links}
-                    technologies={item[lang].technologies ?? item.technologies}
-                  />)}
+                <ul className='group/list'>
+                  {ENGINEERING.map((item) => (
+                    <ImgCard
+                      key={item.key}
+                      img={item.img}
+                      url={item.url}
+                      title={item[lang].title}
+                      description={item[lang].description}
+                      links={item.links}
+                      technologies={
+                        item[lang].technologies ?? item.technologies
+                      }
+                    />
+                  ))}
                 </ul>
                 <ViewFull text={t('viewProjects')} url='projects' />
               </Section>

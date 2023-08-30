@@ -1,6 +1,7 @@
 import { useGLTF } from '@react-three/drei';
 
 export function Macbook(props) {
+  // @ts-ignore
   const { nodes, materials } = useGLTF('/assets/macbook.gltf');
   return (
     <group {...props} dispose={null}>

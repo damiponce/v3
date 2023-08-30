@@ -76,6 +76,7 @@ export function Model(props) {
     pins_metal: { value: 1, min: 0, max: 1, step: 0.01 },
   });
 
+  // @ts-ignore
   const { nodes, materials } = useGLTF('/assets/ic-cute-3.gltf');
   const meshRef = useRef<THREE.Mesh>(null!);
 
@@ -153,7 +154,7 @@ useGLTF.preload('/assets/macbook.gltf');
 
 const Camera = ({ rt = false, enabled = false }) => {
   if (!rt) return <OrbitControls makeDefault enabled={enabled} />;
-  // const { reset } = usePathtracer();
+  const { reset } = usePathtracer();
 
   return (
     <OrbitControls onChange={() => reset()} makeDefault enabled={enabled} />
@@ -216,7 +217,7 @@ const Container = ({ children }: Props) => {
         /> */}
         {/* <Box /> */}
         <Shadow />
-         <Model /> 
+        <Model />
         {/* <Macbook /> */}
         {/* <Stats /> */}
         <StatsGl />

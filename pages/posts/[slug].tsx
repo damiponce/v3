@@ -1,18 +1,13 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import Container from '../../components/container';
 import PostBody from '../../components/post-body';
-import Header from '../../components/header';
 import PostHeader from '../../components/post-header';
-import Layout from '../../components/layout';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import PostTitle from '../../components/post-title';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';
-import markdownToHtml from '../../lib/markdownToHtml';
 import type PostType from '../../interfaces/post';
 import Meta from '../../components/meta';
-import { serialize } from 'react-serialize';
 import sizeOf from 'image-size';
 import { join } from 'path';
 import Back from '../../components/back';
@@ -38,9 +33,6 @@ export default function Post({ post, morePosts, preview }: Props) {
       <div className=''>
         <div className='mx-auto min-h-screen max-w-screen-xl  px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0'>
           <div className='lg:py-24 max-w-2xl mx-auto'>
-            {/* <Layout preview={preview}> */}
-            {/* <Container> */}
-            {/* <Header /> */}
             {router.isFallback ? (
               <PostTitle>Loading…</PostTitle>
             ) : (
@@ -65,8 +57,6 @@ export default function Post({ post, morePosts, preview }: Props) {
                 </article>
               </>
             )}
-            {/* </Container> */}
-            {/* </Layout>  */}
           </div>
         </div>
       </div>

@@ -152,7 +152,12 @@ const ToCItem = ({
   );
 };
 
-const Header = () => {
+type Props = {
+  subtitle: string;
+  description: string;
+};
+
+const Header = ({ subtitle, description }: Props) => {
   const [activeId, setActiveId] = useState();
   useIntersectionObserver(setActiveId);
 
@@ -164,16 +169,13 @@ const Header = () => {
     <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'>
       <div className={cn('flex-1 flex flex-col justify-between')}>
         <div className='mb-8'>
-          <h1 className='text-4xl font-bold tracking-tight text-neutral-200 sm:text-5xl'>
+          <h1 className='text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl'>
             <Link href='/'>Damián Ponce</Link>
           </h1>
-          <h2 className='mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl'>
-            Developer and Engineering Student
+          <h2 className='mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl'>
+            {subtitle}
           </h2>
-          <p className='mt-4 max-w-xs leading-normal'>
-            I build accessible, inclusive products and digital experiences for
-            the web.
-          </p>
+          <p className='mt-4 max-w-xs leading-normal'>{description}</p>
         </div>
 
         <div className='fill flex flex-[1] max-h-6 ' />

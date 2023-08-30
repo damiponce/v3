@@ -37,7 +37,7 @@ const EDUCATION: Education[] = [
   },
   {
     key: 'highschool',
-    url: 'inac.edu.ar',
+    url: 'http://inac.edu.ar',
     es: {
       date: '2014 → 2020',
       title: 'Técnico Aviónico',

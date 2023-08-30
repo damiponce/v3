@@ -16,30 +16,22 @@ type Project = {
 };
 
 const ENGINEERING: Project[] = [
-    {
-        "key": "weather-station",
-        "img": "",
-        "url": "",
-        "links": [
-            {
-                "name": "",
-                "url": ""
-            }
-        ],
-        "technologies": [
-            ""
-        ],
-        "es": {
-            "date": "2023",
-            "title": "",
-            "description": ""
-        }, 
-        "en": {
-            "date": "2023",
-            "title": "",
-            "description": ""
-        }
-    }
+  {
+    key: 'weather-station',
+    img: '',
+    url: '',
+    technologies: ['ESP-IDF', 'Grafana', 'InfluxDB', 'MQTT'],
+    es: {
+      date: '2023',
+      title: 'Estación meteorológica (WIP)',
+      description: '',
+    },
+    en: {
+      date: '2023',
+      title: 'Weather Station (WIP)',
+      description: '',
+    },
+  },
 ];
 
 export default ENGINEERING;

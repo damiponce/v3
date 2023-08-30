@@ -43,7 +43,7 @@ const TextCard = ({
               <path
                 fill-rule='evenodd'
                 d='M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z'
-                clip-rule='evenodd'
+                clipRule='evenodd'
               ></path>
             </svg>
           )}
@@ -52,7 +52,10 @@ const TextCard = ({
     </>
   );
 
-  const isUrlId = url && !(url === '') ? url.charAt(0) === '#' : false;
+  const isUrlLocal =
+    url && !(url === '')
+      ? !(url.startsWith('https://') || url.startsWith('http://'))
+      : false;
 
   return (
     <li className='mb-12' key={key}>
@@ -72,10 +75,10 @@ const TextCard = ({
                 <Link
                   className='inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-neutral-100  group/link text-base'
                   href={url}
-                  target={isUrlId ? null : '_blank'}
-                  rel={isUrlId ? null : 'noreferrer'}
+                  target={isUrlLocal ? null : '_blank'}
+                  rel={isUrlLocal ? null : 'noreferrer'}
                   onClick={(e) => {
-                    isUrlId
+                    isUrlLocal
                       ? (e.preventDefault(),
                         document.querySelector(url).scrollIntoView({
                           behavior: 'smooth',

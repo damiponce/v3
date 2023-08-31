@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LangSwitcher from './lang-switcher';
 
 type Props = {
   children?: React.ReactNode;
@@ -46,6 +47,7 @@ const Contact = ({ children }: Props) => {
           </svg>
         </Link>
       </li>
+      <LangSwitcher />
     </ul>
   );
 };

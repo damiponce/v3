@@ -6,6 +6,7 @@ import { useTranslation } from 'next-i18next';
 import { allProjects } from '../_sections/allProjects';
 import Link from 'next/link';
 import Back from '../components/back';
+import LangSwitcher from '../components/lang-switcher';
 
 export default function Post(
   _props: InferGetStaticPropsType<typeof getStaticProps>,

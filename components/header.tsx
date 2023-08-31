@@ -4,6 +4,10 @@ import { cn } from '../lib/utils';
 import Contact from './contact';
 import { TFunction } from 'i18next';
 
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
+import LangSwitcher from './lang-switcher';
+
 const useIntersectionObserver = (setActiveId) => {
   const headingElementsRef = useRef({});
 

@@ -29,6 +29,9 @@ const PostHeader = ({ title, subtitle, coverImage, date, author }: Props) => {
         </div> */}
       <div className='mb-12 text-lg'>
         <DateFormatter dateString={date} />
+        <span className='text-sm font-medium text-neutral-500 whitespace-pre-wrap'>
+          {`  ·  Damián Ponce`}
+        </span>
         <div className='h-px w-full mt-1 bg-neutral-800' />
       </div>
     </>

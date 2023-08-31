@@ -10,7 +10,7 @@ const Contact = ({ children }: Props) => {
       <li className='mr-5 text-xs'>
         <Link
           className='block hover:text-neutral-200'
-          href='https://github.com/bchiang7'
+          href='https://github.com/damiponce/'
           target='_blank'
           rel='noreferrer'
         >
@@ -30,7 +30,7 @@ const Contact = ({ children }: Props) => {
       <li className='mr-5 text-xs'>
         <Link
           className='block hover:text-neutral-200'
-          href='https://www.linkedin.com/in/bchiang7/'
+          href='https://www.linkedin.com/in/damianponce/'
           target='_blank'
           rel='noreferrer'
         >

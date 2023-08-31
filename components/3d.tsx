@@ -170,7 +170,7 @@ const Container = ({ children }: Props) => {
 
   function RendererHoC() {
     const { gl } = useThree();
-    console.log('Number of Triangles :', gl.info.render);
+    // console.log('Number of Triangles :', gl.info.render);
     return <></>;
   }
 

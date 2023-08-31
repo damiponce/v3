@@ -18,7 +18,7 @@ type Project = {
 const CODING: Project[] = [
   {
     key: 'wpp-stats',
-    img: '',
+    img: '/assets/images/analyser-banner.webp',
     url: '',
     links: [
       {
@@ -43,7 +43,7 @@ const CODING: Project[] = [
 
   {
     key: 'minesweeper',
-    img: '',
+    img: '/assets/images/minesweeper-banner.webp',
     url: '',
     links: [
       {
@@ -65,7 +65,7 @@ const CODING: Project[] = [
   },
   {
     key: '3d-noise',
-    img: '',
+    img: '/assets/images/3d-noise-banner.webp',
     url: '',
     links: [
       {
@@ -134,7 +134,7 @@ const CODING: Project[] = [
   // },
   {
     key: 'weather-web',
-    img: '',
+    img: '/assets/images/weather-web-banner.webp',
     url: '',
     links: [
       {

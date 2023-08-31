@@ -1,8 +1,19 @@
 {
-  "experience": {
-    "title": "Experiencia"
+  "toc": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "projects": "Proyectos",
+    "freelance": "Freelance",
+    "coding": "Programación",
+    "engineering": "Ingeniería",
+    "blog": "Blog"
   },
   "subtitle": "Desarrollador y Estudiante de Ingeniería",
+  "description": "Texto temporal",
   "viewResume": "Ver Curriculum",
-  "viewProjects": "Ver Proyectos"
+  "viewProjects": "Ver Proyectos",
+  "experience": {
+    "title": "Experiencia"
+  }
 }

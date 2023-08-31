@@ -136,7 +136,7 @@ export default function Post(
                                   ) ? (
                                     <a
                                       className='flex items-center text-sm text-neutral-400 hover:text-highlight focus-visible:text-highlight font-medium leading-tight '
-                                      href='https://github.com/bchiang7/google-keep-vue-firebase'
+                                      href={link.url}
                                       target='_blank'
                                       rel='noreferrer'
                                     >

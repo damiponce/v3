@@ -45,7 +45,7 @@ const PostBody = ({ content, imageSizes }: Props) => {
     const scope = starryNight.flagToScope(flag);
     const tree = starryNight.highlight(content.toString(), scope);
     const reactNode = toJsxRuntime(tree as Nodes, { Fragment, jsx, jsxs });
-    console.log(reactNode);
+    // console.log(reactNode);
     return reactNode;
   }
 

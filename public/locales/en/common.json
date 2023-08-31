@@ -1,7 +1,19 @@
 {
+  "toc": {
+    "about": "About",
+    "experience": "Experience",
+    "education": "Education",
+    "projects": "Projects",
+    "freelance": "Freelance",
+    "coding": "Coding",
+    "engineering": "Engineering",
+    "blog": "Blog"
+  },
+  "subtitle": "Developer and Engineering Student",
+  "description": "Temp text",
+  "viewResume": "View Résumé",
+  "viewProjects": "View Projects",
   "experience": {
     "title": "Experience"
-  },
-  "viewResume": "View Résumé",
-  "viewProjects": "View Projects"
+  }
 }

@@ -18,7 +18,7 @@ type Project = {
 const FREELANCE: Project[] = [
   {
     key: 'dreambuilders',
-    img: '',
+    img: '/assets/images/dreambuilders-banner.webp',
     url: 'https://dreambuilders.cl',
     technologies: ['React', 'Next.js', 'Vercel', 'Tailwind CSS', 'TypeScript'],
     es: {
@@ -36,7 +36,7 @@ const FREELANCE: Project[] = [
   },
   {
     key: 'botaaguas',
-    img: '',
+    img: '/assets/images/botaaguas-banner.webp',
     url: 'https://botaaguas.cl',
     technologies: ['React', 'Next.js', 'Vercel', 'Tailwind CSS', 'TypeScript'],
     es: {

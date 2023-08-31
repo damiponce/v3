@@ -18,7 +18,7 @@ type Project = {
 const ENGINEERING: Project[] = [
   {
     key: 'weather-station',
-    img: '',
+    img: '/assets/images/wip-banner.webp',
     url: '',
     technologies: ['ESP-IDF', 'Grafana', 'InfluxDB', 'MQTT'],
     es: {

@@ -1,52 +1,33 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
 
-type Props = {};
+type Props = { lang: string };
 
-const About = ({}: Props) => {
-  return (
-    <p className='mb-4'>
-      Back in 2012, I decided to try my hand at creating custom Tumblr themes
-      and tumbled head first into the rabbit hole of coding and web development.
-      Fast-forward to today, and I’ve had the privilege of building software for
-      an{' '}
-      <Link
-        className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
-        href='https://us.mullenlowe.com/'
-        target='_blank'
-        rel='noreferrer'
-      >
-        advertising agency
-      </Link>
-      , a{' '}
-      <Link
-        className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
-        href='https://starry.com/'
-        target='_blank'
-        rel='noreferrer'
-      >
-        start-up
-      </Link>
-      , a{' '}
-      <Link
-        className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
-        href='https://scout.camd.northeastern.edu/'
-        target='_blank'
-        rel='noreferrer'
-      >
-        student-led design studio
-      </Link>
-      , and a{' '}
-      <Link
-        className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
-        href='https://www.apple.com/apple-music/'
-        target='_blank'
-        rel='noreferrer'
-      >
-        huge corporation
-      </Link>
-      .
-    </p>
-  );
+const Link = ({ url, children }: { url: string; children: string }) => (
+  <NextLink
+    className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
+    href={url}
+    target='_blank'
+    rel='noreferrer'
+  >
+    {children}
+  </NextLink>
+);
+
+const About = ({ lang }: Props) => {
+  return {
+    en: (
+      <p className='mb-4'>
+        Another temp text and a <Link url='https://www.google.com/'>link</Link>{' '}
+        and another <Link url='https://x.com/'>link</Link>.
+      </p>
+    ),
+    es: (
+      <p className='mb-4'>
+        Otro texto temporal y un <Link url='https://www.google.com/'>link</Link>{' '}
+        y otro <Link url='https://x.com/'>link</Link>.
+      </p>
+    ),
+  }[lang];
 };
 
 export default About;

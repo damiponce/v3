@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { memo, useEffect, useRef, useState } from 'react';
 import { cn } from '../lib/utils';
 import Contact from './contact';
+import { TFunction } from 'i18next';
 
 const useIntersectionObserver = (setActiveId) => {
   const headingElementsRef = useRef({});
@@ -22,7 +23,7 @@ const useIntersectionObserver = (setActiveId) => {
       const getIndexFromId = (id) =>
         headingElements.findIndex((heading) => heading.id === id);
 
-      console.warn(visibleHeadings);
+      // console.warn(visibleHeadings);
       if (visibleHeadings.length === 1) {
         setActiveId(visibleHeadings[0].target.id);
       } else if (visibleHeadings.length > 1) {
@@ -153,17 +154,16 @@ const ToCItem = ({
 };
 
 type Props = {
-  subtitle: string;
-  description: string;
+  t: TFunction<'translation', undefined>;
 };
 
-const Header = ({ subtitle, description }: Props) => {
+const Header = ({ t }: Props) => {
   const [activeId, setActiveId] = useState();
   useIntersectionObserver(setActiveId);
 
-  useEffect(() => {
-    console.error(activeId);
-  }, [activeId]);
+  // useEffect(() => {
+  //    console.error(activeId);
+  // }, [activeId]);
 
   return (
     <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'>
@@ -173,43 +173,48 @@ const Header = ({ subtitle, description }: Props) => {
             <Link href='/'>Damián Ponce</Link>
           </h1>
           <h2 className='mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl'>
-            {subtitle}
+            {t('subtitle')}
           </h2>
-          <p className='mt-4 max-w-xs leading-normal'>{description}</p>
+          <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p>
         </div>
 
         <div className='fill flex flex-[1] max-h-6 ' />
         <nav className='hidden lg:block'>
           <ul className='_mt-2 w-max flex flex-col relative'>
-            <ToCItem name='About' id='about' activeId={activeId} order={1} />
             <ToCItem
-              name='Experience'
+              name={t('toc.about')}
+              id='about'
+              activeId={activeId}
+              order={1}
+            />
+            <ToCItem
+              name={t('toc.experience')}
               id='experience'
               activeId={activeId}
               order={2}
             />
             <ToCItem
-              name='Education'
+              name={t('toc.education')}
               id='education'
               activeId={activeId}
               order={3}
             />
             <ToCItem
-              name='Freelance'
+              name={t('toc.freelance')}
               id='freelance'
               activeId={activeId}
               indent
               order={5}
             />
             <ToCItem
-              name='Coding'
+              name={t('toc.coding')}
               id={'coding'}
               activeId={activeId}
               indent
               order={6}
             />
             <ToCItem
-              name='Engineering'
+              name={t('toc.engineering')}
               id='engineering'
               activeId={activeId}
               indent
@@ -227,7 +232,7 @@ const Header = ({ subtitle, description }: Props) => {
                 'text-xs font-bold text-center uppercase tracking-widest text-neutral-500 h-5 leading-5',
               )}
             >
-              Projects
+              {t('toc.projects')}
             </span>
           </ul>
         </nav>

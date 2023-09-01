@@ -5,7 +5,6 @@ import PostHeader from '../../components/post-header';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import PostTitle from '../../components/post-title';
 import Head from 'next/head';
-import { CMS_NAME } from '../../lib/constants';
 import type PostType from '../../interfaces/post';
 import Meta from '../../components/meta';
 import sizeOf from 'image-size';
@@ -20,7 +19,7 @@ type Props = {
 
 export default function Post({ post, morePosts, preview }: Props) {
   const router = useRouter();
-  const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`;
+  const title = `${post.title} | Damián Ponce`;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -37,7 +36,7 @@ export default function Post({ post, morePosts, preview }: Props) {
               <PostTitle>Loading…</PostTitle>
             ) : (
               <>
-                <Back />
+                <Back langSw={false} />
                 <article className='mb-32'>
                   <Head>
                     <title>{title}</title>
@@ -46,7 +45,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                   <PostHeader
                     title={post.title}
                     subtitle={post.subtitle}
-                    coverImage={post.coverImage}
+                    // coverImage={post.coverImage}
                     date={post.date}
                     author={post.author}
                   />
@@ -79,7 +78,6 @@ export async function getStaticProps({ params }: Params) {
     'author',
     'content',
     'ogImage',
-    'coverImage',
   ]);
   // const content = serialize(await markdownToHtml(post.content || ''));
   const content = post.content;

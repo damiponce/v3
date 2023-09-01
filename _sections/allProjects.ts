@@ -1,5 +1,5 @@
 type Project = {
-  key: string;
+  _key: string;
   year: number | string;
   project: string | { en: string; es: string };
   madeAt?: string;
@@ -12,7 +12,7 @@ type Project = {
 
 export const allProjects: Project[] = [
   {
-    key: 'weather-station',
+    _key: 'weather-station',
     year: '2023',
     project: {
       es: 'Estación meteorológica (WIP)',
@@ -27,7 +27,7 @@ export const allProjects: Project[] = [
     // ],
   },
   {
-    key: 'dreambuilders',
+    _key: 'dreambuilders',
     year: '2023',
     project: 'DreamBuilders',
     madeAt: 'Freelance',
@@ -40,7 +40,7 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'botaaguas',
+    _key: 'botaaguas',
     year: '2023',
     project: 'Botaaguas',
     madeAt: 'Freelance',
@@ -53,14 +53,14 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'minesweeper',
+    _key: 'minesweeper',
     year: '2023',
     project: { es: 'Buscaminas', en: 'Minesweeper' },
     builtWith: ['React', 'Next.js'],
     links: [
       {
-        name: '',
-        url: '',
+        name: 'Website',
+        url: 'https://minesweeper.damianponce.com/',
       },
       {
         name: 'GitHub',
@@ -69,15 +69,15 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: '3d-noise',
+    _key: '3d-noise',
     year: '2022',
     project: { es: 'Ruido 3D', en: '3D Noise' },
     madeAt: '',
     builtWith: ['React', 'Gatsby', 'three.js'],
     links: [
       {
-        name: '',
-        url: '',
+        name: 'Website',
+        url: 'https://3dnoise.damianponce.com/',
       },
       {
         name: 'GitHub',
@@ -86,15 +86,15 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'wpp-stats',
+    _key: 'wpp-stats',
     year: '2022',
     project: { es: 'Estad\u00edsticas de WhatsApp', en: 'WhatsApp Stats' },
     madeAt: '',
     builtWith: ['React', 'Next.js', 'Python', 'Pandas'],
     links: [
       {
-        name: '',
-        url: '',
+        name: 'Website',
+        url: 'https://chatstats.damianponce.com/',
       },
       {
         name: 'GitHub',
@@ -103,7 +103,7 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'portfolio-v2',
+    _key: 'portfolio-v2',
     year: '2022',
     project: 'Portfolio v2',
     builtWith: ['React', 'Next.js'],
@@ -119,12 +119,12 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'weather-web',
+    _key: 'weather-web',
     year: '2022',
     project: { es: 'Aplicación del clima', en: 'Weather App' },
     builtWith: ['React', 'Next.js'],
     links: [
-      { name: '', url: '' },
+      { name: 'Website', url: 'https://weather.damianponce.com' },
       {
         name: 'GitHub',
         url: 'https://github.com/damiponce/weather-web',
@@ -132,7 +132,7 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'portfolio-v1',
+    _key: 'portfolio-v1',
     year: '2021',
     project: 'Portfolio v1',
     builtWith: ['React', 'Next.js'],
@@ -148,7 +148,7 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'notee',
+    _key: 'notee',
     year: '2021',
     project: 'Notee',
     builtWith: ['Android Studio', 'Xcode', 'React Native', 'Firebase'],
@@ -160,7 +160,7 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'penworld',
+    _key: 'penworld',
     year: '2021',
     project: 'PenWorld',
     builtWith: ['Android Studio', 'Xcode', 'React Native', 'Firebase'],
@@ -172,27 +172,27 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'simple-calc',
+    _key: 'simple-calc',
     year: '2019',
     project: { es: 'Calculadora simple', en: 'Simple calculator' },
     madeAt: 'INAC - CIATA',
     builtWith: ['Visual Basic'],
   },
   {
-    key: 'minesweeper_old',
+    _key: 'minesweeper-old',
     year: '2019',
     project: { es: 'Buscaminas (viejo)', en: 'Minesweeper (old)' },
     madeAt: 'INAC - CIATA',
     builtWith: ['C'],
   },
   {
-    key: 'pendulum',
+    _key: 'pendulum',
     year: '2019',
     project: { es: 'Péndulo doble', en: 'Double pendulum' },
     builtWith: ['Processing'],
   },
   {
-    key: 'book-sorter',
+    _key: 'book-sorter',
     year: '2019',
     project: { es: 'Ordenador de carpetas', en: 'Notebook sorter' },
     madeAt: 'INAC - CIATA',
@@ -205,7 +205,7 @@ export const allProjects: Project[] = [
     ],
   },
   {
-    key: 'morse-code',
+    _key: 'morse-code',
     year: '2018',
     project: { es: 'Generador de código morse', en: 'Morse code generator' },
     madeAt: 'INAC - CIATA',

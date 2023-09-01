@@ -15,5 +15,10 @@
   "viewProjects": "Ver Proyectos",
   "experience": {
     "title": "Experiencia"
+  },
+  "category": {
+    "freelance": "Freelance",
+    "coding": "Programación",
+    "engineering": "Ingeniería"
   }
 }

@@ -1,14 +1,15 @@
 ---
-title: 'Preview Mode for Static Generation'
-subtitle: 'This is a preview of the blog post that will be generated statically.'
-excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
-coverImage: '/assets/blog/preview/cover.jpg'
-date: '2020-03-16T05:35:07.322Z'
+title: 'Test post for the new blog'
+subtitle: 'This is a preview of a blog post that will be generated statically.'
+excerpt: >
+  This is a preview excerpt for the new blog. It's generated in the frontmatter of the markdown file.
+date: '2023-08-31'
+category: 'coding'
 author:
   name: Damián Ponce
-  picture: '/assets/blog/authors/joe.jpeg'
 ogImage:
-  url: '/assets/blog/preview/cover.jpg'
+  url: ''
+unlisted: false
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget.

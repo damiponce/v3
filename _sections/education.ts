@@ -8,7 +8,7 @@ type CardText = {
 };
 
 type Education = {
-  key: string;
+  _key: string;
   url?: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
@@ -18,7 +18,7 @@ type Education = {
 
 const EDUCATION: Education[] = [
   {
-    key: 'university',
+    _key: 'university',
     url: 'https://frh.utn.edu.ar',
     es: {
       date: '2021 → presente',
@@ -36,7 +36,7 @@ const EDUCATION: Education[] = [
     },
   },
   {
-    key: 'highschool',
+    _key: 'highschool',
     url: 'http://www.inac.edu.ar',
     es: {
       date: '2014 → 2020',

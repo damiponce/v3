@@ -6,7 +6,7 @@ type CardText = {
 };
 
 type Project = {
-  key: string;
+  _key: string;
   img: string;
   url: string;
   links?: { name: string; url: string }[];
@@ -17,7 +17,7 @@ type Project = {
 
 const FREELANCE: Project[] = [
   {
-    key: 'dreambuilders',
+    _key: 'dreambuilders',
     img: '/assets/images/dreambuilders-banner.webp',
     url: 'https://dreambuilders.cl',
     technologies: ['React', 'Next.js', 'Vercel', 'Tailwind CSS', 'TypeScript'],
@@ -35,7 +35,7 @@ const FREELANCE: Project[] = [
     },
   },
   {
-    key: 'botaaguas',
+    _key: 'botaaguas',
     img: '/assets/images/botaaguas-banner.webp',
     url: 'https://botaaguas.cl',
     technologies: ['React', 'Next.js', 'Vercel', 'Tailwind CSS', 'TypeScript'],

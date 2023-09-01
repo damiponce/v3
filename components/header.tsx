@@ -179,7 +179,7 @@ const Header = ({ t }: Props) => {
           <h2 className='mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl'>
             {t('subtitle')}
           </h2>
-          <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p>
+          {/* <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p> */}
         </div>
 
         <div className='fill flex flex-[1] max-h-6 ' />
@@ -223,6 +223,12 @@ const Header = ({ t }: Props) => {
               activeId={activeId}
               indent
               order={7}
+            />
+            <ToCItem
+              name={t('toc.blog')}
+              id='blog'
+              activeId={activeId}
+              order={8}
             />
             {/* <ToCItem
               name="Projects"

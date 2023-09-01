@@ -19,13 +19,12 @@ import ENGINEERING from '../_sections/engineering';
 
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import ViewFull from '../components/view-full';
+
 import Footer from '../components/footer';
 
 import ThreeD from '../components/3d';
-
-type Props = {
-  allPosts: Post[];
-};
+import { useEffect, useState } from 'react';
+import PostCard from '../components/post-card-v2';
 
 export default function Index(
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -33,13 +32,52 @@ export default function Index(
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
 
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const GRAD_COLOR = 80;
+  useEffect(() => {
+    const handleWindowMouseMove = (event) => {
+      setCursor({
+        x: event.clientX,
+        y: event.clientY,
+      });
+    };
+    window.addEventListener('mousemove', handleWindowMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleWindowMouseMove);
+    };
+  }, []);
+
+  function isTouchDevice() {
+    return (
+      'ontouchstart' in window || navigator.maxTouchPoints > 0
+      // || (navigator.msMaxTouchPoints > 0)
+    );
+  }
+
   return (
     <>
       <Head>
         <title>Damián Ponce</title>
       </Head>
       <Meta />
-      <div className=''>
+      <div className='relative'>
+        <div
+          className='pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute'
+          style={
+            typeof window !== 'undefined' &&
+            !isTouchDevice() &&
+            window.innerWidth > 1024
+              ? {
+                  background: `radial-gradient(600px at ${
+                    cursor.x + window.scrollX
+                  }px ${
+                    cursor.y + window.scrollY
+                  }px, rgba(${GRAD_COLOR},${GRAD_COLOR},${GRAD_COLOR}, 0.15), transparent 80%)`,
+                }
+              : null
+          }
+        ></div>
         <div className='mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0'>
           <div className='lg:flex lg:justify-between lg:gap-4'>
             <Header t={t} />
@@ -50,12 +88,11 @@ export default function Index(
               <Section id='about' name='About'>
                 <About lang={lang} />
               </Section>
-
               <Section id='experience' name='Experience'>
                 <ol className='group/list'>
-                  {EXPERIENCE.map((item, index) => (
+                  {EXPERIENCE.map((item) => (
                     <TextCard
-                      key={`experience-${index}`}
+                      itemKey={`experience-${item._key}`}
                       url={item.url}
                       date={item[lang].date}
                       title={item[lang].title}
@@ -73,9 +110,9 @@ export default function Index(
               </Section>
               <Section id='education' name='Education'>
                 <ol className='group/list'>
-                  {EDUCATION.map((item, index) => (
+                  {EDUCATION.map((item) => (
                     <TextCard
-                      key={item.key}
+                      itemKey={`education-${item._key}`}
                       url={item.url}
                       date={item[lang].date}
                       title={item[lang].title}
@@ -94,7 +131,7 @@ export default function Index(
                 <ul className='group/list'>
                   {FREELANCE.map((item) => (
                     <ImgCard
-                      key={item.key}
+                      itemKey={`freelance-${item._key}`}
                       img={item.img}
                       url={item.url}
                       title={item[lang].title}
@@ -111,7 +148,7 @@ export default function Index(
                 <ul className='group/list'>
                   {CODING.map((item) => (
                     <ImgCard
-                      key={item.key}
+                      itemKey={`coding-${item._key}`}
                       img={item.img}
                       url={item.url}
                       title={item[lang].title}
@@ -124,11 +161,12 @@ export default function Index(
                   ))}
                 </ul>
               </Section>
+
               <Section id='engineering' name='Engineering'>
                 <ul className='group/list'>
                   {ENGINEERING.map((item) => (
                     <ImgCard
-                      key={item.key}
+                      itemKey={`engineering-${item._key}`}
                       img={item.img}
                       url={item.url}
                       title={item[lang].title}
@@ -141,6 +179,23 @@ export default function Index(
                   ))}
                 </ul>
                 <ViewFull text={t('viewProjects')} url='projects' />
+              </Section>
+              <Section id='blog' name='Blog'>
+                <ol className='group/list'>
+                  {_props.allPosts.map(
+                    (post) =>
+                      !post.unlisted && (
+                        <PostCard
+                          itemKey={`post-${post.slug}`}
+                          url={`/posts/${post.slug}`}
+                          date={post.date}
+                          title={post.title}
+                          category={post.category}
+                          excerpt={post.excerpt}
+                        />
+                      ),
+                  )}
+                </ol>
               </Section>
               <Footer lang={lang} />
             </main>
@@ -156,9 +211,11 @@ export const getStaticProps = async ({ locale }) => {
     'title',
     'date',
     'slug',
+    'category',
     'author',
     'coverImage',
     'excerpt',
+    'unlisted',
   ]);
 
   return {

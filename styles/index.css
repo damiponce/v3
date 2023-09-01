@@ -1,4 +1,4 @@
-@import url('https://use.typekit.net/ods7pkb.css');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,8 +19,7 @@
 }
 
 *:is(code *) {
-  font-family: 'bakemono-variable', sans-serif;
-  font-variation-settings: 'MONO' 500, 'wght' 400;
+  font-family: var(--source-code-pro-font), monospace;
 }
 
 a {

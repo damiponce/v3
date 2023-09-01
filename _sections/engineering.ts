@@ -6,7 +6,7 @@ type CardText = {
 };
 
 type Project = {
-  key: string;
+  _key: string;
   img: string;
   url: string;
   links?: { name: string; url: string }[];
@@ -17,9 +17,9 @@ type Project = {
 
 const ENGINEERING: Project[] = [
   {
-    key: 'weather-station',
+    _key: 'weather-station',
     img: '/assets/images/wip-banner.webp',
-    url: '',
+    url: '/posts/wip',
     technologies: ['ESP-IDF', 'Grafana', 'InfluxDB', 'MQTT'],
     es: {
       date: '2023',

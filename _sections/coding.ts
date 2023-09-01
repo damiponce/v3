@@ -6,7 +6,7 @@ type CardText = {
 };
 
 type Project = {
-  key: string;
+  _key: string;
   img: string;
   url: string;
   links?: { name: string; url: string }[];
@@ -17,9 +17,9 @@ type Project = {
 
 const CODING: Project[] = [
   {
-    key: 'wpp-stats',
+    _key: 'wpp-stats',
     img: '/assets/images/analyser-banner.webp',
-    url: '',
+    url: 'https://chatstats.damianponce.com/',
     links: [
       {
         name: 'GitHub',
@@ -42,9 +42,9 @@ const CODING: Project[] = [
   },
 
   {
-    key: 'minesweeper',
+    _key: 'minesweeper',
     img: '/assets/images/minesweeper-banner.webp',
-    url: '',
+    url: 'https://minesweeper.damianponce.com/',
     links: [
       {
         name: 'GitHub',
@@ -64,9 +64,9 @@ const CODING: Project[] = [
     },
   },
   {
-    key: '3d-noise',
+    _key: '3d-noise',
     img: '/assets/images/3d-noise-banner.webp',
-    url: '',
+    url: 'https://3dnoise.damianponce.com/',
     links: [
       {
         name: 'GitHub',
@@ -87,7 +87,7 @@ const CODING: Project[] = [
     },
   },
   // {
-  //   key: 'portfolio-v1',
+  //   _key: 'portfolio-v1',
   //   img: '',
   //   url: 'https://v1.damianponce.com/',
   //   links: [
@@ -111,7 +111,7 @@ const CODING: Project[] = [
   //   },
   // },
   // {
-  //   key: 'portfolio-v2',
+  //   _key: 'portfolio-v2',
   //   img: '',
   //   url: 'https://v2.damianponce.com/',
   //   links: [
@@ -133,9 +133,9 @@ const CODING: Project[] = [
   //   },
   // },
   {
-    key: 'weather-web',
+    _key: 'weather-web',
     img: '/assets/images/weather-web-banner.webp',
-    url: '',
+    url: 'https://weather.damianponce.com/',
     links: [
       {
         name: 'GitHub',

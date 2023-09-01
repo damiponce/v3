@@ -1,8 +1,7 @@
 import Link from 'next/link';
 
 type Props = {
-  children?: React.ReactNode;
-  key: string;
+  itemKey: string;
   url: string;
   date: string;
   title: string;
@@ -14,8 +13,7 @@ type Props = {
 };
 
 const TextCard = ({
-  children,
-  key,
+  itemKey,
   url,
   date,
   title,
@@ -41,7 +39,7 @@ const TextCard = ({
               aria-hidden='true'
             >
               <path
-                fill-rule='evenodd'
+                fillRule='evenodd'
                 d='M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z'
                 clipRule='evenodd'
               ></path>
@@ -58,7 +56,7 @@ const TextCard = ({
       : false;
 
   return (
-    <li className='mb-12' key={key}>
+    <li className='mb-12' key={itemKey}>
       <div className='group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50'>
         <div className='absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(38,38,38,0.1)] lg:group-hover:drop-shadow-lg'></div>
 

@@ -8,7 +8,7 @@ type CardText = {
 };
 
 type Experience = {
-  key: string;
+  _key: string;
   url?: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
@@ -20,7 +20,7 @@ const weirdDash = '→';
 
 const EXPERIENCE: Experience[] = [
   {
-    key: 'lab-assistant',
+    _key: 'lab-assistant',
     url: 'https://frh.utn.edu.ar',
     // technologies: ["SMD", "PCB"],
     es: {
@@ -43,7 +43,7 @@ const EXPERIENCE: Experience[] = [
     },
   },
   {
-    key: 'freelance-webdev',
+    _key: 'freelance-webdev',
     url: '#freelance',
     technologies: [
       'React',
@@ -71,7 +71,7 @@ const EXPERIENCE: Experience[] = [
     },
   },
   {
-    key: 'interpreter',
+    _key: 'interpreter',
     es: {
       date: 'Dic 2022 →\nEne 2023',
       title: 'Intérprete Español-Inglés',

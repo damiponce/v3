@@ -15,5 +15,10 @@
   "viewProjects": "View Projects",
   "experience": {
     "title": "Experience"
+  },
+  "category": {
+    "freelance": "Freelance",
+    "coding": "Coding",
+    "engineering": "Engineering"
   }
 }

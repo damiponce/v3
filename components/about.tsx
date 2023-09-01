@@ -17,14 +17,34 @@ const About = ({ lang }: Props) => {
   return {
     en: (
       <p className='mb-4'>
-        Another temp text and a <Link url='https://www.google.com/'>link</Link>{' '}
-        and another <Link url='https://x.com/'>link</Link>.
+        I’ve always been interested in programming as my main way to be
+        creative, solving problems one way or another. I also enjoy graphic
+        design from time to time, be it for random poster design or even for
+        good UX. <br />
+        <br />
+        Another interest of mine is electronics, probably from having gone to a
+        “technical” high-school. I also like tinkering with electronics stuff
+        ocasionally. When I’m not working on my projects, I enjoy gaming, music,
+        and even programming for fun.
+        <br />
+        <br />I am excited to see where my career takes me in the future, and I
+        am always looking for new opportunities to learn and grow.
       </p>
     ),
     es: (
       <p className='mb-4'>
-        Otro texto temporal y un <Link url='https://www.google.com/'>link</Link>{' '}
-        y otro <Link url='https://x.com/'>link</Link>.
+        I’ve always been interested in programming as my main way to be
+        creative, solving problems one way or another. I also enjoy graphic
+        design from time to time, be it for random poster design or even for
+        good UX. <br />
+        <br />
+        Another interest of mine is electronics, probably from having gone to a
+        “technical” high-school. I also like tinkering with electronics stuff
+        ocasionally. When I’m not working on my projects, I enjoy gaming, music,
+        and even programming for fun.
+        <br />
+        <br />I am excited to see where my career takes me in the future, and I
+        am always looking for new opportunities to learn and grow.
       </p>
     ),
   }[lang];

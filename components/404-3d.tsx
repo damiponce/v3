@@ -103,7 +103,7 @@ function Text(props: ThreeElements['mesh']) {
 const easeInOutCubic = (t) =>
   t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
 function Sphere({ position = [0, 0, 0], ...props }) {
-  const ref = useRef();
+  const ref = useRef(null!);
   const factor = useMemo(() => 0.5 + Math.random(), []);
   useFrame((state) => {
     const t = easeInOutCubic(
@@ -113,15 +113,16 @@ function Sphere({ position = [0, 0, 0], ...props }) {
     ref.current.scale.y = 1 + t * 3;
   });
   return (
+    // @ts-ignore
     <mesh ref={ref} position={position} {...props} castShadow receiveShadow>
       <sphereGeometry args={[0.5, 32, 32]} />
-      <meshLambertMaterial color='white' roughness={0} metalness={0.1} />
+      <meshLambertMaterial color='white' />
     </mesh>
   );
 }
 
 function Spheres({ number = 20 }) {
-  const ref = useRef();
+  const ref = useRef(null!);
   const positions = useMemo(
     () =>
       [...new Array(number)].map(() => [

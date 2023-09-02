@@ -38,6 +38,7 @@ function ThreeD({ errorCode }: { errorCode: string }) {
           <Cursor
             errorCode={'not found'}
             offset={[0, -0.4, 1]}
+            // @ts-ignore
             scale={[0.2, 0.2, 0.2]}
           />
         </Bounds>

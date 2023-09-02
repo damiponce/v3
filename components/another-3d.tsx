@@ -35,12 +35,12 @@ function ThreeD({ errorCode }: { errorCode: string }) {
         {/* <group rotation={[Math.PI / 3, -Math.PI / 12, Math.PI / 2]}> */}
         <Bounds fit clip observe margin={1.25}>
           <Cursor errorCode={errorCode} />
-          <Cursor
+          {/* <Cursor
             errorCode={'not found'}
             offset={[0, -0.4, 1]}
             // @ts-ignore
             scale={[0.2, 0.2, 0.2]}
-          />
+          /> */}
         </Bounds>
         <gridHelper
           args={[10, 40, '#101010', '#050505']}

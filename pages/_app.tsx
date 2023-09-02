@@ -19,6 +19,7 @@ function Root({ Component, pageProps }: AppProps) {
           }
         `}</style>
         <meta name='robots' content='all' />
+        <meta name='googlebot' />
         <Component {...pageProps} />
       </div>
     </StrictMode>

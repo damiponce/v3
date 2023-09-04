@@ -173,7 +173,7 @@ const Header = ({ t }: Props) => {
     <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'>
       <div className={cn('flex-1 flex flex-col justify-between')}>
         <div className='mb-8'>
-          <h1 className='text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl'>
+          <h1 className='text-5xl font-bold tracking-tight text-slate-200 sm:text-[48px] leading-none'>
             <Link href='/'>Damián Ponce</Link>
           </h1>
           <h2 className='mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl'>

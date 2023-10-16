@@ -38,3 +38,7 @@ a {
   border: 1px dashed cyan;
   background-color: cyan;
 }
+
+.activeDesignTitle {
+  @apply !rounded-tl-[0px] !rounded-tr-[0px];
+}

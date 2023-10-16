@@ -7,6 +7,7 @@
     "freelance": "Freelance",
     "coding": "Programación",
     "engineering": "Ingeniería",
+    "design": "Diseño",
     "blog": "Blog"
   },
   "subtitle": "Desarrollador y Estudiante de Ingeniería",
@@ -19,6 +20,7 @@
   "category": {
     "freelance": "Freelance",
     "coding": "Programación",
-    "engineering": "Ingeniería"
+    "engineering": "Ingeniería",
+    "design": "Diseño"
   }
 }

@@ -2,6 +2,9 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: ['./components/**/*.tsx', './pages/**/*.tsx'],
   theme: {
     extend: {
@@ -31,6 +34,12 @@ module.exports = {
       boxShadow: {
         sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
         md: '0 8px 30px rgba(0, 0, 0, 0.12)',
+        highlight: 'inset 0 0 0 1px rgba(255, 255, 255, 0.05)',
+      },
+      screens: {
+        narrow: { raw: '(max-aspect-ratio: 3 / 2)' },
+        wide: { raw: '(min-aspect-ratio: 3 / 2)' },
+        'taller-than-854': { raw: '(min-height: 854px)' },
       },
     },
   },

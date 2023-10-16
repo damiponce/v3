@@ -3,6 +3,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import { cn } from '../lib/utils';
 import Contact from './contact';
 import { TFunction } from 'i18next';
+import Back from '../components/back';
 
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -77,6 +78,7 @@ const ToCItem = ({
 
   return (
     <li
+      key={Array.isArray(id) ? id[0] : id}
       className={cn(
         indent ? 'ml-5 peer' : '',
         Array.isArray(id)
@@ -159,9 +161,10 @@ const ToCItem = ({
 
 type Props = {
   t: TFunction<'translation', undefined>;
+  designs: any[];
 };
 
-const Header = ({ t }: Props) => {
+const HeaderDesign = ({ t, designs }: Props) => {
   const [activeId, setActiveId] = useState();
   useIntersectionObserver(setActiveId);
 
@@ -170,14 +173,15 @@ const Header = ({ t }: Props) => {
   // }, [activeId]);
 
   return (
-    <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'>
+    <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 flex-[1]'>
       <div className={cn('flex-1 flex flex-col justify-between')}>
         <div className='mb-8'>
+          <Back langSw={false} />
           <h1 className='text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none'>
-            <Link href='/'>Damián Ponce</Link>
+            {t('bigTitle')}
           </h1>
           <h2 className='mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl'>
-            {t('subtitle')}
+            {/* {t('subtitle')} */}
           </h2>
           {/* <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p> */}
         </div>
@@ -185,72 +189,20 @@ const Header = ({ t }: Props) => {
         <div className='fill flex flex-[1] max-h-6 ' />
         <nav className='hidden lg:block'>
           <ul className='_mt-2 w-max flex flex-col relative'>
-            <ToCItem
-              name={t('toc.about')}
-              id='about'
-              activeId={activeId}
-              order={1}
-            />
-            <ToCItem
-              name={t('toc.experience')}
-              id='experience'
-              activeId={activeId}
-              order={2}
-            />
-            <ToCItem
-              name={t('toc.education')}
-              id='education'
-              activeId={activeId}
-              order={3}
-            />
-            <ToCItem
-              name={t('toc.freelance')}
-              id='freelance'
-              activeId={activeId}
-              indent
-              order={5}
-            />
-            <ToCItem
-              name={t('toc.coding')}
-              id={'coding'}
-              activeId={activeId}
-              indent
-              order={6}
-            />
-            <ToCItem
-              name={t('toc.engineering')}
-              id='engineering'
-              activeId={activeId}
-              indent
-              order={7}
-            />
-            <ToCItem
-              name={t('toc.design')}
-              id='design'
-              activeId={activeId}
-              indent
-              order={8}
-            />
-            <ToCItem
-              name={t('toc.blog')}
-              id='blog'
-              activeId={activeId}
-              order={9}
-            />
+            {designs.map((design, index) => (
+              <ToCItem
+                name={t(`name.${design.name}`)}
+                id={design.id}
+                activeId={activeId}
+                order={index}
+              />
+            ))}
             {/* <ToCItem
               name="Projects"
               id={["freelance", "coding", "engineering"]}
               activeId={activeId}
               order={4}
             /> */}
-            <span
-              className={cn(
-                'absolute left-0 -translate-x-[10rem] origin-top-right -rotate-90 top-[7.35rem] w-[10rem]',
-                'text-xs font-bold text-center uppercase tracking-[0.6em] text-neutral-500 h-5 leading-5',
-              )}
-            >
-              {t('toc.projects')}
-            </span>
           </ul>
         </nav>
         <div className='fill flex flex-[3]' />
@@ -260,4 +212,4 @@ const Header = ({ t }: Props) => {
   );
 };
 
-export default Header;
+export default HeaderDesign;

@@ -85,10 +85,10 @@ export default function Index(
               {/* <Section id='3d' name='3D' className='h-[600px]'>
                 <ThreeD />
               </Section> */}
-              <Section id='about' name='About'>
+              <Section id='about' name={t('toc.about')}>
                 <About lang={lang} />
               </Section>
-              <Section id='experience' name='Experience'>
+              <Section id='experience' name={t('toc.experience')}>
                 <ol className='group/list'>
                   {EXPERIENCE.map((item) => (
                     <TextCard
@@ -108,7 +108,7 @@ export default function Index(
                 </ol>
                 <ViewFull text={t('viewResume')} url='' />
               </Section>
-              <Section id='education' name='Education'>
+              <Section id='education' name={t('toc.education')}>
                 <ol className='group/list'>
                   {EDUCATION.map((item) => (
                     <TextCard
@@ -127,7 +127,10 @@ export default function Index(
                   ))}
                 </ol>
               </Section>
-              <Section id='freelance' name='Freelance'>
+              <Section
+                id='freelance'
+                name={t('toc.projects') + ' ‣ ' + t('toc.freelance')}
+              >
                 <ul className='group/list'>
                   {FREELANCE.map((item) => (
                     <ImgCard
@@ -144,7 +147,10 @@ export default function Index(
                   ))}
                 </ul>
               </Section>
-              <Section id='coding' name='Coding'>
+              <Section
+                id='coding'
+                name={t('toc.projects') + ' ‣ ' + t('toc.coding')}
+              >
                 <ul className='group/list'>
                   {CODING.map((item) => (
                     <ImgCard
@@ -162,7 +168,10 @@ export default function Index(
                 </ul>
               </Section>
 
-              <Section id='engineering' name='Engineering'>
+              <Section
+                id='engineering'
+                name={t('toc.projects') + ' ‣ ' + t('toc.engineering')}
+              >
                 <ul className='group/list'>
                   {ENGINEERING.map((item) => (
                     <ImgCard
@@ -179,6 +188,39 @@ export default function Index(
                   ))}
                 </ul>
                 <ViewFull text={t('viewProjects')} url='projects' />
+              </Section>
+              <Section
+                id='design'
+                name={t('toc.projects') + ' ‣ ' + t('toc.design')}
+              >
+                {/* <h1 className='text-[5rem] text-red-600 font-black leading-10'>
+                  DO THIS
+                </h1>
+                <h2 className='text-[3rem] text-red-900 font-black'>
+                  (DESIGN)
+                </h2> */}
+                <ul className='group/list'>
+                  <ImgCard
+                    itemKey={`design-card`}
+                    img={
+                      '/assets/design/general-designs/remera-doomsday-clock.webp'
+                    }
+                    url={'/design'}
+                    title={
+                      {
+                        es: 'Sección de diseño gráfico',
+                        en: 'Graphic design section',
+                      }[lang]
+                    }
+                    description={
+                      {
+                        es: 'Esta página muestra todos mis proyectos de diseño visual a lo largo de los años.',
+                        en: 'This page showcases all of my visual design projects along the years.',
+                      }[lang]
+                    }
+                    technologies={['Illustrator', 'Photoshop', 'Figma']}
+                  />
+                </ul>
               </Section>
               <Section id='blog' name='Blog'>
                 <ol className='group/list'>

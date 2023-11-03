@@ -8,8 +8,6 @@ export default function Document() {
     <Html lang={i18n.language}>
       <Head>
         <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <body>
         <Script src='https://www.googletagmanager.com/gtag/js?id=G-W2WTZGZP5B' />
         <Script id='google-analytics'>
           {`
@@ -20,6 +18,8 @@ export default function Document() {
           gtag('config', 'G-W2WTZGZP5B');
         `}
         </Script>
+      </Head>
+      <body>
         <Main />
         <NextScript />
       </body>

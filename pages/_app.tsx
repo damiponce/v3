@@ -21,7 +21,10 @@ function Root({ Component, pageProps }: AppProps) {
         `}</style>
         <meta name='robots' content='all' />
         <meta name='googlebot' />
-        <Script src='https://www.googletagmanager.com/gtag/js?id=G-W2WTZGZP5B' />
+        <Script
+          async
+          src='https://www.googletagmanager.com/gtag/js?id=G-W2WTZGZP5B'
+        />
         <Script id='google-analytics'>
           {`
           window.dataLayer = window.dataLayer || [];

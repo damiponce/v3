@@ -9,17 +9,17 @@ export default function Document() {
       <Head>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Script src='https://www.googletagmanager.com/gtag/js?id=G-W2WTZGZP5B' />
-      <Script id='google-analytics'>
-        {`
+      <body>
+        <Script src='https://www.googletagmanager.com/gtag/js?id=G-W2WTZGZP5B' />
+        <Script id='google-analytics'>
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'G-W2WTZGZP5B');
         `}
-      </Script>
-      <body>
+        </Script>
         <Main />
         <NextScript />
       </body>

@@ -37,9 +37,8 @@ const Footer = ({ lang }: Props) => {
           coded in{' '}
           <Link url='https://code.visualstudio.com/'>Visual Studio Code</Link>{' '}
           by me. Built with <Link url='https://nextjs.org/'>Next.js</Link> and{' '}
-          <Link url='https://tailwindcss.com/'>Tailwind CSS</Link>, desplegado
-          en <Link url='https://vercel.com/'>Vercel</Link>. Todos los textos
-          utilizan la fuente <Link url='https://rsms.me/inter/'>Inter</Link>.
+          <Link url='https://tailwindcss.com/'>Tailwind CSS</Link>, deployed
+          in <Link url='https://vercel.com/'>Vercel</Link>. All text uses the <Link url='https://rsms.me/inter/'>Inter</Link> font.
         </p>
       </footer>
     ),

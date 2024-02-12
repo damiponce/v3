@@ -20,12 +20,12 @@ const Footer = ({ lang }: Props) => {
         <p>
           Diseñado por{' '}
           <Link url='https://brittanychiang.com/'>Brittany Chiang</Link> y
-          programador por mí en{' '}
+          programado por mí en{' '}
           <Link url='https://code.visualstudio.com/'>Visual Studio Code</Link>.
           Hecho con <Link url='https://nextjs.org/'>Next.js</Link> y{' '}
-          <Link url='https://tailwindcss.com/'>Tailwind CSS</Link>,{' '}
-          <Link url='https://vercel.com/'>Vercel</Link>. All text is set in the{' '}
-          <Link url='https://rsms.me/inter/'>Inter</Link> typeface.
+          <Link url='https://tailwindcss.com/'>Tailwind CSS</Link>. Desplegado en{' '}
+          <Link url='https://vercel.com/'>Vercel</Link>. Toda la tipografía usa la fuente{' '}
+          <Link url='https://rsms.me/inter/'>Inter</Link>.
         </p>
       </footer>
     ),

@@ -2,7 +2,6 @@ import { ImageResponse } from '@vercel/og';
  
 export const config = {
   runtime: 'edge',
-
 };
  
 export default async function handler() {
@@ -23,8 +22,8 @@ export default async function handler() {
     justifyContent: 'center',
     flexDirection: 'column',
     flexWrap: 'nowrap',
-    backgroundColor: '#0d0d0d',
-    backgroundImage: 'radial-gradient(circle at 25px 25px, #333 3%, transparent 0%), radial-gradient(circle at 75px 75px, #333 3%, transparent 0%)',
+    backgroundColor: '#080808',
+    backgroundImage: 'radial-gradient(circle at 25px 25px, #181818 3%, transparent 0%), radial-gradient(circle at 75px 75px, #181818 3%, transparent 0%)',
     backgroundSize: '100px 100px',
   }}
 >
@@ -62,8 +61,8 @@ export default async function handler() {
 
       <b style={{
         fontSize: 30,
-        fontWeight: 600,
         fontFamily: '"Inter"',
+        fontWeight: 600,
         color: 'white',
       }}>Developer and Engineering student</b>
   </div>

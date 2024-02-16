@@ -16,22 +16,20 @@ export default function Document() {
           content="Developer and Engineering student"
           key="desc"
         />
-        {/* <meta property="og:image" content="opengraph-image.png" />
-<meta property="og:image:type" content="<generated>" />
-<meta property="og:image:width" content="<generated>" />
-<meta property="og:image:height" content="<generated>" />
-<meta property="twitter" content="<generated>" />
-<meta property="twitter:type" content="<generated>" />
-<meta property="twitter:width" content="<generated>" />
-<meta property="twitter:height" content="<generated>" /> */}
- <meta
-    property="og:image"
-    content="https://damianponce.com/api/og"
-  />
-  <meta
-    property="twitter"
-    content="https://damianponce.com/api/og"
-  />
+        <meta
+          property="og:image"
+          content="https://damianponce.com/og.png"
+        />
+        <meta
+          property="twitter:image"
+          content="https://damianponce.com/og.png"
+        />
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:title" content="Damián Ponce"/>
+        <meta property="twitter:description" content="Developer and Engineering student"/>
+        <meta property="og:url" content="https://damianponce.com"/>
+        <meta property="og:title" content="Damián Ponce"/>
+        <meta property="og:description" content="Developer and Engineering student"/>
       </Head>
       <body>
         <Main />

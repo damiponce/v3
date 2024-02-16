@@ -5,6 +5,11 @@ export const config = {
 };
  
 export default async function handler() {
+  // Make sure the font exists in the specified path:
+  const fontData = await fetch(
+    new URL('../../assets/TYPEWR__.ttf', import.meta.url),
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -66,6 +71,13 @@ export default async function handler() {
     {
       width: 1200,
       height: 630,
+      fonts: [
+        {
+          name: 'Inter',
+          data: fontData,
+          style: 'normal',
+        },
+      ],
     },
   );
 }

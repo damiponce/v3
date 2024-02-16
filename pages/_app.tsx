@@ -10,6 +10,8 @@ import Head from 'next/head';
 const inter = Inter({ subsets: ['latin'] });
 const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
 
+import { NextSeo } from 'next-seo';
+
 function Root({ Component, pageProps }: AppProps) {
   return (
     <StrictMode>
@@ -20,7 +22,7 @@ function Root({ Component, pageProps }: AppProps) {
             --source-code-pro-font: ${sourceCodePro.style.fontFamily};
           }
         `}</style>
-        <Head>
+        {/* <Head>
           <meta name='robots' content='all' />
           <meta name='googlebot' />
           <meta
@@ -28,13 +30,17 @@ function Root({ Component, pageProps }: AppProps) {
             content='Developer and Engineering student'
             key='desc'
           />
-          <meta property='og:image' content='https://damianponce.com/og.png' />
+          <meta
+            property='og:image'
+            content='https://damianponce.com/og.png'
+            key='og:image'
+          />
           <meta
             property='twitter:image'
             content='https://damianponce.com/og.png'
           />
           <meta property='twitter:card' content='summary_large_image' />
-          <meta property='twitter:title' content='Damián Ponce' />
+          <meta property='twitter:title' content='Damián Ponce'  />
           <meta
             property='twitter:description'
             content='Developer and Engineering student'
@@ -45,7 +51,31 @@ function Root({ Component, pageProps }: AppProps) {
             property='og:description'
             content='Developer and Engineering student'
           />
-        </Head>
+        </Head> */}
+
+        <NextSeo
+          title='Damián Ponce'
+          description='Developer and Engineering student'
+          canonical='https://damianponce.com/'
+          openGraph={{
+            url: 'https://damianponce.com/',
+            title: 'Damián Ponce',
+            description: 'Developer and Engineering student',
+            images: [
+              {
+                url: 'https://damianponce.com/og.png',
+                width: 1200,
+                height: 630,
+                alt: 'Damián Ponce - OG Image',
+                type: 'image/png',
+              },
+            ],
+            siteName: 'Damián Ponce',
+          }}
+          twitter={{
+            cardType: 'summary_large_image',
+          }}
+        />
         <Script
           async
           src='https://www.googletagmanager.com/gtag/js?id=G-W2WTZGZP5B'

@@ -5,13 +5,10 @@ export const config = {
 };
  
 export default async function handler() {
-  const interSemiBoldFontData = await fetch(
-    new URL('../../public/assets/InterDisplay-SemiBold.ttf', import.meta.url),
+  const interFontData = await fetch(
+    new URL('../../public/assets/InterReduced.ttf', import.meta.url),
   ).then((res) => res.arrayBuffer());
 
-  const interBlackFontData = await fetch(
-    new URL('../../public/assets/InterDisplay-Black.ttf', import.meta.url),
-  ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     (
@@ -77,12 +74,14 @@ export default async function handler() {
       fonts: [
         {
           name: 'InterSemiBold',
-          data: interSemiBoldFontData,
+          data: interFontData,
           style: 'normal',
+          weight: 600
         },{
           name: 'InterBlack',
-          data: interBlackFontData,
+          data: interFontData,
           style: 'normal',
+          weight: 900
         },
       ],
     },

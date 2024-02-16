@@ -24,6 +24,14 @@ export default function Document() {
 <meta property="twitter:type" content="<generated>" />
 <meta property="twitter:width" content="<generated>" />
 <meta property="twitter:height" content="<generated>" /> */}
+ <meta
+    property="og:image"
+    content="https://damianponce.com/api/og"
+  />
+  <meta
+    property="twitter"
+    content="https://damianponce.com/api/og"
+  />
       </Head>
       <body>
         <Main />

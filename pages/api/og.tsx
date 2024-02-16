@@ -7,7 +7,7 @@ export const config = {
 export default async function handler() {
   // Make sure the font exists in the specified path:
   const fontData = await fetch(
-    new URL('../../public/assets/InterVariable.ttf', import.meta.url),
+    new URL('../../public/assets/InterDisplay-Regular.ttf', import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(

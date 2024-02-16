@@ -2,6 +2,7 @@ import { ImageResponse } from '@vercel/og';
  
 export const config = {
   runtime: 'edge',
+
 };
  
 export default async function handler() {
@@ -52,7 +53,8 @@ export default async function handler() {
         fontSize: 80,
         color: 'white',
         marginInline: "auto",
-        fontFamily: "InterBlack",
+        fontFamily: '"Inter"',
+        fontWeight: 900,
         whiteSpace: 'pre-wrap',
         marginTop: 250
       }}>Damián Ponce
@@ -60,8 +62,8 @@ export default async function handler() {
 
       <b style={{
         fontSize: 30,
-        fontWeight: 300,
-        fontFamily: "InterSemiBold",
+        fontWeight: 600,
+        fontFamily: '"Inter"',
         color: 'white',
       }}>Developer and Engineering student</b>
   </div>
@@ -73,16 +75,10 @@ export default async function handler() {
       height: 630,
       fonts: [
         {
-          name: 'InterSemiBold',
+          name: 'Inter',
           data: interFontData,
           style: 'normal',
-          weight: 600
-        },{
-          name: 'InterBlack',
-          data: interFontData,
-          style: 'normal',
-          weight: 900
-        },
+        }
       ],
     },
   );

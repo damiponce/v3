@@ -8,28 +8,7 @@ export default function Document() {
     <Html lang={i18n.language}>
       <Head>
         <link rel='icon' href='/favicon.ico' />
-        <title>
-          Damián Ponce
-        </title>
-        <meta
-          name="description"
-          content="Developer and Engineering student"
-          key="desc"
-        />
-        <meta
-          property="og:image"
-          content="https://damianponce.com/og.png"
-        />
-        <meta
-          property="twitter:image"
-          content="https://damianponce.com/og.png"
-        />
-        <meta property="twitter:card" content="summary_large_image"/>
-        <meta property="twitter:title" content="Damián Ponce"/>
-        <meta property="twitter:description" content="Developer and Engineering student"/>
-        <meta property="og:url" content="https://damianponce.com"/>
-        <meta property="og:title" content="Damián Ponce"/>
-        <meta property="og:description" content="Developer and Engineering student"/>
+        <title>Damián Ponce</title>
       </Head>
       <body>
         <Main />

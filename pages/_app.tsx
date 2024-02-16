@@ -5,6 +5,7 @@ import '../components/github-markdown.css';
 import { appWithTranslation } from 'next-i18next';
 import { Inter, Source_Code_Pro } from 'next/font/google';
 import Script from 'next/script';
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
 const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
@@ -12,15 +13,39 @@ const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
 function Root({ Component, pageProps }: AppProps) {
   return (
     <StrictMode>
-      <div>
+      <>
         <style jsx global>{`
           :root {
             --inter-font: ${inter.style.fontFamily};
             --source-code-pro-font: ${sourceCodePro.style.fontFamily};
           }
         `}</style>
-        <meta name='robots' content='all' />
-        <meta name='googlebot' />
+        <Head>
+          <meta name='robots' content='all' />
+          <meta name='googlebot' />
+          <meta
+            name='description'
+            content='Developer and Engineering student'
+            key='desc'
+          />
+          <meta property='og:image' content='https://damianponce.com/og.png' />
+          <meta
+            property='twitter:image'
+            content='https://damianponce.com/og.png'
+          />
+          <meta property='twitter:card' content='summary_large_image' />
+          <meta property='twitter:title' content='Damián Ponce' />
+          <meta
+            property='twitter:description'
+            content='Developer and Engineering student'
+          />
+          <meta property='og:url' content='https://damianponce.com' />
+          <meta property='og:title' content='Damián Ponce' />
+          <meta
+            property='og:description'
+            content='Developer and Engineering student'
+          />
+        </Head>
         <Script
           async
           src='https://www.googletagmanager.com/gtag/js?id=G-W2WTZGZP5B'
@@ -35,7 +60,7 @@ function Root({ Component, pageProps }: AppProps) {
         `}
         </Script>
         <Component {...pageProps} />
-      </div>
+      </>
     </StrictMode>
   );
 }

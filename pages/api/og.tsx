@@ -5,9 +5,6 @@ export const config = {
 };
  
 export default async function handler() {
-  const imageData = await fetch(new URL('og.png', import.meta.url)).then(
-    (res) => res.arrayBuffer(),
-  );
   return new ImageResponse(
     (
       <div

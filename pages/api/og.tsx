@@ -5,9 +5,12 @@ export const config = {
 };
  
 export default async function handler() {
-  // Make sure the font exists in the specified path:
-  const fontData = await fetch(
-    new URL('../../public/assets/InterDisplay-Regular.ttf', import.meta.url),
+  const interSemiBoldFontData = await fetch(
+    new URL('../../public/assets/InterDisplay-SemiBold.ttf', import.meta.url),
+  ).then((res) => res.arrayBuffer());
+
+  const interBlackFontData = await fetch(
+    new URL('../../public/assets/InterDisplay-Black.ttf', import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
@@ -52,7 +55,7 @@ export default async function handler() {
         fontSize: 80,
         color: 'white',
         marginInline: "auto",
-        fontFamily: "Inter",
+        fontFamily: "InterBlack",
         whiteSpace: 'pre-wrap',
         marginTop: 250
       }}>Damián Ponce
@@ -61,7 +64,7 @@ export default async function handler() {
       <b style={{
         fontSize: 30,
         fontWeight: 300,
-        fontFamily: "Inter",
+        fontFamily: "InterSemiBold",
         color: 'white',
       }}>Developer and Engineering student</b>
   </div>
@@ -73,8 +76,12 @@ export default async function handler() {
       height: 630,
       fonts: [
         {
-          name: 'Inter',
-          data: fontData,
+          name: 'InterSemiBold',
+          data: interSemiBoldFontData,
+          style: 'normal',
+        },{
+          name: 'InterBlack',
+          data: interBlackFontData,
           style: 'normal',
         },
       ],

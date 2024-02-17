@@ -9,9 +9,10 @@ module.exports = {
           source: '/en/posts/:slug*',
           destination: '/posts/:slug*',
           permanent: true,
-          locale: false
+          locale: false,
         },
     ]
-}
+  },
+  transpilePackages: ["geist"],
   // rules: [{ test: /\.exr$/, use: 'raw-loader' }]
 }

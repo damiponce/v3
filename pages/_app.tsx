@@ -3,62 +3,35 @@ import { AppProps } from 'next/app';
 import '../styles/index.css';
 import '../components/github-markdown.css';
 import { appWithTranslation } from 'next-i18next';
-import { Inter, Source_Code_Pro } from 'next/font/google';
 import Script from 'next/script';
-import Head from 'next/head';
-
-const inter = Inter({ subsets: ['latin'] });
-const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
-
 import { NextSeo } from 'next-seo';
+
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+// import { Inter, Source_Code_Pro } from 'next/font/google';
+// const inter = Inter({ subsets: ['latin'] });
+// const sourceCodePro = Source_Code_Pro({ subsets: ['latin'] });
 
 function Root({ Component, pageProps }: AppProps) {
   return (
     <StrictMode>
       <>
-        <style jsx global>{`
-          :root {
-            --inter-font: ${inter.style.fontFamily};
-            --source-code-pro-font: ${sourceCodePro.style.fontFamily};
-          }
-        `}</style>
-        {/* <Head>
-          <meta name='robots' content='all' />
-          <meta name='googlebot' />
-          <meta
-            name='description'
-            content='Developer and Engineering student'
-            key='desc'
-          />
-          <meta
-            property='og:image'
-            content='https://damianponce.com/og.png'
-            key='og:image'
-          />
-          <meta
-            property='twitter:image'
-            content='https://damianponce.com/og.png'
-          />
-          <meta property='twitter:card' content='summary_large_image' />
-          <meta property='twitter:title' content='Damián Ponce'  />
-          <meta
-            property='twitter:description'
-            content='Developer and Engineering student'
-          />
-          <meta property='og:url' content='https://damianponce.com' />
-          <meta property='og:title' content='Damián Ponce' />
-          <meta
-            property='og:description'
-            content='Developer and Engineering student'
-          />
-        </Head> */}
-
+        <style jsx global>
+          {`
+            :root {
+              --font-geist-sans: ${GeistSans.style.fontFamily};
+              --font-geist-mono: ${GeistMono.style.fontFamily};
+            }
+          `}
+        </style>
+        {/* --inter-font: ${inter.style.fontFamily};
+            --source-code-pro-font: ${sourceCodePro.style.fontFamily}; */}
         <NextSeo
           title='Damián Ponce'
           description='Developer and Engineering student'
           canonical='https://damianponce.com/'
           openGraph={{
-            url: 'https://damianponce.com/',
+            url: 'https://damianponce.com/np',
             title: 'Damián Ponce',
             description: 'Developer and Engineering student',
             images: [

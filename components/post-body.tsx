@@ -1,10 +1,17 @@
-import { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import markdownStyles from './markdown-styles.module.css';
 // import githubMarkdownStyles from './github-markdown.module.css';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
+
+import { getHighlighterCore, HighlighterCore } from 'shiki/core';
+
+import parse from 'html-react-parser';
+
 import Image from 'next/image';
 
 import 'katex/dist/katex.min.css';
@@ -23,35 +30,50 @@ import { toHtml } from 'hast-util-to-html';
 import { Nodes } from 'hast-util-to-jsx-runtime/lib';
 import remarkImages from 'remark-images';
 import PostType from '../interfaces/post';
+import SkeletonBase from './skeleton-base';
+import { be } from 'date-fns/locale';
+import { fromHtmlIsomorphic } from 'hast-util-from-html-isomorphic';
 
 type Props = {
   content: string;
   imageSizes: PostType['imageSizes'];
 };
 
-type StarryNightType = {
-  flagToScope: (flag: string) => string;
-  highlight: (value: string, scope: string) => Root;
-  missingScopes: () => string[];
-  register: (grammars: Grammar[]) => Promise<undefined>;
-  scopes: () => string[];
-};
+function PostBody({ content, imageSizes }: Props) {
+  const [highlighter, setHighlighter] = React.useState<HighlighterCore>(null);
 
-const PostBody = ({ content, imageSizes }: Props) => {
-  const [starryNight, setStarryNight] = useState<StarryNightType>();
-
-  function starryNightInstance(flag: string, content) {
-    if (!starryNight) return null;
-    const scope = starryNight.flagToScope(flag);
-    const tree = starryNight.highlight(content.toString(), scope);
-    const reactNode = toJsxRuntime(tree as Nodes, { Fragment, jsx, jsxs });
-    // console.log(reactNode);
-    return reactNode;
-  }
-
-  useEffect(() => {
-    createStarryNight(common).then((sn) => setStarryNight(sn));
+  React.useEffect(() => {
+    const f = async () => {
+      const highlighter = await getHighlighterCore({
+        themes: [import('shiki/themes/vesper.mjs')],
+        langs: [
+          import('shiki/langs/javascript.mjs'),
+          import('shiki/langs/c.mjs'),
+          import('shiki/langs/python.mjs'),
+        ],
+        loadWasm: import('shiki/wasm'),
+      });
+      setHighlighter(highlighter);
+    };
+    f();
   }, []);
+
+  const random = (start: number, end: number) =>
+    Math.floor(Math.random() * (end - start + 1) + start);
+
+  if (!highlighter)
+    return (
+      <div className='flex flex-col w-full max-h-screen'>
+        <SkeletonBase className={`h-8 w-[100%] mb-5`} />
+        <SkeletonBase className={`h-8 w-[97%] mb-5`} />
+        <SkeletonBase className={`h-8 w-[98%] mb-5`} />
+        <SkeletonBase className={`h-8 w-[55%] mb-10`} />
+        <SkeletonBase className={`h-40 w-[100%] mb-10`} />
+        <SkeletonBase className={`h-8 w-[97%] mb-5`} />
+        <SkeletonBase className={`h-8 w-[100%] mb-5`} />
+        <SkeletonBase className={`h-8 !w-[39%] _mb-10`} />
+      </div>
+    );
 
   return (
     <div className='max-w-2xl mx-auto'>
@@ -59,14 +81,30 @@ const PostBody = ({ content, imageSizes }: Props) => {
         <ReactMarkdown
           children={content}
           remarkPlugins={[remarkGfm, remarkMath]}
-          rehypePlugins={[rehypeKatex]}
+          rehypePlugins={[
+            rehypeKatex,
+            // rehypeSlug,
+            // [
+            //   rehypeAutolinkHeadings,
+            //   {
+            //     content: fromHtmlIsomorphic('🔗', { fragment: true }).children,
+            //   },
+            // ],
+          ]}
           components={{
+            pre({ node, className, children, ...props }) {
+              return <>{children}</>;
+            },
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || '');
-              return !inline && match ? (
-                <code {...props} className={className}>
-                  {starryNightInstance(match[1], children)}
-                </code>
+              return !inline ? (
+                (parse(
+                  highlighter.codeToHtml(children[0] as string, {
+                    lang: match ? match[1] : 'text',
+                    theme: 'vesper',
+                  }),
+                  {},
+                ) as React.JSX.Element)
               ) : (
                 <code {...props} className={className}>
                   {children}
@@ -96,6 +134,6 @@ const PostBody = ({ content, imageSizes }: Props) => {
       </div>
     </div>
   );
-};
+}
 
 export default PostBody;

@@ -17,7 +17,7 @@ const PostHeader = ({ title, subtitle, date, author }: Props) => {
     <>
       <PostTitle>{title}</PostTitle>
       <PostSubtitle>{subtitle}</PostSubtitle>
-      <div className='mb-12 text-lg'>
+      <div className='mb-8 text-lg'>
         <DateFormatter dateString={date} />
         {/*      THIS IS HIDDEN      */}
         <span className='hidden text-sm font-medium text-neutral-500 whitespace-pre-wrap'>

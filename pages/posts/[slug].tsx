@@ -10,6 +10,9 @@ import Meta from '../../components/meta';
 import sizeOf from 'image-size';
 import { join } from 'path';
 import Back from '../../components/back';
+import SkeletonBase from '@/components/skeleton-base';
+import { Suspense } from 'react';
+import React from 'react';
 
 type Props = {
   post: PostType;

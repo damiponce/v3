@@ -41,6 +41,14 @@ module.exports = {
         wide: { raw: '(min-aspect-ratio: 3 / 2)' },
         'taller-than-854': { raw: '(min-height: 854px)' },
       },
+      keyframes: {
+        shimmer: {
+          '100%' : { transform: 'translateX(100%)' } 
+        }
+      },
+      animation: {
+        shimmer: 'shimmer .75s ease-in-out infinite'
+      }
     },
   },
   plugins: [],

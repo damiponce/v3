@@ -20,6 +20,11 @@ $\int\limits^{\infty}_0 \dfrac{1}{x} dx$
 
 `LINE = "one line of code"`
 
+```
+NORMAL ASS
+CODE
+```
+
 ```javascript
 LINES = `multiple
 lines

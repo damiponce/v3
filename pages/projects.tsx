@@ -21,11 +21,11 @@ export default function Post(
       </Head>
       <Meta />
       <div className=''>
-        <div className='mx-auto min-h-screen max-w-screen-xl  px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0'>
-          <div className='lg:py-24 max-w-screen-xl mx-auto'>
+        <div className='mx-auto min-h-screen max-w-screen-xl  px-6 py-8 font-sans md:px-12 md:py-14 lg:px-24 lg:py-20'>
+          <div className=' max-w-screen-xl mx-auto'>
             <div>
               <Back />
-              <h1 className='text-4xl font-bold tracking-tight text-neutral-200 sm:text-5xl'>
+              <h1 className='text-4xl font-bold tracking-tight text-neutral-200 sm:text-5xl mt-4'>
                 {t('bigTitle')}
               </h1>
               <table className='mt-12 w-full border-collapse text-left'>

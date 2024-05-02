@@ -146,6 +146,7 @@ export default function Index(
                     />
                   ))}
                 </ul>
+                <ViewFull text={t('viewFreelance')} url='freelance' />
               </Section>
               <Section
                 id='coding'

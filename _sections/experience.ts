@@ -20,39 +20,30 @@ const weirdDash = '→';
 
 const EXPERIENCE: Experience[] = [
   {
-    _key: 'lab-assistant',
+    _key: 'gmf-layf-front',
     url: 'https://frh.utn.edu.ar',
-    // technologies: ["SMD", "PCB"],
+    technologies: ['React', 'Node.js', 'vtk.js', 'three.js'],
     es: {
-      date: 'Jul 2023 → presente',
-      title: 'Ayudante de Laboratorio de Electrónica',
-      place: 'UTN FRH',
-      position: 'Ingeniería',
+      date: 'Ago 2024 → presente',
+      title: 'Desarrollador Web Front-end',
+      place: 'GMF - LAyF - UTN FRH',
+      position: 'Developer',
       description:
-        'Asistencia para los estudiantes que desean utilizar los laboratorios de electrónica.',
-      technologies: ['SMD', 'Diseño de PCB', 'Soldadura'],
+        'Liderando el desarrollo front-end de una nueva Suite de simulación de sistemas de baterías VFR.',
     },
     en: {
-      date: 'Jul 2023 → present',
-      title: 'Electronics Lab Assistant',
-      place: 'UTN FRH',
-      position: 'Engineering',
+      date: 'Aug 2024 → present',
+      title: 'Front-end Web Developer',
+      place: 'GMF - LAyF - UTN FRH',
+      position: 'Developer',
       description:
-        'Assistance for students who want to use the electronics laboratories.',
-      technologies: ['SMD', 'PCB design', 'Soldering'],
+        'Leading the front-end development of a new simulation Suite related to VFR battery systems.',
     },
   },
   {
     _key: 'freelance-webdev',
     url: '#freelance',
-    technologies: [
-      'React',
-      'Node.js',
-      'Next.js',
-      'Vercel',
-      'Express',
-      'MongoDB',
-    ],
+    technologies: ['React', 'Node.js', 'Next.js', 'Vercel', 'Sanity'],
     es: {
       date: 'May 2022 → presente',
       title: 'Desarrollador Web Freelance',
@@ -68,6 +59,29 @@ const EXPERIENCE: Experience[] = [
       position: 'Freelance',
       description:
         'Website, web app and mobile app development for various clients.',
+    },
+  },
+  {
+    _key: 'lab-assistant',
+    url: 'https://frh.utn.edu.ar',
+    // technologies: ["SMD", "PCB"],
+    es: {
+      date: 'Jul 2023 → Dic 2023',
+      title: 'Ayudante de Laboratorio de Electrónica',
+      place: 'UTN FRH',
+      position: 'Ingeniería',
+      description:
+        'Asistencia para los estudiantes que desean utilizar los laboratorios de electrónica.',
+      technologies: ['SMD', 'Diseño de PCB', 'Soldadura'],
+    },
+    en: {
+      date: 'Jul 2023 → Dec 2023',
+      title: 'Electronics Lab Assistant',
+      place: 'UTN FRH',
+      position: 'Engineering',
+      description:
+        'Assistance for students who want to use the electronics laboratories.',
+      technologies: ['SMD', 'PCB design', 'Soldering'],
     },
   },
   {

@@ -1,12 +1,18 @@
 import Link from 'next/link';
 import { memo, useEffect, useRef, useState } from 'react';
-import { cn } from '../lib/utils';
+import { cn, debounce } from '../lib/utils';
 import Contact from './contact';
 import { TFunction } from 'i18next';
 
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import LangSwitcher from './lang-switcher';
+import {
+  motion,
+  useAnimate,
+  useMotionTemplate,
+  useMotionValue,
+} from 'framer-motion';
 
 const useIntersectionObserver = (setActiveId) => {
   const headingElementsRef = useRef({});
@@ -169,12 +175,59 @@ const Header = ({ t }: Props) => {
   //    console.error(activeId);
   // }, [activeId]);
 
+  const [scope, animate] = useAnimate();
+
+  const shimmerX = useMotionValue(10);
+
+  useEffect(() => {}, []);
+
   return (
     <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'>
       <div className={cn('flex-1 flex flex-col justify-between')}>
         <div className='mb-8'>
           <h1 className='text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none'>
-            <Link href='/'>Damián Ponce</Link>
+            <Link href='/' className='relative'>
+              <span
+                onPointerOver={() => {
+                  shimmerX.set(10);
+                  animate(shimmerX, 100, {
+                    duration: 1.5,
+                    // ease: 'backInOut',
+                    ease: [0.7, 0, 0.3, 1],
+                    // repeat: Infinity,
+                  });
+                }}
+              >
+                Damián Ponce
+              </span>
+              <motion.span
+                className='p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent'
+                style={{
+                  textShadow: `#00ffdd 0px 0px 8px`,
+                  mask: useMotionTemplate`linear-gradient(90deg, #0000 calc(${shimmerX}% - 10%), #000f calc(${shimmerX}%), #0000 calc(${shimmerX}% + 10%))`,
+                }}
+              >
+                Damián Ponce
+              </motion.span>
+              <motion.span
+                className='p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent translate-y-1'
+                style={{
+                  textShadow: `#ff00ff 0px 0px 8px`,
+                  mask: useMotionTemplate`linear-gradient(90deg, #0000 calc(${shimmerX}% - 10%), #000f calc(${shimmerX}%), #0000 calc(${shimmerX}% + 10%))`,
+                }}
+              >
+                Damián Ponce
+              </motion.span>
+              <motion.span
+                className='p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent translate-y-2'
+                style={{
+                  textShadow: `#00aaff 0px 0px 8px`,
+                  mask: useMotionTemplate`linear-gradient(90deg, #0000 calc(${shimmerX}% - 10%), #000f calc(${shimmerX}%), #0000 calc(${shimmerX}% + 10%))`,
+                }}
+              >
+                Damián Ponce
+              </motion.span>
+            </Link>
           </h1>
           <h2 className='mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl'>
             {t('subtitle')}

@@ -130,3 +130,15 @@ const { useGlobalState } = createGlobalState(initialState);
 export const useLastViewedPhoto = () => {
   return useGlobalState('photoToScrollTo');
 };
+
+////////////////////////////////////////////////////////////////////////
+
+export function debounce(func: () => any, timeout: number) {
+  let timer: NodeJS.Timeout;
+  return (...args: any) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}

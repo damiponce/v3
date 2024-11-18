@@ -33,18 +33,19 @@ export default function Index(
   const lang = i18n.language;
 
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
-  const GRAD_COLOR = 80;
+
   useEffect(() => {
-    const handleWindowMouseMove = (event) => {
+    const handleWindowMouseMove = (event: MouseEvent) => {
       setCursor({
         x: event.clientX,
         y: event.clientY,
       });
     };
     window.addEventListener('mousemove', handleWindowMouseMove);
-
+    // window.addEventListener('scroll', handleWindowMouseMove);
     return () => {
       window.removeEventListener('mousemove', handleWindowMouseMove);
+      // window.removeEventListener('scroll', handleWindowMouseMove);
     };
   }, []);
 
@@ -63,21 +64,40 @@ export default function Index(
       <Meta />
       <div className='relative'>
         <div
-          className='pointer-events-none fixed inset-0 z-30 transition duration-300 lg:absolute'
+          className='pointer-events-none fixed inset-0 z-[-30] transition duration-300 lg:absolute'
           style={
             typeof window !== 'undefined' &&
             !isTouchDevice() &&
             window.innerWidth > 1024
               ? {
-                  background: `radial-gradient(600px at ${
+                  backgroundColor: 'transparent',
+                  backgroundImage: `radial-gradient(transparent 1px, rgba(30,30,30), #ffffff)`,
+                  backgroundSize: '6px 6px',
+                  opacity: 1,
+                  mask: `radial-gradient(600px at ${
                     cursor.x + window.scrollX
-                  }px ${
-                    cursor.y + window.scrollY
-                  }px, rgba(${GRAD_COLOR},${GRAD_COLOR},${GRAD_COLOR}, 0.15), transparent 80%)`,
+                  }px ${cursor.y + window.scrollY}px, #0002 00%, #0000 100%)`,
                 }
               : null
           }
-        ></div>
+        >
+          {/* <div
+            className='lg: absolute w-full h-full'
+            style={
+              typeof window !== 'undefined' &&
+              !isTouchDevice() &&
+              window.innerWidth > 1024
+                ? {
+                    background: `radial-gradient(600px at ${
+                      cursor.x + window.scrollX
+                    }px ${
+                      cursor.y + window.scrollY
+                    }px, rgba(${GRAD_COLOR},${GRAD_COLOR},${GRAD_COLOR}, 0.15), transparent 80%)`,
+                  }
+                : null
+            }
+          ></div> */}
+        </div>
         <div className='mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0'>
           <div className='lg:flex lg:justify-between lg:gap-4'>
             <Header t={t} />

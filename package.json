@@ -76,7 +76,7 @@
     "autoprefixer": "^10.4.7",
     "knip": "^5.7.0",
     "postcss": "^8.4.14",
-    "tailwindcss": "^3.4.3",
+    "tailwindcss": "^3.4.13",
     "typescript": "^5.4.3"
   }
 }

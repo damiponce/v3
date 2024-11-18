@@ -40,6 +40,10 @@ module.exports = {
         narrow: { raw: '(max-aspect-ratio: 3 / 2)' },
         wide: { raw: '(min-aspect-ratio: 3 / 2)' },
         'taller-than-854': { raw: '(min-height: 854px)' },
+        mxl: { max: '1279px' },
+        mlg: { max: '1023px' },
+        mmd: { max: '767px' },
+        msm: { max: '639px' },
       },
       keyframes: {
         shimmer: {

@@ -14,5 +14,6 @@ module.exports = {
     ]
   },
   transpilePackages: ["geist"],
+  output: 'standalone'
   // rules: [{ test: /\.exr$/, use: 'raw-loader' }]
 }

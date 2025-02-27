@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { memo, useEffect, useRef, useState } from 'react';
-import { cn, debounce } from '../lib/utils';
+import { cn } from '../lib/utils';
 import Contact from './contact';
 import { TFunction } from 'i18next';
 
@@ -13,6 +13,15 @@ import {
   useMotionTemplate,
   useMotionValue,
 } from 'framer-motion';
+import FlashyTag from './flashy-tag';
+
+function inProps(n = 0) {
+  return {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.18, delay: 0.04 * n },
+  };
+}
 
 const useIntersectionObserver = (setActiveId) => {
   const headingElementsRef = useRef({});
@@ -66,12 +75,14 @@ const ToCItem = ({
   activeId,
   order,
   indent = false,
+  hasNew,
 }: {
   id: string | string[];
   name: string;
   activeId: string;
   order: number;
   indent?: boolean;
+  hasNew?: boolean;
 }) => {
   let active = false;
 
@@ -82,7 +93,7 @@ const ToCItem = ({
   }
 
   return (
-    <li
+    <motion.li
       className={cn(
         indent ? 'ml-5 peer' : '',
         Array.isArray(id)
@@ -90,9 +101,10 @@ const ToCItem = ({
           : '',
       )}
       style={{ order }}
+      {...inProps(order + 1)}
     >
       <Link
-        className={cn('group flex items-center py-3  relative')}
+        className={cn('group flex items-center py-3 h-[40px] relative')}
         href={`#${id}`}
         onClick={(e) => {
           e.preventDefault();
@@ -105,12 +117,12 @@ const ToCItem = ({
           data-active={active ? 'true' : 'false'}
           className={cn(
             'mr-4 h-px w-11 bg-neutral-500 transition-all motion-reduce:transition-none z-[5]',
-            'data-[active=true]:w-[5rem] data-[active=true]:bg-neutral-200',
+            'data-[active=true]:lg:w-[5rem] data-[active=true]:lg:bg-neutral-200',
             !Array.isArray(id) || true
               ? 'group-hover:w-[5rem] group-hover:bg-neutral-200 group-focus-visible:w-[5rem] group-focus-visible:bg-neutral-200'
               : '',
             indent
-              ? 'ml-2 w-4 data-[active=true]:w-[3.25rem] group-hover:w-[3.25rem] group-focus-visible:w-12'
+              ? 'ml-2 w-4 data-[active=true]:lg:w-[3.25rem] group-hover:w-[3.25rem]  group-focus-visible:w-12'
               : '',
           )}
         />
@@ -150,7 +162,7 @@ const ToCItem = ({
           data-active={active ? 'true' : 'false'}
           className={cn(
             'text-xs font-bold uppercase tracking-widest text-neutral-500 h-4',
-            'data-[active=true]:text-neutral-200',
+            'data-[active=true]:lg:text-neutral-200',
             !Array.isArray(id) || true
               ? 'group-hover:text-neutral-200 group-focus-visible:text-neutral-200'
               : '',
@@ -158,8 +170,9 @@ const ToCItem = ({
         >
           {name}
         </span>
+        {hasNew && <FlashyTag className='ml-4'>NEW</FlashyTag>}
       </Link>
-    </li>
+    </motion.li>
   );
 };
 
@@ -185,8 +198,11 @@ const Header = ({ t }: Props) => {
     <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'>
       <div className={cn('flex-1 flex flex-col justify-between')}>
         <div className='mb-8'>
-          <h1 className='text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none'>
-            <Link href='/' className='relative'>
+          <motion.h1
+            className='text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none '
+            {...inProps()}
+          >
+            <Link href='/' className='relative -ml-[1.5px]'>
               <span
                 onPointerOver={() => {
                   shimmerX.set(10);
@@ -228,15 +244,19 @@ const Header = ({ t }: Props) => {
                 Damián Ponce
               </motion.span>
             </Link>
-          </h1>
-          <h2 className='mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl'>
+          </motion.h1>
+
+          <motion.h2
+            className='mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl'
+            {...inProps(1)}
+          >
             {t('subtitle')}
-          </h2>
+          </motion.h2>
           {/* <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p> */}
         </div>
 
         <div className='fill flex flex-[1] max-h-6 ' />
-        <nav className='hidden lg:block'>
+        <nav className='hidden_lg:block'>
           <ul className='_mt-2 w-max flex flex-col relative'>
             <ToCItem
               name={t('toc.about')}
@@ -269,6 +289,7 @@ const Header = ({ t }: Props) => {
               activeId={activeId}
               indent
               order={6}
+              hasNew
             />
             <ToCItem
               name={t('toc.engineering')}
@@ -296,18 +317,22 @@ const Header = ({ t }: Props) => {
               activeId={activeId}
               order={4}
             /> */}
-            <span
-              className={cn(
-                'absolute left-0 -translate-x-[10rem] origin-top-right -rotate-90 top-[7.35rem] w-[10rem]',
-                'text-xs font-bold text-center uppercase tracking-[0.6em] text-neutral-500 h-5 leading-5',
-              )}
-            >
-              {t('toc.projects')}
-            </span>
+            <motion.span {...inProps(8)}>
+              <span
+                className={cn(
+                  'absolute left-0 -translate-x-[10rem] origin-top-right -rotate-90 top-[7.35rem] w-[10rem]',
+                  'text-xs font-bold text-center uppercase tracking-[0.6em] text-neutral-500 h-5 leading-5',
+                )}
+              >
+                {t('toc.projects')}
+              </span>
+            </motion.span>
           </ul>
         </nav>
-        <div className='fill flex flex-[3]' />
-        <Contact />
+        <div className='fill flex flex-[3] min-h-6' />
+        <motion.div {...inProps(9)}>
+          <Contact />
+        </motion.div>
       </div>
     </header>
   );

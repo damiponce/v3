@@ -16,7 +16,7 @@ type Props = {
   isNew?: boolean;
 };
 
-const ImgCard = ({
+const GridCard = ({
   itemKey,
   img,
   url,
@@ -32,37 +32,20 @@ const ImgCard = ({
       : false;
 
   return (
-    <li className='mb-12' key={itemKey}>
-      <div className='group relative overflow-hidden_ grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50'>
-        {isNew && (
+    <li className='' key={itemKey}>
+      <div className='group relative flex flex-col gap-2 pb-1 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50'>
+        {/* {isNew && (
           <FlashyTag className='absolute right-0 lg:-right-2 top-0'>
             NEW PROJECT
           </FlashyTag>
-        )}
+        )} */}
 
         <div
           className={cn(
-            'absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(38,38,38,0.1)] lg:group-hover:drop-shadow-lg',
-            // isNew && 'shadow-violet-700 shadow-xl shadow-inner',
+            'absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-3 lg:-inset-y-2.5 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(38,38,38,0.1)] lg:group-hover:drop-shadow-lg',
           )}
-        >
-          {/* {isNew && (
-            <>
-              <BorderBeam
-                duration={6}
-                size={200}
-                className='from-transparent via-red-500 to-transparent'
-              />
-              <BorderBeam
-                duration={6}
-                delay={3}
-                size={200}
-                className='from-transparent via-blue-500 to-transparent'
-              />
-            </>
-          )} */}
-        </div>
-        <div className='z-10 sm:order-2 sm:col-span-6'>
+        ></div>
+        <div className='z-10'>
           <h3>
             <Link
               className='inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-highlight  group/link text-base'
@@ -98,7 +81,7 @@ const ImgCard = ({
               </span>
             </Link>
           </h3>
-          {description && (
+          {/* {description && (
             <p className='mt-2 text-sm leading-normal'>{description}</p>
           )}
           {links && (
@@ -140,23 +123,23 @@ const ImgCard = ({
                 </li>
               ))}
             </ul>
-          )}
+          )} */}
         </div>
         <div
           className={cn(
-            'max-w-[200px] h-fit overflow-hidden object-contain',
-            'rounded border-2 border-neutral-200/10 transition group-hover:border-neutral-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1',
+            'w-full h-fit overflow-hidden object-contain',
+            'rounded border-2 border-neutral-200/10 transition group-hover:border-neutral-200/30',
           )}
         >
           <Image
             src={img}
             width={200}
-            height={48}
+            height={150}
             loading='lazy'
             decoding='async'
             data-nimg='1'
             alt='' // !!!!!!!!
-            className='w-full h-auto max-h-[130px] text-transparent object-cover '
+            className='w-full h-auto text-transparent object-cover aspect-[3/2] '
           />
         </div>
         {/* <img
@@ -176,4 +159,4 @@ const ImgCard = ({
   );
 };
 
-export default ImgCard;
+export default GridCard;

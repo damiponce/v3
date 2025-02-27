@@ -7,9 +7,9 @@ type Props = {
 
 const ViewFull = ({ text, url }: Props) => {
   return (
-    <div className='mt-12'>
+    <div className='mt-12 mb-8'>
       <Link
-        className='inline-flex items-center font-medium leading-tight text-neutral-200 font-semibold group'
+        className='inline-flex items-center leading-tight text-neutral-200 font-semibold group'
         aria-label={Array.isArray(text) ? text.join(' ') : text}
         href={url}
       >

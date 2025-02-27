@@ -91,6 +91,54 @@ const FREELANCE: Project[] = [
         'Botaaguas is a chilean company that is dedicated to the manufacture and sale of water boots for trucks. ',
     },
   },
+  {
+    _key: 'vssete',
+    img: '/assets/images/vssete-banner.webp',
+    url: 'https://vssete.com',
+    technologies: [],
+    es: {
+      date: '',
+      title: 'Vssete',
+      description: '',
+    },
+    en: {
+      date: '',
+      title: 'Vssete',
+      description: '',
+    },
+  },
+  {
+    _key: 'italtechnics',
+    img: '/assets/images/italtechnics-banner.webp',
+    url: 'https://italtechnics.com.ar',
+    technologies: [],
+    es: {
+      date: '',
+      title: 'ItalTechnics',
+      description: '',
+    },
+    en: {
+      date: '',
+      title: 'ItalTechnics',
+      description: '',
+    },
+  },
+  {
+    _key: 'circulomistico',
+    img: '/assets/images/circulomistico-banner.webp',
+    url: 'https://circulo-mistico.vercel.app',
+    technologies: [],
+    es: {
+      date: '',
+      title: 'Círculo Místico',
+      description: '',
+    },
+    en: {
+      date: '',
+      title: 'Círculo Místico',
+      description: '',
+    },
+  },
 ];
 
 export default FREELANCE;

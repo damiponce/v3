@@ -11,11 +11,37 @@ type Project = {
   url: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
+  new?: boolean;
   es: CardText;
   en: CardText;
 };
 
 const CODING: Project[] = [
+  {
+    new: true,
+    _key: 'satview',
+    img: '/assets/images/satview-banner.webp',
+    url: 'https://satview.damianponce.com/',
+    links: [
+      {
+        name: 'GitHub',
+        url: 'https://github.com/damiponce/satellite-viewer',
+      },
+    ],
+    technologies: ['React', 'Next.js', 'Three.js', 'SpaceTrack'],
+    es: {
+      date: '2024',
+      title: 'SatView - Visualizador de satélites',
+      description:
+        'Diseñada desde cero, esta aplicación web te permite ver y rastrear satélites terrestres en tiempo real. Utiliza la API de Space-Track para obtener los últimos datos de satélites y three.js para renderizar la escena 3D.',
+    },
+    en: {
+      date: '2024',
+      title: 'SatView - Satellite Visualizer',
+      description:
+        'Designed from the ground up, this web app allows you to view and track Earth satellites in real-time. It uses the Space-Track API to get the latest satellite data and three.js to render the 3D scene.',
+    },
+  },
   {
     _key: 'wpp-stats',
     img: '/assets/images/analyser-banner.webp',
@@ -31,13 +57,13 @@ const CODING: Project[] = [
       date: '2022',
       title: 'Estad\u00edsticas de WhatsApp',
       description:
-        'Una aplicaci\u00f3n web front-end que calcula y muestra varias estad\u00edsticas de un historial de chat de WhatsApp importado. Dise\u00f1ado pensando en la confianza del usuario, realiza todo el procesamiento en el navegador, por lo que ninguna cantidad de los datos (muy personales) se transfiere fuera de la computadora del usuario.',
+        'Una aplicaci\u00f3n web front-end que calcula y muestra varias estad\u00edsticas de un historial de chat de WhatsApp importado. Dise\u00f1ado pensando en la confianza del usuario, realiza todo el procesamiento en el navegador.',
     },
     en: {
       date: '2022',
       title: 'WhatsApp Stats',
       description:
-        "A purely front-end web app that calculates and displays various statistics from an imported WhatsApp chat history. Designed with user trust in mind, it does all of the processing in the browser so no amount of the (very personal) data is transferred outside of the user's computer.",
+        'A purely front-end web app that calculates and displays various statistics from an imported WhatsApp chat history. Designed with user trust in mind, it does all of the processing in the browser.',
     },
   },
 
@@ -55,12 +81,14 @@ const CODING: Project[] = [
     es: {
       date: '2023',
       title: 'Buscaminas',
-      description: '',
+      description:
+        'Una versión online del popular juego, con tableros verdaderamente aleatorios y jugables.',
     },
     en: {
       date: '2023',
       title: 'Minesweeper',
-      description: '',
+      description:
+        'An online version of the popular game, with truly random and playable boards.',
     },
   },
   {

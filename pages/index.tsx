@@ -25,6 +25,7 @@ import Footer from '../components/footer';
 import ThreeD from '../components/3d';
 import { useEffect, useState } from 'react';
 import PostCard from '../components/post-card-v2';
+import GridCard from '@/components/grid-card';
 
 export default function Index(
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -62,7 +63,8 @@ export default function Index(
         <title>Damián Ponce</title>
       </Head>
       <Meta />
-      <div className='relative'>
+      <div className='grid-background' />
+      <div className='relative overflow-x-hidden_'>
         {/* <div
           className='pointer-events-none fixed inset-0 z-[-30] lg:absolute '
           style={
@@ -87,10 +89,15 @@ export default function Index(
               {/* <Section id='3d' name='3D' className='h-[600px]'>
                 <ThreeD />
               </Section> */}
-              <Section id='about' name={t('toc.about')}>
+              <Section index={0} id='about' name={t('toc.about')}>
                 <About lang={lang} />
               </Section>
-              <Section id='experience' name={t('toc.experience')} darker>
+              <Section
+                index={1}
+                id='experience'
+                name={t('toc.experience')}
+                darker
+              >
                 <ol className='group/list'>
                   {EXPERIENCE.map((item) => (
                     <TextCard
@@ -110,8 +117,8 @@ export default function Index(
                 </ol>
                 <ViewFull text={t('viewResume')} url='' />
               </Section>
-              <Section id='education' name={t('toc.education')}>
-                <ol className='group/list'>
+              <Section index={2} id='education' name={t('toc.education')}>
+                <ol className='group/list -mb-6'>
                   {EDUCATION.map((item) => (
                     <TextCard
                       itemKey={`education-${item._key}`}
@@ -130,13 +137,14 @@ export default function Index(
                 </ol>
               </Section>
               <Section
+                index={3}
                 id='freelance'
                 name={t('toc.projects') + ' ‣ ' + t('toc.freelance')}
                 darker
               >
-                <ul className='group/list'>
+                <ul className='group/list grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-3 gap-x-3 gap-y-4 xs:gap-x-6 xs:gap-y-6 lg:gap-x-8 lg:gap-y-8 xl:gap-x-5 xl:gap-y-6'>
                   {FREELANCE.map((item) => (
-                    <ImgCard
+                    <GridCard
                       itemKey={`freelance-${item._key}`}
                       img={item.img}
                       url={item.url}
@@ -152,6 +160,7 @@ export default function Index(
                 <ViewFull text={t('viewFreelance')} url='freelance' />
               </Section>
               <Section
+                index={4}
                 id='coding'
                 name={t('toc.projects') + ' ‣ ' + t('toc.coding')}
               >
@@ -167,12 +176,14 @@ export default function Index(
                       technologies={
                         item[lang].technologies ?? item.technologies
                       }
+                      isNew={item.new}
                     />
                   ))}
                 </ul>
               </Section>
 
               <Section
+                index={5}
                 id='engineering'
                 name={t('toc.projects') + ' ‣ ' + t('toc.engineering')}
                 darker
@@ -195,6 +206,7 @@ export default function Index(
                 <ViewFull text={t('viewProjects')} url='projects' />
               </Section>
               <Section
+                index={6}
                 id='design'
                 name={t('toc.projects') + ' ‣ ' + t('toc.design')}
               >
@@ -227,8 +239,8 @@ export default function Index(
                   />
                 </ul>
               </Section>
-              <Section id='blog' name='Blog' darker>
-                <ol className='group/list'>
+              <Section index={7} id='blog' name='Blog' darker className='mb-12'>
+                <ol className='group/list -mb-16'>
                   {_props.allPosts.map(
                     (post) =>
                       !post.unlisted && (

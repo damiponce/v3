@@ -4,6 +4,7 @@ import { cn } from '../lib/utils';
 import FlashyTag from './flashy-tag';
 import { AnimatedGradientText } from './magicui/animated-gradient-text';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
 
 type Props = {
   itemKey: string;
@@ -31,12 +32,28 @@ const ImgCard = ({
       ? !(url.startsWith('https://') || url.startsWith('http://'))
       : false;
 
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+
   return (
     <li className='mb-12' key={itemKey}>
       <div className='group relative overflow-hidden_ grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50'>
         {isNew && (
-          <FlashyTag className='absolute right-0 lg:-right-2 top-0'>
-            NEW PROJECT
+          <FlashyTag className='sm:absolute sm:right-0 lg:-right-2 sm:top-0 msm:w-fit msm:-mb-1 '>
+            {
+              {
+                en: (
+                  <>
+                    NEW<span className='sm:hidden'> PROJECT</span>
+                  </>
+                ),
+                es: (
+                  <>
+                    NUEVO<span className='sm:hidden'> PROYECTO</span>
+                  </>
+                ),
+              }[lang]
+            }
           </FlashyTag>
         )}
 
@@ -65,7 +82,7 @@ const ImgCard = ({
         <div className='z-10 sm:order-2 sm:col-span-6'>
           <h3>
             <Link
-              className='inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-highlight  group/link text-base'
+              className='inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-highlight  group/link text-base md:max-w-[75%]'
               href={url}
               target={isUrlLocal ? null : '_blank'}
               rel={isUrlLocal ? null : 'noreferrer'}

@@ -92,6 +92,9 @@ const ToCItem = ({
     active = id === activeId;
   }
 
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+
   return (
     <motion.li
       className={cn(
@@ -170,7 +173,16 @@ const ToCItem = ({
         >
           {name}
         </span>
-        {hasNew && <FlashyTag className='ml-4'>NEW</FlashyTag>}
+        {hasNew && (
+          <FlashyTag className='ml-4'>
+            {
+              {
+                en: 'NEW',
+                es: 'NUEVO',
+              }[lang]
+            }
+          </FlashyTag>
+        )}
       </Link>
     </motion.li>
   );

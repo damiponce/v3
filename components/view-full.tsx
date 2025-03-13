@@ -1,17 +1,21 @@
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 type Props = {
+  className?: string;
   text: string; // | string[];
   url: string;
+  noLocale?: boolean;
 };
 
-const ViewFull = ({ text, url }: Props) => {
+const ViewFull = ({ className, text, url, noLocale }: Props) => {
   return (
-    <div className='mt-12 mb-8'>
+    <div className={cn('mt-12 mb-8', className)}>
       <Link
         className='inline-flex items-center leading-tight text-neutral-200 font-semibold group'
         aria-label={Array.isArray(text) ? text.join(' ') : text}
         href={url}
+        locale={noLocale ? false : undefined}
       >
         <span>
           {/* {Array.isArray(text) ? (

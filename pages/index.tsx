@@ -115,7 +115,18 @@ export default function Index(
                     />
                   ))}
                 </ol>
-                <ViewFull text={t('viewResume')} url='' />
+                <ViewFull
+                  className='mb-4'
+                  text={t('viewResumeES')}
+                  url={'assets/resume/CV_PONCE_ES.pdf'}
+                  noLocale
+                />
+                <ViewFull
+                  className='mt-0'
+                  text={t('viewResumeEN')}
+                  url={'assets/resume/CV_PONCE_EN.pdf'}
+                  noLocale
+                />
               </Section>
               <Section index={2} id='education' name={t('toc.education')}>
                 <ol className='group/list -mb-6'>

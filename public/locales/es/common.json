@@ -13,6 +13,8 @@
   "subtitle": "Desarrollador y Estudiante de Ingeniería",
   "description": "Texto temporal",
   "viewResume": "Ver Curriculum",
+  "viewResumeES": "Ver Curriculum (Español)",
+  "viewResumeEN": "Ver Curriculum (Inglés)",
   "viewProjects": "Ver Proyectos",
   "viewFreelance": "Ver Proyectos Freelance",
   "experience": {

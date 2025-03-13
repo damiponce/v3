@@ -10,7 +10,7 @@ module.exports = {
           destination: '/posts/:slug*',
           permanent: true,
           locale: false,
-        },
+      },
     ]
   },
   transpilePackages: ["geist"],

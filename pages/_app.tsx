@@ -27,7 +27,7 @@ function Root({ Component, pageProps }: AppProps) {
       // api_host:
       //   process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
 
-      api_host: 'https://www.damianponce.com/ingest',
+      api_host: '/ingest',
       ui_host: 'https://us.posthog.com',
       // Enable debug mode in development
       loaded: (posthog) => {

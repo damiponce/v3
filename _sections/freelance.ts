@@ -19,7 +19,7 @@ const FREELANCE: Project[] = [
   {
     _key: 'spark-arg',
     img: '/assets/images/spark-arg-banner.webp',
-    url: 'https://sparkargentina.com.ar',
+    url: 'https://spark-argentina.vercel.app',
     technologies: [
       'React',
       'Next.js',

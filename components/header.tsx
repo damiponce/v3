@@ -1,19 +1,20 @@
-import Link from 'next/link';
-import { memo, useEffect, useRef, useState } from 'react';
-import { cn } from '../lib/utils';
-import Contact from './contact';
-import { TFunction } from 'i18next';
+import Link from "next/link";
+import { memo, useEffect, useRef, useState } from "react";
+import { cn } from "../lib/utils";
+import Socials from "./socials";
+import { TFunction } from "i18next";
 
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
-import LangSwitcher from './lang-switcher';
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import LangSwitcher from "./lang-switcher";
 import {
   motion,
   useAnimate,
   useMotionTemplate,
   useMotionValue,
-} from 'framer-motion';
-import FlashyTag from './flashy-tag';
+} from "framer-motion";
+import FlashyTag from "./flashy-tag";
+import { ArrowRight } from "lucide-react";
 
 function inProps(n = 0) {
   return {
@@ -50,18 +51,18 @@ const useIntersectionObserver = (setActiveId) => {
           (a, b) =>
             // !!!!!!!!!!!!!!!!
             // @ts-ignore
-            getIndexFromId(a.target.id) > getIndexFromId(b.target.id),
+            getIndexFromId(a.target.id) > getIndexFromId(b.target.id)
         );
         setActiveId(sortedVisibleHeadings[0].target.id);
       }
     };
 
     const observer = new IntersectionObserver(callback, {
-      rootMargin: '-5px 0px -20% 0px',
+      rootMargin: "-5px 0px -20% 0px",
     });
 
     const headingElements = Array.from(
-      document.querySelectorAll('section[data-heading]'),
+      document.querySelectorAll("section[data-heading]")
     );
     headingElements.forEach((element) => observer.observe(element));
 
@@ -98,35 +99,35 @@ const ToCItem = ({
   return (
     <motion.li
       className={cn(
-        indent ? 'ml-5 peer' : '',
+        indent ? "ml-5 peer" : "",
         Array.isArray(id)
-          ? 'peer-hover:[&>a>span:first-child]:w-[5rem] peer-hover:[&>a>span:first-child]:bg-neutral-200 peer-hover:[&>a>span:last-child]:text-neutral-200 '
-          : '',
+          ? "peer-hover:[&>a>span:first-child]:w-[5rem] peer-hover:[&>a>span:first-child]:bg-neutral-200 peer-hover:[&>a>span:last-child]:text-neutral-200 "
+          : ""
       )}
       style={{ order }}
       {...inProps(order + 1)}
     >
       <Link
-        className={cn('group flex items-center py-3 h-[40px] relative')}
+        className={cn("group flex items-center py-3 h-[40px] relative")}
         href={`#${id}`}
         onClick={(e) => {
           e.preventDefault();
           document.querySelector(`#${id}`).scrollIntoView({
-            behavior: 'smooth',
+            behavior: "smooth",
           });
         }}
       >
         <span
-          data-active={active ? 'true' : 'false'}
+          data-active={active ? "true" : "false"}
           className={cn(
-            'mr-4 h-px w-11 bg-neutral-500 transition-all motion-reduce:transition-none z-[5]',
-            'data-[active=true]:lg:w-[5rem] data-[active=true]:lg:bg-neutral-200',
+            "mr-4 h-px w-11 bg-neutral-500 transition-all motion-reduce:transition-none z-[5]",
+            "data-[active=true]:lg:w-[5rem] data-[active=true]:lg:bg-neutral-200",
             !Array.isArray(id) || true
-              ? 'group-hover:w-[5rem] group-hover:bg-neutral-200 group-focus-visible:w-[5rem] group-focus-visible:bg-neutral-200'
-              : '',
+              ? "group-hover:w-[5rem] group-hover:bg-neutral-200 group-focus-visible:w-[5rem] group-focus-visible:bg-neutral-200"
+              : "",
             indent
-              ? 'ml-2 w-4 data-[active=true]:lg:w-[3.25rem] group-hover:w-[3.25rem]  group-focus-visible:w-12'
-              : '',
+              ? "ml-2 w-4 data-[active=true]:lg:w-[3.25rem] group-hover:w-[3.25rem]  group-focus-visible:w-12"
+              : ""
           )}
         />
         {/* <span
@@ -162,23 +163,23 @@ const ToCItem = ({
           )}
         /> */}
         <span
-          data-active={active ? 'true' : 'false'}
+          data-active={active ? "true" : "false"}
           className={cn(
-            'text-xs font-bold uppercase tracking-widest text-neutral-500 h-4',
-            'data-[active=true]:lg:text-neutral-200',
+            "text-xs font-bold uppercase tracking-widest text-neutral-500 h-4",
+            "data-[active=true]:lg:text-neutral-200",
             !Array.isArray(id) || true
-              ? 'group-hover:text-neutral-200 group-focus-visible:text-neutral-200'
-              : '',
+              ? "group-hover:text-neutral-200 group-focus-visible:text-neutral-200"
+              : ""
           )}
         >
           {name}
         </span>
         {hasNew && (
-          <FlashyTag className='ml-4'>
+          <FlashyTag className="ml-4">
             {
               {
-                en: 'NEW',
-                es: 'NUEVO',
+                en: "NEW",
+                es: "NUEVO",
               }[lang]
             }
           </FlashyTag>
@@ -189,7 +190,7 @@ const ToCItem = ({
 };
 
 type Props = {
-  t: TFunction<'translation', undefined>;
+  t: TFunction<"translation", undefined>;
 };
 
 const Header = ({ t }: Props) => {
@@ -207,14 +208,14 @@ const Header = ({ t }: Props) => {
   useEffect(() => {}, []);
 
   return (
-    <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'>
-      <div className={cn('flex-1 flex flex-col justify-between')}>
-        <div className='mb-8'>
+    <header className=" lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+      <div className={cn("flex-1 flex flex-col justify-between")}>
+        <div className="mb-8">
           <motion.h1
-            className='text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none '
+            className="text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none "
             {...inProps()}
           >
-            <Link href='/' className='relative -ml-[1.5px]'>
+            <Link href="/" className="relative -ml-[1.5px]">
               <span
                 onPointerOver={() => {
                   shimmerX.set(10);
@@ -229,7 +230,7 @@ const Header = ({ t }: Props) => {
                 Damián Ponce
               </span>
               <motion.span
-                className='p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent'
+                className="p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent"
                 style={{
                   textShadow: `#00ffdd 0px 0px 8px`,
                   mask: useMotionTemplate`linear-gradient(90deg, #0000 calc(${shimmerX}% - 10%), #000f calc(${shimmerX}%), #0000 calc(${shimmerX}% + 10%))`,
@@ -238,7 +239,7 @@ const Header = ({ t }: Props) => {
                 Damián Ponce
               </motion.span>
               <motion.span
-                className='p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent translate-y-1'
+                className="p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent translate-y-1"
                 style={{
                   textShadow: `#ff00ff 0px 0px 8px`,
                   mask: useMotionTemplate`linear-gradient(90deg, #0000 calc(${shimmerX}% - 10%), #000f calc(${shimmerX}%), #0000 calc(${shimmerX}% + 10%))`,
@@ -247,7 +248,7 @@ const Header = ({ t }: Props) => {
                 Damián Ponce
               </motion.span>
               <motion.span
-                className='p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent translate-y-2'
+                className="p-32 -m-32 absolute inset-0 z-[-10] pointer-events-none text-transparent translate-y-2"
                 style={{
                   textShadow: `#00aaff 0px 0px 8px`,
                   mask: useMotionTemplate`linear-gradient(90deg, #0000 calc(${shimmerX}% - 10%), #000f calc(${shimmerX}%), #0000 calc(${shimmerX}% + 10%))`,
@@ -259,67 +260,67 @@ const Header = ({ t }: Props) => {
           </motion.h1>
 
           <motion.h2
-            className='mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl'
+            className="mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl"
             {...inProps(1)}
           >
-            {t('subtitle')}
+            {t("subtitle")}
           </motion.h2>
           {/* <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p> */}
         </div>
 
-        <div className='fill flex flex-[1] max-h-6 ' />
-        <nav className='hidden_lg:block'>
-          <ul className='_mt-2 w-max flex flex-col relative'>
+        <div className="fill flex flex-[1] max-h-6 " />
+        <nav className="hidden_lg:block">
+          <ul className="_mt-2 w-max flex flex-col relative">
             <ToCItem
-              name={t('toc.about')}
-              id='about'
+              name={t("toc.about")}
+              id="about"
               activeId={activeId}
               order={1}
             />
             <ToCItem
-              name={t('toc.experience')}
-              id='experience'
+              name={t("toc.experience")}
+              id="experience"
               activeId={activeId}
               order={2}
             />
             <ToCItem
-              name={t('toc.education')}
-              id='education'
+              name={t("toc.education")}
+              id="education"
               activeId={activeId}
               order={3}
             />
             <ToCItem
-              name={t('toc.freelance')}
-              id='freelance'
+              name={t("toc.freelance")}
+              id="freelance"
               activeId={activeId}
               indent
               order={5}
             />
             <ToCItem
-              name={t('toc.coding')}
-              id={'coding'}
+              name={t("toc.coding")}
+              id={"coding"}
               activeId={activeId}
               indent
               order={6}
               hasNew
             />
             <ToCItem
-              name={t('toc.engineering')}
-              id='engineering'
+              name={t("toc.engineering")}
+              id="engineering"
               activeId={activeId}
               indent
               order={7}
             />
             <ToCItem
-              name={t('toc.design')}
-              id='design'
+              name={t("toc.design")}
+              id="design"
               activeId={activeId}
               indent
               order={8}
             />
             <ToCItem
-              name={t('toc.blog')}
-              id='blog'
+              name={t("toc.blog")}
+              id="blog"
               activeId={activeId}
               order={9}
             />
@@ -332,18 +333,45 @@ const Header = ({ t }: Props) => {
             <motion.span {...inProps(8)}>
               <span
                 className={cn(
-                  'absolute left-0 -translate-x-[10rem] origin-top-right -rotate-90 top-[7.35rem] w-[10rem]',
-                  'text-xs font-bold text-center uppercase tracking-[0.6em] text-neutral-500 h-5 leading-5',
+                  "absolute left-0 -translate-x-[10rem] origin-top-right -rotate-90 top-[7.35rem] w-[10rem]",
+                  "text-xs font-bold text-center uppercase tracking-[0.6em] text-neutral-500 h-5 leading-5"
                 )}
               >
-                {t('toc.projects')}
+                {t("toc.projects")}
               </span>
             </motion.span>
           </ul>
         </nav>
-        <div className='fill flex flex-[3] min-h-6' />
-        <motion.div {...inProps(9)}>
-          <Contact />
+        <div className="fill flex flex-[3] min-h-6" />
+        <motion.div {...inProps(9)} className="flex flex-col gap-3 mb-8">
+          <div className="text-base font-medium text-left text-neutral-300 h-5 leading-5">
+            {t("toc.contactQ")}
+          </div>
+          <Link href="/contact">
+            <div
+              className={cn(
+                "group py-2 px-4 rounded-full bg-green-800 text-lg font-semibold text-left text-transparent w-fit leading-5 flex items-center hover:bg-green-600 transition-all duration-150 cursor-pointer hover:shadow-[0_2px_10px_0_#2cd76c66] hover:pr-5"
+              )}
+            >
+              {/* #3b65de66 */}
+              <span
+                className="group-hover:drop-shadow-[0_1.5px_3px_#0004] group-hover:!text-white transition-all duration-150 bg-clip-text animate-shine"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(120deg, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.7) 60%)",
+                  backgroundSize: "200% 100%",
+                  WebkitBackgroundClip: "text",
+                  animationDuration: "3s",
+                }}
+              >
+                {t("toc.contactCtA")}{" "}
+              </span>
+              <ArrowRight className="w-4 h-4 ml-1 -mr-1 text-white group-hover:translate-x-1 transition-transform duration-150" />
+            </div>
+          </Link>
+        </motion.div>
+        <motion.div {...inProps(10)}>
+          <Socials />
         </motion.div>
       </div>
     </header>

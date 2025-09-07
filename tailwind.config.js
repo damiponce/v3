@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-    darkMode: ['class'],
-    future: {
+  darkMode: ["class"],
+  future: {
     hoverOnlyWhenSupported: true,
   },
-  content: ['./components/**/*.tsx', './pages/**/*.tsx'],
+  content: ["./components/**/*.tsx", "./pages/**/*.tsx"],
   theme: {
   	extend: {
   		colors: {
@@ -99,13 +99,13 @@ module.exports = {
   			},
   			msm: {
   				max: '639px'
-        },
-        mxs: {
-          max: '399px'
-        },
-        xs: {
-          min: '400px'
-        }
+  			},
+  			mxs: {
+  				max: '399px'
+  			},
+  			xs: {
+  				min: '400px'
+  			}
   		},
   		keyframes: {
   			shimmer: {
@@ -125,23 +125,32 @@ module.exports = {
   				'100%': {
   					backgroundPosition: 'bottom center'
   				}
-        },
-        tag_ping: {
-          '0%': {
-            inset: '0px',
-            opacity: '1'
-          },
-          '100%': {
-            inset: '-16px',
-            opacity: '0'
-          }
-        }
+  			},
+  			tag_ping: {
+  				'0%': {
+  					inset: '0px',
+  					opacity: '1'
+  				},
+  				'100%': {
+  					inset: '-16px',
+  					opacity: '0'
+  				}
+  			},
+  			shine: {
+  				'0%': {
+  					'background-position': '100%'
+  				},
+  				'100%': {
+  					'background-position': '-100%'
+  				}
+  			}
   		},
   		animation: {
   			shimmer: 'shimmer .75s ease-in-out infinite',
   			gradient: 'gradient 8s linear infinite',
-        'background-position-spin': 'background-position-spin 3000ms infinite alternate',
-        ping: 'tag_ping 1s cubic-bezier(0, 0, 0.2, 1) infinite'
+  			'background-position-spin': 'background-position-spin 3000ms infinite alternate',
+  			ping: 'tag_ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+  			shine: 'shine 5s linear infinite'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -151,4 +160,4 @@ module.exports = {
   	}
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

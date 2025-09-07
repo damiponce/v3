@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import { memo, useEffect, useRef, useState } from 'react';
-import { cn } from '../lib/utils';
-import Contact from './contact';
-import { TFunction } from 'i18next';
-import Back from '../components/back';
+import Link from "next/link";
+import { memo, useEffect, useRef, useState } from "react";
+import { cn } from "../lib/utils";
+import Contact from "./socials";
+import { TFunction } from "i18next";
+import Back from "../components/back";
 
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
-import LangSwitcher from './lang-switcher';
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import LangSwitcher from "./lang-switcher";
 
 const useIntersectionObserver = (setActiveId) => {
   const headingElementsRef = useRef({});
@@ -36,18 +36,18 @@ const useIntersectionObserver = (setActiveId) => {
           (a, b) =>
             // !!!!!!!!!!!!!!!!
             // @ts-ignore
-            getIndexFromId(a.target.id) > getIndexFromId(b.target.id),
+            getIndexFromId(a.target.id) > getIndexFromId(b.target.id)
         );
         setActiveId(sortedVisibleHeadings[0].target.id);
       }
     };
 
     const observer = new IntersectionObserver(callback, {
-      rootMargin: '-5px 0px -20% 0px',
+      rootMargin: "-5px 0px -20% 0px",
     });
 
     const headingElements = Array.from(
-      document.querySelectorAll('section[data-heading]'),
+      document.querySelectorAll("section[data-heading]")
     );
     headingElements.forEach((element) => observer.observe(element));
 
@@ -80,34 +80,34 @@ const ToCItem = ({
     <li
       key={Array.isArray(id) ? id[0] : id}
       className={cn(
-        indent ? 'ml-5 peer' : '',
+        indent ? "ml-5 peer" : "",
         Array.isArray(id)
-          ? 'peer-hover:[&>a>span:first-child]:w-[5rem] peer-hover:[&>a>span:first-child]:bg-neutral-200 peer-hover:[&>a>span:last-child]:text-neutral-200 '
-          : '',
+          ? "peer-hover:[&>a>span:first-child]:w-[5rem] peer-hover:[&>a>span:first-child]:bg-neutral-200 peer-hover:[&>a>span:last-child]:text-neutral-200 "
+          : ""
       )}
       style={{ order }}
     >
       <Link
-        className={cn('group flex items-center py-3  relative')}
+        className={cn("group flex items-center py-3  relative")}
         href={`#${id}`}
         onClick={(e) => {
           e.preventDefault();
           document.querySelector(`#${id}`).scrollIntoView({
-            behavior: 'smooth',
+            behavior: "smooth",
           });
         }}
       >
         <span
-          data-active={active ? 'true' : 'false'}
+          data-active={active ? "true" : "false"}
           className={cn(
-            'mr-4 h-px w-11 bg-neutral-500 transition-all motion-reduce:transition-none z-[5]',
-            'data-[active=true]:w-[5rem] data-[active=true]:bg-neutral-200',
+            "mr-4 h-px w-11 bg-neutral-500 transition-all motion-reduce:transition-none z-[5]",
+            "data-[active=true]:w-[5rem] data-[active=true]:bg-neutral-200",
             !Array.isArray(id) || true
-              ? 'group-hover:w-[5rem] group-hover:bg-neutral-200 group-focus-visible:w-[5rem] group-focus-visible:bg-neutral-200'
-              : '',
+              ? "group-hover:w-[5rem] group-hover:bg-neutral-200 group-focus-visible:w-[5rem] group-focus-visible:bg-neutral-200"
+              : "",
             indent
-              ? 'ml-2 w-4 data-[active=true]:w-[3.25rem] group-hover:w-[3.25rem] group-focus-visible:w-12'
-              : '',
+              ? "ml-2 w-4 data-[active=true]:w-[3.25rem] group-hover:w-[3.25rem] group-focus-visible:w-12"
+              : ""
           )}
         />
         {/* <span
@@ -143,13 +143,13 @@ const ToCItem = ({
           )}
         /> */}
         <span
-          data-active={active ? 'true' : 'false'}
+          data-active={active ? "true" : "false"}
           className={cn(
-            'text-xs font-bold uppercase tracking-widest text-neutral-500 h-4',
-            'data-[active=true]:text-neutral-200',
+            "text-xs font-bold uppercase tracking-widest text-neutral-500 h-4",
+            "data-[active=true]:text-neutral-200",
             !Array.isArray(id) || true
-              ? 'group-hover:text-neutral-200 group-focus-visible:text-neutral-200'
-              : '',
+              ? "group-hover:text-neutral-200 group-focus-visible:text-neutral-200"
+              : ""
           )}
         >
           {name}
@@ -160,7 +160,7 @@ const ToCItem = ({
 };
 
 type Props = {
-  t: TFunction<'translation', undefined>;
+  t: TFunction<"translation", undefined>;
   designs: any[];
 };
 
@@ -173,22 +173,22 @@ const HeaderDesign = ({ t, designs }: Props) => {
   // }, [activeId]);
 
   return (
-    <header className=' lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 flex-[1]'>
-      <div className={cn('flex-1 flex flex-col justify-between')}>
-        <div className='mb-8'>
+    <header className=" lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 flex-[1]">
+      <div className={cn("flex-1 flex flex-col justify-between")}>
+        <div className="mb-8">
           <Back langSw={false} />
-          <h1 className='text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none'>
-            {t('bigTitle')}
+          <h1 className="text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none">
+            {t("bigTitle")}
           </h1>
-          <h2 className='mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl'>
+          <h2 className="mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl">
             {/* {t('subtitle')} */}
           </h2>
           {/* <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p> */}
         </div>
 
-        <div className='fill flex flex-[1] max-h-6 ' />
-        <nav className='hidden lg:block'>
-          <ul className='_mt-2 w-max flex flex-col relative'>
+        <div className="fill flex flex-[1] max-h-6 " />
+        <nav className="hidden lg:block">
+          <ul className="_mt-2 w-max flex flex-col relative">
             {designs.map((design, index) => (
               <ToCItem
                 name={t(`name.${design.name}`)}
@@ -205,7 +205,7 @@ const HeaderDesign = ({ t, designs }: Props) => {
             /> */}
           </ul>
         </nav>
-        <div className='fill flex flex-[3]' />
+        <div className="fill flex flex-[3]" />
         <Contact />
       </div>
     </header>

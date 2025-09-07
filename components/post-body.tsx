@@ -1,42 +1,26 @@
-import React, { Suspense, useEffect, useState } from 'react';
-import markdownStyles from './markdown-styles.module.css';
+import React from "react";
 // import githubMarkdownStyles from './github-markdown.module.css';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeSlug from 'rehype-slug';
+import ReactMarkdown from "react-markdown";
+import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 
-import { getHighlighterCore, HighlighterCore } from 'shiki/core';
+import { getHighlighterCore, HighlighterCore } from "shiki/core";
 
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import 'katex/dist/katex.min.css';
+import "katex/dist/katex.min.css";
 
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { qtcreator_dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
-import { Grammar, common, createStarryNight } from '@wooorm/starry-night';
-import { Root } from 'hast';
-import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
 // @ts-ignore
-import { Fragment, jsx, jsxs } from 'react/jsx-runtime';
 
-import { deserialize } from 'react-serialize';
-import { toHtml } from 'hast-util-to-html';
-import { Nodes } from 'hast-util-to-jsx-runtime/lib';
-import remarkImages from 'remark-images';
-import PostType from '../interfaces/post';
-import SkeletonBase from './skeleton-base';
-import { be } from 'date-fns/locale';
-import { fromHtmlIsomorphic } from 'hast-util-from-html-isomorphic';
+import PostType from "../interfaces/post";
+import SkeletonBase from "./skeleton-base";
 
 type Props = {
   content: string;
-  imageSizes: PostType['imageSizes'];
+  imageSizes: PostType["imageSizes"];
 };
 
 function PostBody({ content, imageSizes }: Props) {
@@ -45,13 +29,13 @@ function PostBody({ content, imageSizes }: Props) {
   React.useEffect(() => {
     const f = async () => {
       const highlighter = await getHighlighterCore({
-        themes: [import('shiki/themes/vesper.mjs')],
+        themes: [import("shiki/themes/vesper.mjs")],
         langs: [
-          import('shiki/langs/javascript.mjs'),
-          import('shiki/langs/c.mjs'),
-          import('shiki/langs/python.mjs'),
+          import("shiki/langs/javascript.mjs"),
+          import("shiki/langs/c.mjs"),
+          import("shiki/langs/python.mjs"),
         ],
-        loadWasm: import('shiki/wasm'),
+        loadWasm: import("shiki/wasm"),
       });
       setHighlighter(highlighter);
     };
@@ -63,7 +47,7 @@ function PostBody({ content, imageSizes }: Props) {
 
   if (!highlighter)
     return (
-      <div className='flex flex-col w-full max-h-screen'>
+      <div className="flex flex-col w-full max-h-screen">
         <SkeletonBase className={`h-8 w-[100%] mb-5`} />
         <SkeletonBase className={`h-8 w-[97%] mb-5`} />
         <SkeletonBase className={`h-8 w-[98%] mb-5`} />
@@ -76,13 +60,13 @@ function PostBody({ content, imageSizes }: Props) {
     );
 
   return (
-    <div className='max-w-2xl mx-auto'>
-      <div className='markdown-body'>
+    <div className="max-w-2xl mx-auto">
+      <div className="markdown-body">
         <ReactMarkdown
           children={content}
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[
-            rehypeKatex,
+            rehypeKatex as any,
             // rehypeSlug,
             // [
             //   rehypeAutolinkHeadings,
@@ -96,14 +80,14 @@ function PostBody({ content, imageSizes }: Props) {
               return <>{children}</>;
             },
             code({ node, inline, className, children, ...props }) {
-              const match = /language-(\w+)/.exec(className || '');
+              const match = /language-(\w+)/.exec(className || "");
               return !inline ? (
                 (parse(
                   highlighter.codeToHtml(children[0] as string, {
-                    lang: match ? match[1] : 'text',
-                    theme: 'vesper',
+                    lang: match ? match[1] : "text",
+                    theme: "vesper",
                   }),
-                  {},
+                  {}
                 ) as React.JSX.Element)
               ) : (
                 <code {...props} className={className}>
@@ -121,8 +105,8 @@ function PostBody({ content, imageSizes }: Props) {
                     alt={alt}
                     width={width}
                     height={height}
-                    sizes='(max-width: 760px) 100vw, 760px'
-                    className='object-cover w-full h-auto max-h-[calc(42rem_/_16*9)]'
+                    sizes="(max-width: 760px) 100vw, 760px"
+                    className="object-cover w-full h-auto max-h-[calc(42rem_/_16*9)]"
                   />
                 );
               } else {

@@ -21,14 +21,6 @@ export default function Contact(
     <>
       <Head>
         <title>{t("title")}</title>
-        <Script
-          src="https://tally.so/widgets/embed.js"
-          strategy="beforeInteractive"
-          onReady={() => {
-            // @ts-ignore
-            Tally.loadEmbeds();
-          }}
-        ></Script>
       </Head>
       <Meta />
       <div className="">
@@ -55,8 +47,14 @@ export default function Contact(
               height="238"
               className="-mx-2"
             ></iframe>
-
-            <script>{`Tally.loadEmbeds();`}</script>
+            <Script
+              src="https://tally.so/widgets/embed.js"
+              strategy="beforeInteractive"
+              onReady={() => {
+                // @ts-ignore
+                window.Tally?.loadEmbeds();
+              }}
+            ></Script>
           </div>
         </div>
       </div>

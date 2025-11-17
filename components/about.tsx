@@ -1,13 +1,13 @@
-import NextLink from 'next/link';
+import NextLink from "next/link";
 
 type Props = { lang: string };
 
 const Link = ({ url, children }: { url: string; children: string }) => (
   <NextLink
-    className='font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight'
+    className="font-medium text-neutral-200 hover:text-highlight focus-visible:text-highlight"
     href={url}
-    target='_blank'
-    rel='noreferrer'
+    target="_blank"
+    rel="noreferrer"
   >
     {children}
   </NextLink>
@@ -16,37 +16,40 @@ const Link = ({ url, children }: { url: string; children: string }) => (
 const About = ({ lang }: Props) => {
   return {
     es: (
-      <p className='mb-4'>
-        Siempre estuve interesado en la programación como mi principal manera de
-        ser creativo, arreglando problemas de alguna manera. También disfruto el
-        diseño gráfico casualmente, ya sea para un diseño de un poster random o
-        hasta buena UX.
+      <p className="mb-4">
+        Como programador, mi herramienta de elección es el{" "}
+        <b>desarrollo frontend</b>. Disfruto el desafío de transformar ideas en
+        interfaces interactivas, funcionales y visualmente atractivas,
+        apoyándome en mi afinidad por el buen diseño y la UX.
         <br />
         <br />
-        Otro interes que tengo es la electrónica, probablemente por haber
-        estudiado en una escuela secundaria “técnica”. También me gusta meterme
-        en proyectos de electrónica a veces. Cuando no estoy con mis proyectos,
-        disfruto algunos videojuegos, escuchar música y programar por hobby.
+        Si bien mi fortaleza actual reside en el <i>client-side</i>, estoy en un
+        proceso de crecimiento activo, adentrándome con mucho interés en el
+        <b>desarrollo backend</b>. Mi objetivo es dominar el ciclo completo del
+        desarrollo de aplicaciones.
         <br />
         <br />
-        Estoy entusiasmado de ver a donde me lleva mi carrera, y siempre estoy
-        en búsqueda de oportunidades para aprender y crecer.
+        Busco oportunidades que me permitan aplicar mi sólida experiencia en
+        frontend mientras desarrollo y pongo en práctica mis crecientes
+        habilidades en backend.
       </p>
     ),
     en: (
-      <p className='mb-4'>
-        I’ve always been interested in programming as my main way to be
-        creative, solving problems one way or another. I also enjoy graphic
-        design from time to time, be it for random poster design or even for
-        good UX. <br />
+      <p className="mb-4">
+        As a programmer, my tool of choice is <b>frontend development</b>. I
+        enjoy the challenge of transforming ideas into interactive, functional,
+        and visually appealing interfaces, drawing on my affinity for good
+        design and UX.
         <br />
-        Another interest of mine is electronics, probably from having gone to a
-        “technical” high-school. I also like tinkering with electronics stuff
-        ocasionally. When I’m not working on my projects, I enjoy gaming, music,
-        and even programming for fun.
         <br />
-        <br />I am excited to see where my career takes me in the future, and I
-        am always looking for new opportunities to learn and grow.
+        While my current strength lies on the <i>client-side</i>, I am in a
+        process of active growth, diving into <b>backend development</b> with
+        great interest. My goal is to master the complete application
+        development lifecycle.
+        <br />
+        <br />I am seeking opportunities that allow me to apply my solid
+        frontend experience while developing and putting into practice my
+        growing backend skills.
       </p>
     ),
   }[lang];

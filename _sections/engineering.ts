@@ -17,19 +17,20 @@ type Project = {
 
 const ENGINEERING: Project[] = [
   {
-    _key: 'weather-station',
-    img: '/assets/images/wip-banner.webp',
-    url: '/posts/wip',
-    technologies: ['ESP-IDF', 'Grafana', 'InfluxDB', 'MQTT'],
+    _key: "weather-station",
+    img: "/assets/images/wip-banner.webp",
+    // url: '/posts/wip',
+    url: "",
+    technologies: ["ESP-IDF", "Grafana", "InfluxDB", "MQTT"],
     es: {
-      date: '2023',
-      title: 'Estación meteorológica (WIP)',
-      description: '',
+      date: "2023",
+      title: "Estación meteorológica (WIP)",
+      description: "",
     },
     en: {
-      date: '2023',
-      title: 'Weather Station (WIP)',
-      description: '',
+      date: "2023",
+      title: "Weather Station (WIP)",
+      description: "",
     },
   },
 ];

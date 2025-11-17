@@ -260,7 +260,7 @@ const Header = ({ t }: Props) => {
           </motion.h1>
 
           <motion.h2
-            className="mt-3 text-lg font-medium tracking-tight text-neutral-200 sm:text-xl"
+            className="mt-3 text-lg font-[400] tracking-[-0.02rem] text-neutral-300 sm:text-xl text-balance mr-6"
             {...inProps(1)}
           >
             {t("subtitle")}

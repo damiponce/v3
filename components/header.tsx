@@ -17,6 +17,7 @@ import FlashyTag from "./flashy-tag";
 import { ArrowRight } from "lucide-react";
 import { getPositioning } from "../_sections/positioning";
 import { SHOW_BLOG } from "../lib/flags";
+import { EMAIL, resumeFor } from "../lib/contact";
 
 function inProps(n = 0) {
   return {
@@ -77,44 +78,31 @@ const ToCItem = ({
   name,
   activeId,
   order,
-  indent = false,
   hasNew,
 }: {
+  // A group of sections (e.g. all project lists) links to the first one and
+  // stays active while any of them is on screen.
   id: string | string[];
   name: string;
   activeId: string;
   order: number;
-  indent?: boolean;
   hasNew?: boolean;
 }) => {
-  let active = false;
-
-  if (Array.isArray(id)) {
-    active = id.includes(activeId);
-  } else {
-    active = id === activeId;
-  }
+  const ids = Array.isArray(id) ? id : [id];
+  const active = ids.includes(activeId);
+  const target = ids[0];
 
   const { i18n } = useTranslation();
   const lang = i18n.language;
 
   return (
-    <motion.li
-      className={cn(
-        indent ? "ml-5 peer" : "",
-        Array.isArray(id)
-          ? "peer-hover:[&>a>span:first-child]:w-[5rem] peer-hover:[&>a>span:first-child]:bg-neutral-200 peer-hover:[&>a>span:last-child]:text-neutral-200 "
-          : ""
-      )}
-      style={{ order }}
-      {...inProps(order + 1)}
-    >
+    <motion.li style={{ order }} {...inProps(order + 1)}>
       <Link
         className={cn("group flex items-center py-3 h-[40px] relative")}
-        href={`#${id}`}
+        href={`#${target}`}
         onClick={(e) => {
           e.preventDefault();
-          document.querySelector(`#${id}`).scrollIntoView({
+          document.getElementById(target)?.scrollIntoView({
             behavior: "smooth",
           });
         }}
@@ -124,54 +112,15 @@ const ToCItem = ({
           className={cn(
             "mr-4 h-px w-11 bg-neutral-500 transition-all motion-reduce:transition-none z-[5]",
             "data-[active=true]:lg:w-[5rem] data-[active=true]:lg:bg-neutral-200",
-            !Array.isArray(id) || true
-              ? "group-hover:w-[5rem] group-hover:bg-neutral-200 group-focus-visible:w-[5rem] group-focus-visible:bg-neutral-200"
-              : "",
-            indent
-              ? "ml-2 w-4 data-[active=true]:lg:w-[3.25rem] group-hover:w-[3.25rem]  group-focus-visible:w-12"
-              : ""
+            "group-hover:w-[5rem] group-hover:bg-neutral-200 group-focus-visible:w-[5rem] group-focus-visible:bg-neutral-200"
           )}
         />
-        {/* <span
-          data-active={active ? "true" : "false"}
-          className={cn(
-            indent
-              ? cn(
-                  "transition-all absolute w-5 h-6 border-neutral-500 border-r-[2px] border-t-[2px] rounded-tr-lg border-solid top-[-0.5px] left-[0px] z-[4]",
-                  "data-[active=true]:border-neutral-200 data-[active=true]:z-[5]",
-                  "group-hover:border-neutral-200 group-hover:z-[5]",
-                  "group-focus-visible:border-neutral-200 group-focus-visible:z-[5]"
-                )
-              : ""
-          )}
-          style={{
-            transform: `translateY(${
-              indent ? `-${1.25 + (order - 5) * 2.5}rem` : "0"
-            }) translateX(${indent ? "-1.25rem" : "0"})`,
-            height: indent ? `${1.5 + (order - 5) * 2.5}rem` : "0",
-          }}
-        />
-        <span
-          data-active={active ? "true" : "false"}
-          className={cn(
-            indent
-              ? cn(
-                  "transition-all absolute w-5 h-5 border-neutral-500 border-l-[2px] border-b-[2px] rounded-bl-lg border-solid top-[0.5px] left-[-1.0px] z-[4]",
-                  "data-[active=true]:border-neutral-200 data-[active=true]:z-[5]",
-                  "group-hover:border-neutral-200 group-hover:z-[5]",
-                  "group-focus-visible:border-neutral-200 group-focus-visible:z-[5]"
-                )
-              : ""
-          )}
-        /> */}
         <span
           data-active={active ? "true" : "false"}
           className={cn(
             "text-xs font-bold uppercase tracking-widest text-neutral-500 h-4",
             "data-[active=true]:lg:text-neutral-200",
-            !Array.isArray(id) || true
-              ? "group-hover:text-neutral-200 group-focus-visible:text-neutral-200"
-              : ""
+            "group-hover:text-neutral-200 group-focus-visible:text-neutral-200"
           )}
         >
           {name}
@@ -199,6 +148,7 @@ const Header = ({ t }: Props) => {
   const [activeId, setActiveId] = useState();
   useIntersectionObserver(setActiveId);
   const { i18n } = useTranslation();
+  const resume = resumeFor(i18n.language);
 
   // useEffect(() => {
   //    console.error(activeId);
@@ -281,77 +231,38 @@ const Header = ({ t }: Props) => {
               order={1}
             />
             <ToCItem
+              name={t("toc.featured")}
+              id="featured"
+              activeId={activeId}
+              order={2}
+              hasNew
+            />
+            <ToCItem
               name={t("toc.experience")}
               id="experience"
               activeId={activeId}
-              order={2}
+              order={3}
+            />
+            <ToCItem
+              name={t("toc.projects")}
+              id={["freelance", "coding", "engineering", "design"]}
+              activeId={activeId}
+              order={4}
             />
             <ToCItem
               name={t("toc.education")}
               id="education"
               activeId={activeId}
-              order={3}
-            />
-            <ToCItem
-              name={t("toc.featured")}
-              id="featured"
-              activeId={activeId}
-              indent
-              order={4}
-              hasNew
-            />
-            <ToCItem
-              name={t("toc.freelance")}
-              id="freelance"
-              activeId={activeId}
-              indent
               order={5}
-            />
-            <ToCItem
-              name={t("toc.coding")}
-              id={"coding"}
-              activeId={activeId}
-              indent
-              order={6}
-            />
-            <ToCItem
-              name={t("toc.engineering")}
-              id="engineering"
-              activeId={activeId}
-              indent
-              order={7}
-            />
-            <ToCItem
-              name={t("toc.design")}
-              id="design"
-              activeId={activeId}
-              indent
-              order={8}
             />
             {SHOW_BLOG && (
               <ToCItem
                 name={t("toc.blog")}
                 id="blog"
                 activeId={activeId}
-                order={9}
+                order={6}
               />
             )}
-            {/* <ToCItem
-              name="Projects"
-              id={["freelance", "coding", "engineering"]}
-              activeId={activeId}
-              order={4}
-            /> */}
-            <motion.span {...inProps(8)}>
-              <span
-                className={cn(
-                  "absolute left-0 -translate-x-[12.5rem] origin-top-right -rotate-90 top-[7.35rem] w-[12.5rem]",
-                  "text-xs font-bold text-center uppercase tracking-[0.6em] text-neutral-500 h-5 leading-5"
-                )}
-              >
-                {t("toc.projects")}
-              </span>
-            </motion.span>
           </ul>
         </nav>
         <div className="fill flex flex-[3] min-h-6" />
@@ -359,6 +270,7 @@ const Header = ({ t }: Props) => {
           <div className="text-base font-medium text-left text-neutral-300 h-5 leading-5">
             {t("toc.contactQ")}
           </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <Link href="/contact">
             <div
               className={cn(
@@ -381,6 +293,21 @@ const Header = ({ t }: Props) => {
               <ArrowRight className="w-4 h-4 ml-1 -mr-1 text-white group-hover:translate-x-1 transition-transform duration-150" />
             </div>
           </Link>
+          <a
+            href={resume.main}
+            target="_blank"
+            rel="noreferrer"
+            className="text-base font-semibold text-neutral-200 underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-200 focus-visible:decoration-neutral-200"
+          >
+            {t("resume")}
+          </a>
+          </div>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="w-fit text-sm text-neutral-400 transition-colors hover:text-neutral-200 focus-visible:text-neutral-200"
+          >
+            {EMAIL}
+          </a>
         </motion.div>
         <motion.div {...inProps(10)}>
           <Socials />

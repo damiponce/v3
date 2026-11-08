@@ -6,9 +6,11 @@ type Props = {
   text: string; // | string[];
   url: string;
   noLocale?: boolean;
+  // Files like the résumé PDF open in a new tab so the page keeps its place.
+  newTab?: boolean;
 };
 
-const ViewFull = ({ className, text, url, noLocale }: Props) => {
+const ViewFull = ({ className, text, url, noLocale, newTab }: Props) => {
   return (
     <div className={cn('mt-12 mb-8', className)}>
       <Link
@@ -16,6 +18,8 @@ const ViewFull = ({ className, text, url, noLocale }: Props) => {
         aria-label={Array.isArray(text) ? text.join(' ') : text}
         href={url}
         locale={noLocale ? false : undefined}
+        target={newTab ? '_blank' : undefined}
+        rel={newTab ? 'noreferrer' : undefined}
       >
         <span>
           {/* {Array.isArray(text) ? (

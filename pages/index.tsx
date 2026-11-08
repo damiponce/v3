@@ -29,12 +29,22 @@ import GridCard from '@/components/grid-card';
 import FEATURED from '../_sections/featured';
 import ArchDiagram from '../components/arch-diagram';
 import { SHOW_BLOG } from '../lib/flags';
+import { resumeFor } from '../lib/contact';
+import Closing from '../components/closing';
+
+// Featured projects are not repeated in their own category list.
+const FEATURED_KEYS = new Set(FEATURED.map((item) => item._key));
+const FREELANCE_REST = FREELANCE.filter((item) => !FEATURED_KEYS.has(item._key));
+const CODING_REST = CODING.filter(
+  (item) => !item.archived && !FEATURED_KEYS.has(item._key),
+);
 
 export default function Index(
   _props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+  const resume = resumeFor(lang);
 
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
@@ -97,67 +107,9 @@ export default function Index(
               </Section>
               <Section
                 index={1}
-                id='experience'
-                name={t('toc.experience')}
-                darker
-              >
-                <ol className='group/list'>
-                  {EXPERIENCE.map((item) => (
-                    <TextCard
-                      itemKey={`experience-${item._key}`}
-                      key={`experience-${item._key}`}
-                      url={item.url}
-                      date={item[lang].date}
-                      title={item[lang].title}
-                      place={item[lang].place}
-                      position={item[lang].position}
-                      description={item[lang].description}
-                      links={item.links}
-                      technologies={
-                        item[lang].technologies ?? item.technologies
-                      }
-                      highlight={item.highlight}
-                    />
-                  ))}
-                </ol>
-                <ViewFull
-                  className='mb-4'
-                  text={t('viewResumeES')}
-                  url={'/assets/resume/CV_PONCE_ES.pdf'}
-                  noLocale
-                />
-                <ViewFull
-                  className='mt-0'
-                  text={t('viewResumeEN')}
-                  url={'/assets/resume/CV_PONCE_EN.pdf'}
-                  noLocale
-                />
-              </Section>
-              <Section index={2} id='education' name={t('toc.education')}>
-                <ol className='group/list -mb-6'>
-                  {EDUCATION.map((item) => (
-                    <TextCard
-                      itemKey={`education-${item._key}`}
-                      key={`education-${item._key}`}
-                      url={item.url}
-                      date={item[lang].date}
-                      title={item[lang].title}
-                      place={item[lang].place}
-                      position={item[lang].position}
-                      description={item[lang].description}
-                      links={item.links}
-                      technologies={
-                        item[lang].technologies ?? item.technologies
-                      }
-                      highlight={item.highlight}
-                    />
-                  ))}
-                </ol>
-              </Section>
-              <Section
-                index={3}
                 id='featured'
-                name={t('toc.projects') + ' ‣ ' + t('toc.featured')}
+                darker
+                name={t('toc.featuredTitle')}
               >
                 <ul className='group/list'>
                   {FEATURED.map((item) => (
@@ -183,13 +135,53 @@ export default function Index(
                 </ul>
               </Section>
               <Section
-                index={4}
+                index={2}
+                id='experience'
+                name={t('toc.experience')}
+              >
+                <ol className='group/list'>
+                  {EXPERIENCE.map((item) => (
+                    <TextCard
+                      itemKey={`experience-${item._key}`}
+                      key={`experience-${item._key}`}
+                      url={item.url}
+                      date={item[lang].date}
+                      title={item[lang].title}
+                      place={item[lang].place}
+                      position={item[lang].position}
+                      description={item[lang].description}
+                      links={item.links}
+                      technologies={
+                        item[lang].technologies ?? item.technologies
+                      }
+                      highlight={item.highlight}
+                    />
+                  ))}
+                </ol>
+                <ViewFull
+                  className='mb-3'
+                  text={t('viewResume')}
+                  url={resume.main}
+                  noLocale
+                  newTab
+                />
+                <a
+                  href={resume.other}
+                  target='_blank'
+                  rel='noreferrer'
+                  className='text-sm text-neutral-400 underline decoration-neutral-700 underline-offset-4 transition-colors hover:text-neutral-200 hover:decoration-neutral-400'
+                >
+                  {t('resumeOther')}
+                </a>
+              </Section>
+              <Section
+                index={3}
                 id='freelance'
                 name={t('toc.projects') + ' ‣ ' + t('toc.freelance')}
                 darker
               >
                 <ul className='group/list grid grid-cols-6 gap-x-3 gap-y-4 xs:gap-x-6 xs:gap-y-6 lg:gap-x-8 lg:gap-y-8 xl:gap-x-5 xl:gap-y-6'>
-                  {FREELANCE.map((item) => (
+                  {FREELANCE_REST.map((item) => (
                     <GridCard
                       itemKey={`freelance-${item._key}`}
                       key={`freelance-${item._key}`}
@@ -219,12 +211,12 @@ export default function Index(
                 <ViewFull text={t('viewFreelance')} url='freelance' />
               </Section>
               <Section
-                index={5}
+                index={4}
                 id='coding'
                 name={t('toc.projects') + ' ‣ ' + t('toc.coding')}
               >
                 <ul className='group/list'>
-                  {CODING.filter((item) => !item.archived).map((item) => (
+                  {CODING_REST.map((item) => (
                     <ImgCard
                       itemKey={`coding-${item._key}`}
                       key={`coding-${item._key}`}
@@ -250,7 +242,7 @@ export default function Index(
               </Section>
 
               <Section
-                index={6}
+                index={5}
                 id='engineering'
                 name={t('toc.projects') + ' ‣ ' + t('toc.engineering')}
                 darker
@@ -274,7 +266,7 @@ export default function Index(
                 <ViewFull text={t('viewProjects')} url='projects' />
               </Section>
               <Section
-                index={7}
+                index={6}
                 id='design'
                 name={t('toc.projects') + ' ‣ ' + t('toc.design')}
               >
@@ -308,7 +300,7 @@ export default function Index(
                 </ul>
               </Section>
               {SHOW_BLOG && (
-              <Section index={8} id='blog' name='Blog' darker className='mb-12'>
+              <Section index={7} id='blog' name='Blog' darker className='mb-12'>
                 <ol className='group/list -mb-16'>
                   {_props.allPosts.map(
                     (post) =>
@@ -326,6 +318,28 @@ export default function Index(
                 </ol>
               </Section>
               )}
+              <Section index={8} id='education' name={t('toc.education')} darker>
+                <ol className='group/list -mb-6'>
+                  {EDUCATION.map((item) => (
+                    <TextCard
+                      itemKey={`education-${item._key}`}
+                      key={`education-${item._key}`}
+                      url={item.url}
+                      date={item[lang].date}
+                      title={item[lang].title}
+                      place={item[lang].place}
+                      position={item[lang].position}
+                      description={item[lang].description}
+                      links={item.links}
+                      technologies={
+                        item[lang].technologies ?? item.technologies
+                      }
+                      highlight={item.highlight}
+                    />
+                  ))}
+                </ol>
+              </Section>
+              <Closing />
               <Footer lang={lang} />
             </main>
           </div>

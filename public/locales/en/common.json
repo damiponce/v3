@@ -11,7 +11,8 @@
     "design": "Design",
     "blog": "Blog",
     "contactQ": "Want to work together?",
-    "contactCtA": "Get in touch"
+    "contactCtA": "Get in touch",
+    "featuredTitle": "Featured projects"
   },
   "description": "Temp text",
   "viewResume": "View Résumé",
@@ -27,5 +28,13 @@
     "coding": "Coding",
     "engineering": "Engineering",
     "design": "Design"
+  },
+  "resume": "Résumé (PDF)",
+  "resumeOther": "Spanish version",
+  "closing": {
+    "title": "Contact",
+    "form": "Contact form",
+    "bodyBefore": "Email me at ",
+    "bodyAfter": ", or use the contact form if you have a project in mind. My résumé is available in English and Spanish."
   }
 }

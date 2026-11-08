@@ -11,7 +11,8 @@
     "design": "Diseño",
     "blog": "Blog",
     "contactQ": "¿Querés trabajar juntos?",
-    "contactCtA": "Contactame"
+    "contactCtA": "Contactame",
+    "featuredTitle": "Proyectos destacados"
   },
   "description": "Texto temporal",
   "viewResume": "Ver CV",
@@ -27,5 +28,13 @@
     "coding": "Programación",
     "engineering": "Ingeniería",
     "design": "Diseño"
+  },
+  "resume": "CV (PDF)",
+  "resumeOther": "Versión en inglés",
+  "closing": {
+    "title": "Contacto",
+    "form": "Formulario de contacto",
+    "bodyBefore": "Escribime a ",
+    "bodyAfter": ", o usá el formulario de contacto si tenés un proyecto en mente. Mi CV está disponible en español y en inglés."
   }
 }

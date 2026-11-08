@@ -12,6 +12,7 @@ type Education = {
   url?: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
+  highlight?: boolean;
   es: CardText;
   en: CardText;
 };
@@ -19,6 +20,7 @@ type Education = {
 const EDUCATION: Education[] = [
   {
     _key: "university",
+    highlight: true,
     url: "https://computacion.dc.uba.ar/",
     es: {
       date: "2026 → ...",
@@ -35,7 +37,7 @@ const EDUCATION: Education[] = [
     },
   },
   {
-    _key: "university",
+    _key: "engineering",
     url: "https://frh.utn.edu.ar/",
     es: {
       date: "2021 → 2025",

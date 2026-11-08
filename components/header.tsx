@@ -16,6 +16,7 @@ import {
 import FlashyTag from "./flashy-tag";
 import { ArrowRight } from "lucide-react";
 import { getPositioning } from "../_sections/positioning";
+import { SHOW_BLOG } from "../lib/flags";
 
 function inProps(n = 0) {
   return {
@@ -292,6 +293,14 @@ const Header = ({ t }: Props) => {
               order={3}
             />
             <ToCItem
+              name={t("toc.featured")}
+              id="featured"
+              activeId={activeId}
+              indent
+              order={4}
+              hasNew
+            />
+            <ToCItem
               name={t("toc.freelance")}
               id="freelance"
               activeId={activeId}
@@ -304,7 +313,6 @@ const Header = ({ t }: Props) => {
               activeId={activeId}
               indent
               order={6}
-              hasNew
             />
             <ToCItem
               name={t("toc.engineering")}
@@ -320,12 +328,14 @@ const Header = ({ t }: Props) => {
               indent
               order={8}
             />
-            <ToCItem
-              name={t("toc.blog")}
-              id="blog"
-              activeId={activeId}
-              order={9}
-            />
+            {SHOW_BLOG && (
+              <ToCItem
+                name={t("toc.blog")}
+                id="blog"
+                activeId={activeId}
+                order={9}
+              />
+            )}
             {/* <ToCItem
               name="Projects"
               id={["freelance", "coding", "engineering"]}
@@ -335,7 +345,7 @@ const Header = ({ t }: Props) => {
             <motion.span {...inProps(8)}>
               <span
                 className={cn(
-                  "absolute left-0 -translate-x-[10rem] origin-top-right -rotate-90 top-[7.35rem] w-[10rem]",
+                  "absolute left-0 -translate-x-[12.5rem] origin-top-right -rotate-90 top-[7.35rem] w-[12.5rem]",
                   "text-xs font-bold text-center uppercase tracking-[0.6em] text-neutral-500 h-5 leading-5"
                 )}
               >

@@ -12,6 +12,7 @@ type Experience = {
   url?: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
+  highlight?: boolean;
   es: CardText;
   en: CardText;
 };
@@ -21,21 +22,40 @@ const weirdDash = "→";
 const EXPERIENCE: Experience[] = [
   {
     _key: "eti-tango-fullstack",
+    highlight: true,
     url: "",
-    technologies: ["React", "Next.js", "Firebase"],
+    technologies: ["Next.js", "React", "TypeScript", "Firebase", "PostHog"],
     es: {
       date: "Jun 2025 → presente",
-      title: "Desarrollador Web Full-Stack",
-      position: "Encuentro Tanguero del Interior",
+      title: "Desarrollador Full-Stack",
+      position: "Encuentro Tanguero del Interior (ETI)",
       description:
-        "Desarrollo completo con diseño de sistema de gestión de eventos con +1000 usuarios mensuales.",
+        "Diseñé y desarrollé la plataforma de eventos de punta a punta: más de 2000 usuarios registrados y hasta 1000 usuarios activos por mes en el pico. Acceso por roles con custom claims de Firebase Auth.",
     },
     en: {
       date: "Jun 2025 → present",
-      title: "Full-Stack Web Developer",
-      position: "Encuentro Tanguero del Interior",
+      title: "Full-Stack Developer",
+      position: "Encuentro Tanguero del Interior (ETI)",
       description:
-        "Full-stack development with event management system design for +1000 monthly users.",
+        "Designed and built the event platform end to end: 2,000+ registered users, up to 1,000 monthly active users at peak. Role-based access with Firebase Auth custom claims.",
+    },
+  },
+  {
+    _key: "freelance-webdev",
+    highlight: true,
+    url: "#freelance",
+    technologies: ["Next.js", "Vercel", "Sanity"],
+    es: {
+      date: "May 2022 → presente",
+      title: "Desarrollador Full-Stack (freelance)",
+      position: "Remoto · Freelance",
+      description: "Proyectos web, mobile e IoT para clientes de Argentina y Chile.",
+    },
+    en: {
+      date: "May 2022 → present",
+      title: "Full-Stack Developer (freelance)",
+      position: "Remote · Freelance",
+      description: "Web, mobile and IoT projects for clients in Argentina and Chile.",
     },
   },
   {
@@ -43,37 +63,18 @@ const EXPERIENCE: Experience[] = [
     url: "https://frh.utn.edu.ar",
     technologies: ["React", "Next.js", "Trame"],
     es: {
-      date: "Ago 2024 → presente",
-      title: "Desarrollador Web Front-end",
+      date: "2024",
+      title: "Líder Front-End",
       position: "GMF - LAyF - UTN FRH",
       description:
-        "Liderando el desarrollo front-end de una nueva Suite de simulación de sistemas de baterías VFR.",
+        "Lideré el desarrollo front-end de una nueva suite de simulación de sistemas de baterías VFR.",
     },
     en: {
-      date: "Aug 2024 → present",
-      title: "Front-end Web Developer",
+      date: "2024",
+      title: "Front-End Lead",
       position: "GMF - LAyF - UTN FRH",
       description:
-        "Leading the front-end development of a new simulation Suite related to VFR battery systems.",
-    },
-  },
-  {
-    _key: "freelance-webdev",
-    url: "#freelance",
-    technologies: ["Next.js", "Vercel", "Sanity"],
-    es: {
-      date: "May 2022 → presente",
-      title: "Desarrollador Web Freelance",
-      position: "Remoto · Freelance",
-      description:
-        "Desarrollo de sitios web, aplicaciones web y aplicaciones móviles para clientes varios.",
-    },
-    en: {
-      date: "May 2022 → present",
-      title: "Freelance Web Developer",
-      position: "Remote · Freelance",
-      description:
-        "Website, web app and mobile app development for various clients.",
+        "Led the front-end development of a new simulation suite for VFR battery systems.",
     },
   },
   // {

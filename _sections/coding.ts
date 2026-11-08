@@ -12,14 +12,46 @@ type Project = {
   links?: { name: string; url: string }[];
   technologies?: string[];
   new?: boolean;
+  // Important projects render a step larger on the home page.
+  important?: boolean;
+  // Listed only on the /projects page, not on the homepage.
+  archived?: boolean;
   es: CardText;
   en: CardText;
 };
 
 const CODING: Project[] = [
   {
+    _key: 'musictl',
+    important: true,
     new: true,
+    img: '/assets/images/placeholder-banner.webp', // TODO: Music Timeline screenshot
+    url: 'https://musictl.damianponce.com',
+    // TODO: add { name: 'GitHub', url: '...' } if the repo is public
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind',
+      'Zustand',
+      'd3',
+      'Motion',
+      'IndexedDB',
+    ],
+    es: {
+      date: '',
+      title: 'Music Timeline',
+      description:
+        'Línea de tiempo interactiva de discos. Buscás artistas y sus discos de estudio se ubican por fecha de lanzamiento. Se puede comparar por artista, país o género, y cada vista es un link compartible. Corre 100% en el navegador, sin backend: cola de requests con rate limiting a MusicBrainz, Wikipedia/Wikidata y Cover Art Archive, caché en IndexedDB, y scroll y zoom propios para mouse, trackpad y touch.',
+    },
+    en: {
+      date: '',
+      title: 'Music Timeline',
+      description:
+        'Interactive timeline of music albums. Search for artists and their studio albums are laid out by release date. You can compare by artist, country or genre, and every view is a shareable link. It runs entirely in the browser with no backend: it uses a rate-limited request queue to MusicBrainz, Wikipedia/Wikidata and Cover Art Archive, caches results in IndexedDB, and has custom scroll and zoom for mouse, trackpad and touch.',
+    },
+  },  {
     _key: 'satview',
+    important: true,
     img: '/assets/images/satview-banner.webp',
     url: 'https://satview.damianponce.com/',
     links: [
@@ -93,6 +125,7 @@ const CODING: Project[] = [
   },
   {
     _key: '3d-noise',
+    archived: true,
     img: '/assets/images/3d-noise-banner.webp',
     url: 'https://3dnoise.damianponce.com/',
     links: [
@@ -162,6 +195,7 @@ const CODING: Project[] = [
   // },
   {
     _key: 'weather-web',
+    archived: true,
     img: '/assets/images/weather-web-banner.webp',
     url: 'https://weather.damianponce.com/',
     links: [

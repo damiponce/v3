@@ -2,12 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '../lib/utils';
 
+import type { ReactNode } from 'react';
+
 type Props = {
   itemKey: string;
   img: string;
   url: string;
   title: string;
   description?: string;
+  // Replaces the image, e.g. with an inline diagram.
+  visual?: ReactNode;
   links?: { name: string; url: string }[];
   technologies?: string[];
 };
@@ -18,6 +22,7 @@ const BigImgCard = ({
   url,
   title,
   description,
+  visual,
   links,
   technologies,
 }: Props) => {
@@ -34,6 +39,7 @@ const BigImgCard = ({
           <h3 className='font-semibold leading-tight text-neutral-200 text-2xl'>
             {title}
           </h3>
+          {url && (
           <Link
             className='inline-flex items-baseline font-semibold leading-tight text-neutral-400 hover:text-highlight focus-visible:text-highlight  group/link text-base'
             href={url}
@@ -57,8 +63,11 @@ const BigImgCard = ({
               ></path>
             </svg>
           </Link>
+          )}
           {description && (
-            <p className='mt-2 text-sm leading-normal'>{description}</p>
+            <p className='mt-2 text-sm leading-normal whitespace-pre-line'>
+              {description}
+            </p>
           )}
           {links && (
             <ul className='mt-2 flex flex-wrap' aria-label='Related links'>
@@ -107,16 +116,18 @@ const BigImgCard = ({
             'rounded-lg border-2 border-neutral-200/10 transition group-hover:border-neutral-200/30 sm:order-1 sm:col-span-4 sm:translate-y-1',
           )}
         >
-          <Image
-            src={img}
-            width={640}
-            height={360}
-            loading='lazy'
-            decoding='async'
-            data-nimg='1'
-            alt='' // !!!!!!!!
-            className='w-full h-auto max-h-[130px]_ text-transparent object-cover '
-          />
+          {visual ?? (
+            <Image
+              src={img}
+              width={640}
+              height={360}
+              loading='lazy'
+              decoding='async'
+              data-nimg='1'
+              alt='' // !!!!!!!!
+              className='w-full h-auto max-h-[130px]_ text-transparent object-cover '
+            />
+          )}
         </div>
       </div>
     </li>

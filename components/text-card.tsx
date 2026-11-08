@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "../lib/utils";
 
 type Props = {
   itemKey: string;
@@ -10,6 +11,8 @@ type Props = {
   description?: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
+  // Recent or current entries render a step larger than the rest.
+  highlight?: boolean;
 };
 
 const TextCard = ({
@@ -22,6 +25,7 @@ const TextCard = ({
   description,
   links,
   technologies,
+  highlight,
 }: Props) => {
   const Titles = ({ isLink = false }) => (
     <>
@@ -66,11 +70,19 @@ const TextCard = ({
           {date}
         </header>
         <div className="z-10 sm:col-span-6">
-          <h3 className="font-medium leading-snug text-neutral-200">
+          <h3
+            className={cn(
+              "font-medium leading-snug text-neutral-200",
+              highlight && "text-lg"
+            )}
+          >
             <div>
               {url && !(url === "") ? (
                 <Link
-                  className="inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-neutral-100  group/link text-base"
+                  className={cn(
+                    "inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-neutral-100 group/link",
+                    highlight ? "text-lg" : "text-base"
+                  )}
                   href={url}
                   target={isUrlLocal ? null : "_blank"}
                   rel={isUrlLocal ? null : "noreferrer"}
@@ -104,7 +116,14 @@ const TextCard = ({
             </div> */}
           </h3>
           {description && (
-            <p className="mt-2 text-sm leading-normal">{description}</p>
+            <p
+              className={cn(
+                "mt-2 leading-normal",
+                highlight ? "text-base" : "text-sm"
+              )}
+            >
+              {description}
+            </p>
           )}
           {links && (
             <ul className="mt-2 flex flex-wrap" aria-label="Related links">

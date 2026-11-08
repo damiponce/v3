@@ -21,6 +21,10 @@ import { PostHogProvider } from 'posthog-js/react';
 function Root({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const oldUrlRef = useRef('');
+  const siteDescription =
+    router.locale === 'en'
+      ? 'Full-stack developer — React, Next.js, Firebase, React Native, IoT'
+      : 'Desarrollador full-stack — React, Next.js, Firebase, React Native, IoT';
 
   useEffect(() => {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
@@ -81,12 +85,12 @@ function Root({ Component, pageProps }: AppProps) {
             --source-code-pro-font: ${sourceCodePro.style.fontFamily}; */}
           <NextSeo
             title='Damián Ponce'
-            description='Developer and Engineering student'
+            description={siteDescription}
             canonical='https://damianponce.com/'
             openGraph={{
               url: 'https://damianponce.com/np',
               title: 'Damián Ponce',
-              description: 'Developer and Engineering student',
+              description: siteDescription,
               images: [
                 {
                   url: 'https://damianponce.com/og.png',

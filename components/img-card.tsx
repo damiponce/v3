@@ -5,6 +5,7 @@ import FlashyTag from './flashy-tag';
 import { AnimatedGradientText } from './magicui/animated-gradient-text';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
+import type { ReactNode } from 'react';
 
 type Props = {
   itemKey: string;
@@ -15,6 +16,10 @@ type Props = {
   links?: { name: string; url: string }[];
   technologies?: string[];
   isNew?: boolean;
+  // Replaces the thumbnail image, e.g. with an inline diagram.
+  visual?: ReactNode;
+  // Important entries render a step larger, like TextCard's highlight.
+  highlight?: boolean;
 };
 
 const ImgCard = ({
@@ -26,6 +31,8 @@ const ImgCard = ({
   links,
   technologies,
   isNew,
+  visual,
+  highlight,
 }: Props) => {
   const isUrlLocal =
     url && !(url === '')
@@ -81,8 +88,21 @@ const ImgCard = ({
         </div>
         <div className='z-10 sm:order-2 sm:col-span-6'>
           <h3>
+            {!url ? (
+              <span
+                className={cn(
+                  'inline-flex items-baseline font-medium leading-tight text-neutral-200 md:max-w-[75%]',
+                  highlight ? 'text-lg' : 'text-base',
+                )}
+              >
+                {title}
+              </span>
+            ) : (
             <Link
-              className='inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-highlight  group/link text-base md:max-w-[75%]'
+              className={cn(
+                'inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-highlight group/link md:max-w-[75%]',
+                highlight ? 'text-lg' : 'text-base',
+              )}
               href={url}
               target={isUrlLocal ? null : '_blank'}
               rel={isUrlLocal ? null : 'noreferrer'}
@@ -114,9 +134,17 @@ const ImgCard = ({
                 </svg>
               </span>
             </Link>
+            )}
           </h3>
           {description && (
-            <p className='mt-2 text-sm leading-normal'>{description}</p>
+            <p
+              className={cn(
+                'mt-2 leading-normal whitespace-pre-line',
+                highlight ? 'text-base' : 'text-sm',
+              )}
+            >
+              {description}
+            </p>
           )}
           {links && (
             <ul className='mt-2 flex flex-wrap' aria-label='Related links'>
@@ -165,16 +193,18 @@ const ImgCard = ({
             'rounded border-2 border-neutral-200/10 transition group-hover:border-neutral-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1',
           )}
         >
-          <Image
-            src={img}
-            width={200}
-            height={48}
-            loading='lazy'
-            decoding='async'
-            data-nimg='1'
-            alt='' // !!!!!!!!
-            className='w-full h-auto max-h-[130px] text-transparent object-cover '
-          />
+          {visual ?? (
+            <Image
+              src={img}
+              width={200}
+              height={48}
+              loading='lazy'
+              decoding='async'
+              data-nimg='1'
+              alt='' // !!!!!!!!
+              className='w-full h-auto max-h-[130px] text-transparent object-cover '
+            />
+          )}
         </div>
         {/* <img
           alt=''

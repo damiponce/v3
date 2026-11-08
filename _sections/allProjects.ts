@@ -12,6 +12,113 @@ type Project = {
 
 export const allProjects: Project[] = [
   {
+    _key: 'musictl',
+    year: '2026',
+    project: 'Music Timeline',
+    builtWith: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind',
+      'Zustand',
+      'd3',
+      'Motion',
+      'IndexedDB',
+    ],
+    links: [
+      {
+        name: 'musictl.damianponce.com',
+        url: 'https://musictl.damianponce.com/',
+      },
+    ],
+  },
+  {
+    _key: 'iot-grill',
+    year: '2026',
+    project: { es: 'Monitor de parrilla IoT', en: 'IoT grill monitor' },
+    madeAt: 'Freelance',
+    builtWith: ['Expo', 'React Native', 'ESP32', 'Firebase', 'Cloud Functions'],
+  },
+  {
+    _key: 'homelab',
+    year: '2026',
+    project: 'Homelab',
+    builtWith: ['Linux', 'Docker', 'Raspberry Pi', 'Grafana', 'InfluxDB'],
+  },
+  {
+    _key: 'coffee-scale',
+    year: '2026',
+    project: { es: 'Balanza para café', en: 'Coffee scale' },
+    builtWith: ['ESP32', 'C/C++', '3D printing'],
+  },
+  {
+    _key: 'eti',
+    year: '2025',
+    project: { es: 'ETI: plataforma de eventos', en: 'ETI: event platform' },
+    madeAt: 'ETI',
+    builtWith: ['Next.js', 'React', 'TypeScript', 'Firebase', 'PostHog'],
+  },
+  {
+    _key: 'vssete',
+    year: '2025',
+    project: 'Vssete',
+    madeAt: 'Freelance',
+    builtWith: [],
+    links: [{ name: 'vssete.com', url: 'https://vssete.com/' }],
+  },
+  {
+    _key: 'italtechnics',
+    year: '2025',
+    project: 'ItalTechnics',
+    madeAt: 'Freelance',
+    builtWith: [],
+    links: [
+      { name: 'italtechnics.com.ar', url: 'https://italtechnics.com.ar/' },
+    ],
+  },
+  {
+    _key: 'circulomistico',
+    year: '2025',
+    project: 'Círculo Místico',
+    madeAt: 'Freelance',
+    builtWith: [],
+    links: [
+      {
+        name: 'circulo-mistico.vercel.app',
+        url: 'https://circulo-mistico.vercel.app/',
+      },
+    ],
+  },
+  {
+    _key: 'spark-arg',
+    year: '2024',
+    project: 'Spark Argentina',
+    madeAt: 'Freelance',
+    builtWith: [
+      'React',
+      'Next.js',
+      'Vercel',
+      'Tailwind CSS',
+      'TypeScript',
+      'Formspree',
+    ],
+    links: [
+      {
+        name: 'Website',
+        url: 'https://spark-argentina.vercel.app/',
+      },
+    ],
+  },
+  {
+    _key: 'satview',
+    year: '2024',
+    project: { es: 'SatView - Visualizador de satélites', en: 'SatView - Satellite Visualizer' },
+    builtWith: ['React', 'Next.js', 'Three.js', 'SpaceTrack'],
+    links: [
+      { name: 'Website', url: 'https://satview.damianponce.com/' },
+      { name: 'GitHub', url: 'https://github.com/damiponce/satellite-viewer' },
+    ],
+  },
+  {
     _key: 'weather-station',
     year: '2023',
     project: {
@@ -19,6 +126,12 @@ export const allProjects: Project[] = [
       en: 'Weather Station (WIP)',
     },
     builtWith: ['ESP-IDF', 'Grafana', 'InfluxDB', 'MQTT'],
+    links: [
+      {
+        name: 'GitHub',
+        url: 'https://github.com/damiponce/weather-station-esp32',
+      },
+    ],
     // links: [
     //   {
     //     name: '',

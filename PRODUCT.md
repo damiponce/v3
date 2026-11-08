@@ -18,13 +18,9 @@ Damián Ponce's personal site. Its main job is to get him hired as a developer. 
 
 ## Positioning
 
-**Open decision.** Damián hasn't committed to a single angle yet and wants to try each one as a small, reversible change, possibly after talking to a hiring-process expert. The candidates, all supported by real facts:
+**Full-stack developer** with 4+ years of paid client work, shipping web and mobile products end to end: UI, backend, cloud functions and ESP32-connected devices. Avionics technician background; bilingual ES/EN (C2).
 
-1. **Engineer + designer:** engineering rigor (avionics technician, electronic engineering at UTN FRH, CS at UBA) combined with real design work.
-2. **Ships for real clients and users:** live client sites, an event management system with 1000+ monthly users, and front-end lead on a research simulation suite.
-3. **Design-minded frontend developer:** frontend specialist whose edge is taste and UX, actively growing into full-stack.
-
-All three are written as variants of the home subtitle and About text in `_sections/positioning.tsx`, picked by `ACTIVE_POSITIONING`. Until one is chosen, keep new framing there instead of hard-coding it across the site.
+The home subtitle and About text live in `_sections/positioning.tsx` (`ACTIVE_POSITIONING`). Earlier candidate angles (engineer + designer, ships for real users, design-minded frontend) are in git history at 27a37c9.
 
 ## Operating Context
 
@@ -39,7 +35,7 @@ All three are written as variants of the home subtitle and About text in `_secti
 - **ES/EN bilingual is fixed.** Every page and content entry ships in both languages through next-i18next (`public/locales/{en,es}`) and the per-language objects in `_sections/*.ts`.
 - **Contact form and résumé PDFs are core.** The contact page embeds a Tally form (one form per language; its field copy is edited in Tally, not in this repo) and shows `dev@damianponce.com` as the direct email. The `form` and `errors` strings in `contact.json` belong to an unused in-house form. CVs live at `public/assets/resume/CV_PONCE_{EN,ES}.pdf`.
 - **Spanish copy uses Argentine voseo** ("escribime", "contame", "usá") everywhere.
-- **The blog is real and planned.** The markdown pipeline (`_posts/`, KaTeX math, Shiki highlighting) stays, even though no real posts exist yet.
+- **The blog is real and planned.** The markdown pipeline (`_posts/`, KaTeX math, Shiki highlighting) stays, but the home section and nav link are hidden behind `SHOW_BLOG` in `lib/flags.ts` until real posts exist.
 - **The design gallery stays but is secondary** (`pages/design`). It supports the story and is not a headline section.
 - PostHog analytics tracks page views and page leaves.
 - OG images are generated at `pages/api/og.tsx`.
@@ -53,7 +49,8 @@ All three are written as variants of the home subtitle and About text in `_secti
 
 ## Evidence on Hand
 
-- Experience (`_sections/experience.ts`): Full-Stack Web Developer at Encuentro Tanguero del Interior (Jun 2025 to present, 1000+ monthly users); Front-end Web Developer at GMF - LAyF - UTN FRH (Aug 2024 to present, leading front-end for a VFR battery simulation suite); Freelance Web Developer (May 2022 to present); Spanish-English Interpreter (Dec 2022 to Jan 2023).
+- Experience (`_sections/experience.ts`): Full-Stack Developer at Encuentro Tanguero del Interior (ETI, Jun 2025 to present; 2,000+ registered users, up to 1,000 MAU at peak; Firebase Auth custom claims); Front-End Lead at GMF - LAyF - UTN FRH (2024, VFR battery simulation suite); Full-Stack Developer, freelance (May 2022 to present; web, mobile and IoT for clients in Argentina and Chile); Spanish-English Interpreter (Dec 2022 to Jan 2023).
+- Featured projects (`_sections/featured.ts`) are picked by key from their own category: ETI and the IoT grill monitor (device + companion app, for a hardware startup client) from Freelance, and Music Timeline (personal project) from Coding. **The grill client's product name must never appear anywhere in the repo**: no text, file names, alt text or URLs.
 - Education (`_sections/education.ts`): CS degree at UBA (2026 onward), Electronic Engineering at UTN FRH (2021 to 2025), Avionics Technician at INAC - CIATA (2014 to 2020).
 - Live freelance client sites (`_sections/freelance.ts`): Spark Argentina, DreamBuilders, Botaaguas, Vssete, ItalTechnics, Círculo Místico.
 - Coding and engineering projects: `_sections/coding.ts`, `_sections/engineering.ts`, `data/projects/allProjects.json`.

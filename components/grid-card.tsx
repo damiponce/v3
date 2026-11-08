@@ -4,6 +4,7 @@ import { cn } from '../lib/utils';
 import FlashyTag from './flashy-tag';
 import { AnimatedGradientText } from './magicui/animated-gradient-text';
 import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 
 type Props = {
   itemKey: string;
@@ -14,6 +15,9 @@ type Props = {
   links?: { name: string; url: string }[];
   technologies?: string[];
   isNew?: boolean;
+  // Replaces the image, e.g. with an inline diagram.
+  visual?: ReactNode;
+  className?: string;
 };
 
 const GridCard = ({
@@ -25,6 +29,8 @@ const GridCard = ({
   links,
   technologies,
   isNew,
+  visual,
+  className,
 }: Props) => {
   const isUrlLocal =
     url && !(url === '')
@@ -32,8 +38,8 @@ const GridCard = ({
       : false;
 
   return (
-    <li className='' key={itemKey}>
-      <div className='group relative flex flex-col gap-2 pb-1 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50'>
+    <li className={className} key={itemKey}>
+      <div className='group relative flex h-full flex-col gap-2 pb-1 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50'>
         {/* {isNew && (
           <FlashyTag className='absolute right-0 lg:-right-2 top-0'>
             NEW PROJECT
@@ -47,6 +53,11 @@ const GridCard = ({
         ></div>
         <div className='z-10'>
           <h3>
+            {!url ? (
+              <span className='inline-flex items-baseline font-medium leading-tight text-neutral-200 text-base'>
+                {title}
+              </span>
+            ) : (
             <Link
               className='inline-flex items-baseline font-medium leading-tight text-neutral-200 hover:text-highlight focus-visible:text-highlight  group/link text-base'
               href={url}
@@ -80,6 +91,7 @@ const GridCard = ({
                 </svg>
               </span>
             </Link>
+            )}
           </h3>
           {/* {description && (
             <p className='mt-2 text-sm leading-normal'>{description}</p>
@@ -127,20 +139,22 @@ const GridCard = ({
         </div>
         <div
           className={cn(
-            'w-full h-fit overflow-hidden object-contain',
+            'mt-auto w-full h-fit overflow-hidden object-contain',
             'rounded border-2 border-neutral-200/10 transition group-hover:border-neutral-200/30',
           )}
         >
-          <Image
-            src={img}
-            width={200}
-            height={150}
-            loading='lazy'
-            decoding='async'
-            data-nimg='1'
-            alt='' // !!!!!!!!
-            className='w-full h-auto text-transparent object-cover aspect-[3/2] '
-          />
+          {visual ?? (
+            <Image
+              src={img}
+              width={200}
+              height={150}
+              loading='lazy'
+              decoding='async'
+              data-nimg='1'
+              alt='' // !!!!!!!!
+              className='w-full h-auto text-transparent object-cover aspect-[3/2] '
+            />
+          )}
         </div>
         {/* <img
           alt=''

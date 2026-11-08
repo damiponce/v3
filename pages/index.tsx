@@ -26,6 +26,9 @@ import ThreeD from '../components/3d';
 import { useEffect, useState } from 'react';
 import PostCard from '../components/post-card-v2';
 import GridCard from '@/components/grid-card';
+import FEATURED from '../_sections/featured';
+import IotDiagram from '../components/iot-diagram';
+import { SHOW_BLOG } from '../lib/flags';
 
 export default function Index(
   _props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -102,6 +105,7 @@ export default function Index(
                   {EXPERIENCE.map((item) => (
                     <TextCard
                       itemKey={`experience-${item._key}`}
+                      key={`experience-${item._key}`}
                       url={item.url}
                       date={item[lang].date}
                       title={item[lang].title}
@@ -112,19 +116,20 @@ export default function Index(
                       technologies={
                         item[lang].technologies ?? item.technologies
                       }
+                      highlight={item.highlight}
                     />
                   ))}
                 </ol>
                 <ViewFull
                   className='mb-4'
                   text={t('viewResumeES')}
-                  url={'assets/resume/CV_PONCE_ES.pdf'}
+                  url={'/assets/resume/CV_PONCE_ES.pdf'}
                   noLocale
                 />
                 <ViewFull
                   className='mt-0'
                   text={t('viewResumeEN')}
-                  url={'assets/resume/CV_PONCE_EN.pdf'}
+                  url={'/assets/resume/CV_PONCE_EN.pdf'}
                   noLocale
                 />
               </Section>
@@ -133,6 +138,7 @@ export default function Index(
                   {EDUCATION.map((item) => (
                     <TextCard
                       itemKey={`education-${item._key}`}
+                      key={`education-${item._key}`}
                       url={item.url}
                       date={item[lang].date}
                       title={item[lang].title}
@@ -143,21 +149,59 @@ export default function Index(
                       technologies={
                         item[lang].technologies ?? item.technologies
                       }
+                      highlight={item.highlight}
                     />
                   ))}
                 </ol>
               </Section>
               <Section
                 index={3}
+                id='featured'
+                name={t('toc.projects') + ' ‣ ' + t('toc.featured')}
+              >
+                <ul className='group/list'>
+                  {FEATURED.map((item) => (
+                    <ImgCard
+                      itemKey={`featured-${item._key}`}
+                      key={`featured-${item._key}`}
+                      img={item.img}
+                      url={item.url}
+                      title={item[lang].title}
+                      description={item[lang].description}
+                      links={item.links}
+                      technologies={
+                        item[lang].technologies ?? item.technologies
+                      }
+                      isNew={item.new}
+                      visual={
+                        'diagram' in item && item.diagram === 'iot' ? (
+                          <IotDiagram lang={lang} />
+                        ) : undefined
+                      }
+                    />
+                  ))}
+                </ul>
+              </Section>
+              <Section
+                index={4}
                 id='freelance'
                 name={t('toc.projects') + ' ‣ ' + t('toc.freelance')}
                 darker
               >
-                <ul className='group/list grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-3 gap-x-3 gap-y-4 xs:gap-x-6 xs:gap-y-6 lg:gap-x-8 lg:gap-y-8 xl:gap-x-5 xl:gap-y-6'>
+                <ul className='group/list grid grid-cols-6 gap-x-3 gap-y-4 xs:gap-x-6 xs:gap-y-6 lg:gap-x-8 lg:gap-y-8 xl:gap-x-5 xl:gap-y-6'>
                   {FREELANCE.map((item) => (
                     <GridCard
                       itemKey={`freelance-${item._key}`}
+                      key={`freelance-${item._key}`}
+                      className={
+                        item.important ? 'col-span-3' : 'col-span-3 sm:col-span-2'
+                      }
                       img={item.img}
+                      visual={
+                        item.diagram === 'iot' ? (
+                          <IotDiagram lang={lang} layout='tile' />
+                        ) : undefined
+                      }
                       url={item.url}
                       title={item[lang].title}
                       description={item[lang].description}
@@ -171,14 +215,15 @@ export default function Index(
                 <ViewFull text={t('viewFreelance')} url='freelance' />
               </Section>
               <Section
-                index={4}
+                index={5}
                 id='coding'
                 name={t('toc.projects') + ' ‣ ' + t('toc.coding')}
               >
                 <ul className='group/list'>
-                  {CODING.map((item) => (
+                  {CODING.filter((item) => !item.archived).map((item) => (
                     <ImgCard
                       itemKey={`coding-${item._key}`}
+                      key={`coding-${item._key}`}
                       img={item.img}
                       url={item.url}
                       title={item[lang].title}
@@ -188,13 +233,15 @@ export default function Index(
                         item[lang].technologies ?? item.technologies
                       }
                       isNew={item.new}
+                      highlight={item.important}
                     />
                   ))}
                 </ul>
+                <ViewFull text={t('viewProjects')} url='projects' />
               </Section>
 
               <Section
-                index={5}
+                index={6}
                 id='engineering'
                 name={t('toc.projects') + ' ‣ ' + t('toc.engineering')}
                 darker
@@ -203,6 +250,7 @@ export default function Index(
                   {ENGINEERING.map((item) => (
                     <ImgCard
                       itemKey={`engineering-${item._key}`}
+                      key={`engineering-${item._key}`}
                       img={item.img}
                       url={item.url}
                       title={item[lang].title}
@@ -217,7 +265,7 @@ export default function Index(
                 <ViewFull text={t('viewProjects')} url='projects' />
               </Section>
               <Section
-                index={6}
+                index={7}
                 id='design'
                 name={t('toc.projects') + ' ‣ ' + t('toc.design')}
               >
@@ -250,7 +298,8 @@ export default function Index(
                   />
                 </ul>
               </Section>
-              <Section index={7} id='blog' name='Blog' darker className='mb-12'>
+              {SHOW_BLOG && (
+              <Section index={8} id='blog' name='Blog' darker className='mb-12'>
                 <ol className='group/list -mb-16'>
                   {_props.allPosts.map(
                     (post) =>
@@ -267,6 +316,7 @@ export default function Index(
                   )}
                 </ol>
               </Section>
+              )}
               <Footer lang={lang} />
             </main>
           </div>

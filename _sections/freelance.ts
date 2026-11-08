@@ -11,12 +11,60 @@ type Project = {
   url: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
+  new?: boolean;
+  diagram?: 'iot';
+  // Important projects get bigger tiles on the home page grid.
+  important?: boolean;
   es: CardText;
   en: CardText;
 };
 
 const FREELANCE: Project[] = [
   {
+    _key: 'eti',
+    important: true,
+    img: '/assets/images/placeholder-banner.webp', // TODO: ETI screenshot
+    url: '', // TODO: ETI live URL
+    technologies: ['Next.js', 'React', 'TypeScript', 'Firebase', 'PostHog'],
+    es: {
+      date: '',
+      title: 'ETI: plataforma de eventos',
+      description:
+        'Plataforma de eventos para el Encuentro Tanguero del Interior. La diseñé y desarrollé de punta a punta: front-end en Next.js, backend en Firebase y acceso por roles con custom claims de Firebase Auth. Más de 2000 usuarios registrados y hasta 1000 usuarios activos por mes en el pico.\n\nEl problema más difícil: encontré y resolví en producción un bug de refresco de tokens en el flujo de custom claims que define quién puede acceder a qué.',
+    },
+    en: {
+      date: '',
+      title: 'ETI: event platform',
+      description:
+        'Event platform for Encuentro Tanguero del Interior. I designed and built it end to end: Next.js front end, Firebase backend, and role-based access with Firebase Auth custom claims. 2,000+ registered users, up to 1,000 monthly active users at peak.\n\nHardest problem: I tracked down and fixed a token-refresh bug in production, in the custom claims flow that controls who can access what.',
+    },
+  },  {
+    _key: 'iot-grill',
+    important: true,
+    img: '/assets/images/placeholder-banner.webp',
+    url: '',
+    // Rendered as an inline architecture diagram instead of the image.
+    diagram: 'iot',
+    technologies: [
+      'Expo',
+      'React Native',
+      'ESP32',
+      'Firebase',
+      'Cloud Functions',
+    ],
+    es: {
+      date: '',
+      title: 'Monitor de parrilla IoT: dispositivo + app',
+      description:
+        'Trabajo freelance para una startup de hardware. App en Expo / React Native para iOS y Android que configura el Wi-Fi del dispositivo ESP32 por SoftAP, gestiona la propiedad del dispositivo y se conecta a un backend en Firebase Cloud Functions.',
+    },
+    en: {
+      date: '',
+      title: 'IoT grill monitor: device + companion app',
+      description:
+        "Freelance work for a hardware startup. An Expo / React Native app for iOS and Android that sets up the ESP32 device's Wi-Fi over SoftAP, handles device ownership, and connects to a Firebase Cloud Functions backend.",
+    },
+  },  {
     _key: 'spark-arg',
     img: '/assets/images/spark-arg-banner.webp',
     url: 'https://spark-argentina.vercel.app',

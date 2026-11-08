@@ -9,6 +9,7 @@ import Back from "../components/back";
 import LangSwitcher from "../components/lang-switcher";
 import FREELANCE from "@/_sections/freelance";
 import BigImgCard from "@/components/big-img-card";
+import IotDiagram from "@/components/iot-diagram";
 
 export default function Freelance(
   _props: InferGetStaticPropsType<typeof getStaticProps>
@@ -37,7 +38,13 @@ export default function Freelance(
                 {FREELANCE.map((item) => (
                   <BigImgCard
                     itemKey={`freelance-${item._key}`}
+                    key={`freelance-${item._key}`}
                     img={item.img}
+                    visual={
+                      item.diagram === "iot" ? (
+                        <IotDiagram lang={lang} layout="tile" />
+                      ) : undefined
+                    }
                     url={item.url}
                     title={item[lang].title}
                     description={item[lang].description}

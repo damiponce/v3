@@ -10,6 +10,8 @@ type Props = {
   // 'stack': tall column for the ImgCard thumbnail (about 100px wide).
   // 'tile': 3:2 loop for GridCard and BigImgCard image slots.
   layout?: 'stack' | 'tile';
+  // 'dark' for the old dark pages, 'light' for daylight pages.
+  tone?: 'dark' | 'light';
 };
 
 type Diagram = {
@@ -42,33 +44,54 @@ const DIAGRAMS: Record<DiagramKey, Diagram> = {
 };
 
 const NODE_H = 22;
+const TONES = {
+  dark: {
+    bg: 'bg-neutral-900',
+    radius: 5,
+    strokeWidth: 1.25,
+    solidHeads: false,
+    box: 'fill-neutral-400/10',
+    text: 'fill-neutral-200',
+    line: 'stroke-neutral-500',
+  },
+  light: {
+    bg: 'bg-white',
+    radius: 0,
+    strokeWidth: 2,
+    solidHeads: true,
+    box: 'fill-[#E6E7E9]',
+    text: 'fill-[#0F1012]',
+    line: 'stroke-[#0F1012]',
+  },
+};
+type Tone = (typeof TONES)['dark'];
+
 const STROKE = {
   fill: 'none',
   strokeWidth: 1.25,
   strokeLinecap: 'round' as const,
   strokeLinejoin: 'round' as const,
-  className: 'stroke-neutral-500',
 };
 
 type Box = { x: number; y: number; w: number };
 type Line = Record<'x1' | 'y1' | 'x2' | 'y2', number>;
 
-const Node = ({ name, x, y, w }: Box & { name: string }) => (
+const Node = ({ name, x, y, w, tone }: Box & { name: string; tone: Tone }) => (
   <g>
     <rect
       x={x}
       y={y}
       width={w}
       height={NODE_H}
-      rx={5}
-      className='fill-neutral-400/10'
+      rx={tone.radius}
+      className={tone.box}
     />
     <text
       x={x + w / 2}
       y={y + 15}
       textAnchor='middle'
       fontSize={11.5}
-      className='fill-neutral-200 font-medium'
+      className={`${tone.text} font-medium`}
     >
       {name}
     </text>
@@ -76,14 +99,40 @@ const Node = ({ name, x, y, w }: Box & { name: string }) => (
 );
 
 // Arrow from (x1,y1) to (x2,y2) along one axis, head at the end.
-const Arrow = ({ x1, y1, x2, y2 }: Line) => {
+const Arrow = ({ x1, y1, x2, y2, tone }: Line & { tone: Tone }) => {
   const dx = Math.sign(x2 - x1);
   const dy = Math.sign(y2 - y1);
-  const h = 3.5;
+  const h = tone.solidHeads ? 4 : 3.5;
   const head = dx
     ? `M${x2 - dx * h} ${y2 - h} L${x2} ${y2} L${x2 - dx * h} ${y2 + h}`
     : `M${x2 - h} ${y2 - dy * h} L${x2} ${y2} L${x2 + h} ${y2 - dy * h}`;
-  return <path d={`M${x1} ${y1} L${x2} ${y2} ${head}`} {...STROKE} />;
+  if (tone.solidHeads) {
+    // Line stops at the head's base; the head is a filled triangle.
+    const ex = x2 - dx * h;
+    const ey = y2 - dy * h;
+    return (
+      <g>
+        <path
+          d={`M${x1} ${y1} L${ex} ${ey}`}
+          {...STROKE}
+          strokeWidth={tone.strokeWidth}
+          strokeLinecap='butt'
+          // Same 2px line at any rendered size, matching Figure 1.
+          vectorEffect='non-scaling-stroke'
+          className={tone.line}
+        />
+        <path d={`${head} Z`} className={tone.text} />
+      </g>
+    );
+  }
+  return (
+    <path
+      d={`M${x1} ${y1} L${x2} ${y2} ${head}`}
+      {...STROKE}
+      strokeWidth={tone.strokeWidth}
+      className={tone.line}
+    />
+  );
 };
 
 const STACK = (() => {
@@ -120,21 +169,22 @@ const TILE = (() => {
   return { viewBox: '0 0 180 120', boxes, arrows };
 })();
 
-const ArchDiagram = ({ name, lang, layout = 'stack' }: Props) => {
+const ArchDiagram = ({ name, lang, layout = 'stack', tone = 'dark' }: Props) => {
+  const colors = TONES[tone];
   const { nodes, label } = DIAGRAMS[name];
   const { viewBox, boxes, arrows } = layout === 'tile' ? TILE : STACK;
   return (
     <svg
       viewBox={viewBox}
-      className='block w-full h-auto bg-neutral-900'
+      className={`block w-full h-auto ${colors.bg}`}
       role='img'
       aria-label={label[lang === 'es' ? 'es' : 'en']}
     >
       {boxes.map((b, i) => (
-        <Node key={nodes[i]} name={nodes[i]} {...b} />
+        <Node key={nodes[i]} name={nodes[i]} tone={colors} {...b} />
       ))}
       {arrows.map((a, i) => (
-        <Arrow key={i} {...a} />
+        <Arrow key={i} tone={colors} {...a} />
       ))}
     </svg>
   );

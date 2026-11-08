@@ -114,7 +114,7 @@ const FREELANCE: Project[] = [
       date: '',
       title: 'DreamBuilders',
       description:
-        'DreamBuilders is a chilean company specialized in the construction of wood-framed housing.',
+        'DreamBuilders is a Chilean company specialized in the construction of wood-framed housing.',
     },
   },
   {
@@ -139,7 +139,7 @@ const FREELANCE: Project[] = [
       date: '',
       title: 'Botaaguas',
       description:
-        'Botaaguas is a chilean company that is dedicated to the manufacture and sale of water boots for trucks. ',
+        'Botaaguas is a Chilean company that is dedicated to the manufacture and sale of water boots for trucks. ',
     },
   },
   {

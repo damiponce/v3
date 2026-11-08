@@ -36,5 +36,56 @@
     "form": "Contact form",
     "bodyBefore": "Email me at ",
     "bodyAfter": ", or use the contact form if you have a project in mind. My résumé is available in English and Spanish."
+  },
+  "ds": {
+    "skip": "Skip to features",
+    "kind": "Developer datasheet",
+    "sections": "Sections",
+    "description": "Full-stack developer for web, mobile and connected devices",
+    "languages": "Languages",
+    "documents": "Documents",
+    "h": {
+      "features": "Features",
+      "applications": "Applications",
+      "stack": "Typical stack",
+      "notes": "Application notes",
+      "history": "Revision history",
+      "other": "Other applications",
+      "background": "Background",
+      "contact": "Contact"
+    },
+    "col": {
+      "layer": "Layer",
+      "parts": "Parts",
+      "usedIn": "Used in",
+      "date": "Date",
+      "role": "Role",
+      "where": "Where",
+      "notes": "Notes",
+      "year": "Year",
+      "project": "Project",
+      "type": "Type",
+      "link": "Link",
+      "program": "Program"
+    },
+    "fig1": "Figure 1. Functional block diagram: the layers I build, as shipped in the IoT grill monitor.",
+    "fig1hint": "Select a block to highlight where that layer is used.",
+    "figure": "Figure",
+    "figs": {
+      "eti": "ETI access flow.",
+      "iot-grill": "Device provisioning flow.",
+      "musictl": "Music Timeline data flow."
+    },
+    "meta": {
+      "eti": "Full-stack developer at ETI · since June 2025",
+      "iot-grill": "Freelance · hardware startup · 2026",
+      "musictl": "Personal project · 2026"
+    },
+    "fixed": "Hardest problem",
+    "noLink": "Not public",
+    "allProjects": "All projects, by year",
+    "design": "Graphic design work",
+    "footer": "Designed and built by Damián Ponce with Next.js.",
+    "currentRole": "Current role"
   }
 }

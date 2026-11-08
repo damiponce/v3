@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T06:27:33+00:00",
+  "title": "Design System: Damián Ponce",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#2f3237",
+          "#5a5d62",
+          "#8a8d92",
+          "#b4b6b9",
+          "#d4d5d7",
+          "#e6e7e9",
+          "#f4f4f5",
+          "#ffffff"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0f1012",
+        "tonalRamp": [
+          "#0f1012",
+          "#1d1f22",
+          "#2f3237",
+          "#45484d",
+          "#5a5d62",
+          "#8a8d92",
+          "#c4c6c9",
+          "#e6e7e9"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink 2",
+        "canonical": "#2f3237",
+        "tonalRamp": [
+          "#0f1012",
+          "#1d1f22",
+          "#2f3237",
+          "#45484d",
+          "#5a5d62",
+          "#8a8d92",
+          "#c4c6c9",
+          "#e6e7e9"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Ink 3",
+        "canonical": "#5a5d62",
+        "tonalRamp": [
+          "#0f1012",
+          "#1d1f22",
+          "#2f3237",
+          "#45484d",
+          "#5a5d62",
+          "#8a8d92",
+          "#c4c6c9",
+          "#e6e7e9"
+        ]
+      },
+      "fill": {
+        "role": "neutral",
+        "displayName": "Datasheet Grey",
+        "canonical": "#e6e7e9",
+        "tonalRamp": [
+          "#0f1012",
+          "#1d1f22",
+          "#2f3237",
+          "#45484d",
+          "#5a5d62",
+          "#8a8d92",
+          "#c4c6c9",
+          "#e6e7e9"
+        ]
+      },
+      "tint": {
+        "role": "primary",
+        "displayName": "Signal Tint",
+        "canonical": "#fbe9ec",
+        "tonalRamp": [
+          "#4a0611",
+          "#7a0a1c",
+          "#a50d26",
+          "#c8102e",
+          "#e0435a",
+          "#ef8a99",
+          "#f6c3cb",
+          "#fbe9ec"
+        ]
+      },
+      "signal-red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "#c8102e",
+        "tonalRamp": [
+          "#4a0611",
+          "#7a0a1c",
+          "#a50d26",
+          "#c8102e",
+          "#e0435a",
+          "#ef8a99",
+          "#f6c3cb",
+          "#fbe9ec"
+        ]
+      },
+      "signal-red-deep": {
+        "role": "primary",
+        "displayName": "Deep Signal Red",
+        "canonical": "#a50d26",
+        "tonalRamp": [
+          "#4a0611",
+          "#7a0a1c",
+          "#a50d26",
+          "#c8102e",
+          "#e0435a",
+          "#ef8a99",
+          "#f6c3cb",
+          "#fbe9ec"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the title block and the contact heading."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Numbered section heads, uppercase, on a 2px ink underline."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Application note titles with a red decimal number."
+      },
+      "title-value": {
+        "displayName": "Title Value",
+        "purpose": "Values in title block fields."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "Description under the name and the contact paragraph."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Lists and running text; 60ch cap on note bodies."
+      },
+      "table": {
+        "displayName": "Table",
+        "purpose": "Table body cells, tabular figures."
+      },
+      "table-head": {
+        "displayName": "Table Head",
+        "purpose": "Uppercase column headers on the grey fill."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Italic figure captions, 'Figure N.' first, plus hint lines (non-italic)."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels inside title block cells and mobile table row labels only."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The only easing; all state transitions."
+      },
+      {
+        "name": "state",
+        "value": "160ms",
+        "purpose": "Button background, diagram block fill and stroke, note title colour."
+      },
+      {
+        "name": "wire-draw",
+        "value": "700ms, stagger 120ms",
+        "purpose": "Figure 1 wires draw in left to right; only under prefers-reduced-motion: no-preference."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-max",
+        "value": "639px"
+      },
+      {
+        "name": "columns",
+        "value": "760px"
+      },
+      {
+        "name": "wide",
+        "value": "900px"
+      },
+      {
+        "name": "three-col",
+        "value": "1100px"
+      },
+      {
+        "name": "sheet",
+        "value": "1240px"
+      }
+    ],
+    "focus": {
+      "value": "outline: 2px solid #c8102e; outline-offset: 3px",
+      "purpose": "Shared focus ring for every interactive element."
+    },
+    "scope": {
+      "coveredRoutes": [
+        "/"
+      ],
+      "outOfScope": [
+        "/projects",
+        "/freelance",
+        "/contact",
+        "/design",
+        "/posts/*"
+      ],
+      "note": "Out-of-scope routes still render the previous dark Tailwind look and the dark arch-diagram tone; they are known drift, not part of this system."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single red action per block; always the résumé PDF.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Résumé (PDF)</a>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-btn-primary{display:inline-block;font-family:'Barlow','Helvetica Neue',Arial,sans-serif;background:var(--red);color:#fff;font-weight:600;font-size:16px;padding:7px 12px;border-radius:0;text-decoration:none;transition:background-color 160ms var(--ease-out);} .ds-btn-primary:hover{background:#a50d26;} .ds-btn-primary:focus-visible{outline:2px solid var(--red);outline-offset:3px;}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Secondary actions: underlined 600-weight ink links.",
+      "html": "<a class=\"ds-link\" href=\"#\">Spanish version</a>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-link{font-family:'Barlow','Helvetica Neue',Arial,sans-serif;color:var(--ink);font-weight:600;font-size:16px;text-decoration:underline;text-underline-offset:3px;} .ds-link:focus-visible{outline:2px solid var(--red);outline-offset:3px;}"
+    },
+    {
+      "name": "Running Header",
+      "kind": "nav",
+      "refersTo": "running-header",
+      "description": "Sticky header on a 1px ink rule: condensed name, ink-2 links, red-underlined résumé link.",
+      "html": "<header class=\"ds-run\"><span class=\"ds-run-title\">Damián Ponce <span>· Developer datasheet</span></span><nav class=\"ds-run-nav\"><a href=\"#\">Application notes</a><a href=\"#\">Contact</a><a href=\"#\">Español</a><a class=\"ds-run-cv\" href=\"#\">Résumé (PDF)</a></nav></header>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-run{font-family:'Barlow','Helvetica Neue',Arial,sans-serif;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 20px;background:var(--paper);border-bottom:1px solid var(--ink);font-size:14px;color:var(--ink);} .ds-run-title{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:600;font-size:17px;letter-spacing:0.01em;white-space:nowrap;} .ds-run-title span{color:var(--ink-3);font-weight:500;} .ds-run-nav{display:flex;gap:4px 18px;flex-wrap:wrap;} .ds-run-nav a{color:var(--ink-2);text-decoration:none;} .ds-run-nav a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px;} .ds-run-nav a.ds-run-cv{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:4px;} .ds-run-nav a:focus-visible{outline:2px solid var(--red);outline-offset:3px;}"
+    },
+    {
+      "name": "Title Block",
+      "kind": "custom",
+      "refersTo": "title-block-cell",
+      "description": "Ruled identity grid under the 8px red rule: label over condensed value.",
+      "html": "<div class=\"ds-rule\"></div><div class=\"ds-tb\"><div><h1>Damián Ponce</h1><span class=\"ds-desc\">Full-stack developer for web, mobile and connected devices</span></div><div><small>Current role</small><span class=\"ds-val\">Full-Stack Developer</span></div><div><small>Languages</small><span class=\"ds-val\">ES · EN (C2)</span></div></div>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-rule{height:8px;background:var(--red);} .ds-tb{font-family:'Barlow','Helvetica Neue',Arial,sans-serif;display:grid;grid-template-columns:1.6fr 0.9fr 0.6fr;border:2px solid var(--ink);border-top:0;color:var(--ink);} .ds-tb>div{padding:12px 16px;border-left:1px solid var(--ink);display:grid;align-content:start;gap:2px;} .ds-tb>div:first-child{border-left:0;} .ds-tb h1{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;margin:0;font-weight:700;font-size:44px;line-height:1;letter-spacing:-0.01em;} .ds-desc{font-size:17px;color:var(--ink-2);} .ds-tb small{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);} .ds-val{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-size:22px;font-weight:600;line-height:1.15;}"
+    },
+    {
+      "name": "Section Head",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Numbered uppercase condensed head on a 2px ink underline.",
+      "html": "<h2 class=\"ds-h2\"><span>1</span>Features</h2>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-h2{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;margin:0;display:flex;gap:10px;align-items:baseline;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:0.02em;border-bottom:2px solid var(--ink);padding-bottom:4px;color:var(--ink);} .ds-h2 span{color:var(--red);font-variant-numeric:tabular-nums;}"
+    },
+    {
+      "name": "Spec Table",
+      "kind": "card",
+      "refersTo": "table-cell",
+      "description": "Ruled table with grey header, tabular figures and a tinted selected row.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>Layer</th><th>Parts</th><th>Used in</th></tr></thead><tbody><tr><td>UI</td><td>Next.js, React</td><td class=\"m\">ETI, Music Timeline</td></tr><tr class=\"hot\"><td>Backend</td><td>Firebase, Auth custom claims</td><td class=\"m\">ETI, IoT app</td></tr></tbody></table>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-table{font-family:'Barlow','Helvetica Neue',Arial,sans-serif;border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums;color:var(--ink);} .ds-table th{text-align:left;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;background:var(--fill);padding:6px 10px;border:1px solid var(--ink);} .ds-table td{padding:7px 10px;border:1px solid var(--ink);vertical-align:top;transition:background-color 160ms var(--ease-out);} .ds-table td.m{color:var(--ink-3);} .ds-table tr.hot td,.ds-table tbody tr:hover td{background:var(--tint);}"
+    },
+    {
+      "name": "Diagram Block",
+      "kind": "custom",
+      "refersTo": "diagram-block",
+      "description": "Selectable block in the functional diagram: grey fill, 2px ink stroke; tint and 3px red stroke when active.",
+      "html": "<svg class=\"ds-diag\" viewBox=\"0 0 520 100\"><g class=\"ds-block\" tabindex=\"0\" role=\"button\"><rect x=\"10\" y=\"10\" width=\"200\" height=\"80\"/><text x=\"110\" y=\"59\" text-anchor=\"middle\">UI</text></g><path class=\"ds-wire\" d=\"M214 50H304\"/><path d=\"M296 45L306 50L296 55z\" fill=\"#0f1012\"/><g class=\"ds-block\" tabindex=\"0\" role=\"button\"><rect x=\"310\" y=\"10\" width=\"200\" height=\"80\"/><text x=\"410\" y=\"59\" text-anchor=\"middle\">Backend</text></g></svg>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-diag{display:block;width:100%;height:auto;background:var(--paper);} .ds-block{cursor:pointer;outline:none;} .ds-block rect{fill:var(--fill);stroke:var(--ink);stroke-width:2;transition:fill 160ms var(--ease-out),stroke 160ms var(--ease-out);} .ds-block text{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-size:26px;font-weight:700;fill:var(--ink);} .ds-block:hover rect,.ds-block:focus-visible rect{fill:var(--tint);stroke:var(--red);stroke-width:3;} .ds-wire{stroke:var(--ink);stroke-width:2;fill:none;}"
+    },
+    {
+      "name": "Figure with Caption",
+      "kind": "card",
+      "refersTo": "figure-frame",
+      "description": "2px ink frame around a figure, italic numbered caption below.",
+      "html": "<figure class=\"ds-fig\"><div class=\"ds-fig-body\"></div><figcaption>Figure 1. Functional block diagram.</figcaption></figure>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-fig{font-family:'Barlow','Helvetica Neue',Arial,sans-serif;margin:0;border:2px solid var(--ink);padding:20px 24px 12px;background:var(--paper);} .ds-fig-body{height:80px;background:var(--fill);border:2px solid var(--ink);} .ds-fig figcaption{margin:8px 0 0;font-size:13px;font-style:italic;color:var(--ink-3);}"
+    },
+    {
+      "name": "Contact Frame",
+      "kind": "card",
+      "refersTo": "button-primary",
+      "description": "Closing frame: 2px ink border with an 8px red top border.",
+      "html": "<section class=\"ds-contact\"><h2>Contact</h2><p>Write to <a href=\"#\">dev@damianponce.com</a>.</p><a class=\"ds-btn\" href=\"#\">Résumé (PDF)</a></section>",
+      "css": ":host{--paper:#ffffff;--ink:#0f1012;--ink-2:#2f3237;--ink-3:#5a5d62;--fill:#e6e7e9;--tint:#fbe9ec;--red:#c8102e;--ease-out:cubic-bezier(0.16,1,0.3,1);} .ds-contact{font-family:'Barlow','Helvetica Neue',Arial,sans-serif;border:2px solid var(--ink);border-top:8px solid var(--red);padding:22px 24px 26px;display:grid;gap:14px;justify-items:start;color:var(--ink);} .ds-contact h2{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;margin:0;font-weight:700;font-size:44px;line-height:1;} .ds-contact p{margin:0;font-size:17px;color:var(--ink-2);} .ds-contact p a{font-weight:700;color:var(--ink);} .ds-btn{background:var(--red);color:#fff;font-weight:600;padding:7px 12px;text-decoration:none;transition:background-color 160ms var(--ease-out);} .ds-btn:hover{background:#a50d26;} .ds-btn:focus-visible{outline:2px solid var(--red);outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Component Datasheet",
+    "overview": "The developer is documented the way a part is documented: a red top rule, a ruled title block, numbered sections, ruled tables with tabular figures, a functional block diagram, and figures with italic captions. The page is white paper and black ink. Structure comes from 1px and 2px ink rules, never from cards or shadows. One signal red marks the things a reader should find first: the top rule, section numbers, list markers, the primary action and the current selection.\n\nDensity is that of a technical document: compact tables, short lists, generous but regular section spacing, and a 1240px sheet width. Type is Barlow throughout, with Barlow Condensed for anything that names something (the name, section heads, values in the title block, figure block labels) and regular Barlow for running text. Motion is restrained to a 160ms state ease and one authored moment, the signal path in Figure 1 drawing in left to right.\n\nThe world was chosen to replace a dark, sticky-rail portfolio template. It currently covers the home page only.",
+    "keyCharacteristics": [
+      "White paper, near-black ink, one signal red.",
+      "Square corners everywhere; frames are ink rules (1px inner, 2px outer).",
+      "Condensed bold for names and heads, regular Barlow for reading.",
+      "Numbered sections and numbered figures with italic captions.",
+      "Tables with tabular figures and a grey header fill.",
+      "No shadows, no gradients, no rounded cards."
+    ],
+    "rules": [
+      {
+        "name": "The One Signal Rule",
+        "body": "Red is a pointer, not a surface. It appears as rules, numerals, markers, outlines and the single primary button; it is never used for running text or for a fill larger than the 8px top rule.",
+        "section": "colors"
+      },
+      {
+        "name": "The Selection Tint Rule",
+        "body": "The pale red tint means \"this is selected or linked to what you selected\". Do not use it as decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Condensed Names Rule",
+        "body": "Barlow Condensed is for names, heads, values and diagram labels. Paragraphs, lists and tables stay in regular Barlow.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Anything with numbers in columns (tables, section and figure numerals, the document line) uses tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Not Raised Rule",
+        "body": "Group content with a frame of ink rules (2px outer, 1px inner) or a grey fill. Never lift it with a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do frame and divide with ink rules: 2px for outer frames and section underlines, 1px for internal divisions and table cells.",
+      "Do keep every corner square (0px), including diagrams and buttons.",
+      "Do number sections, notes and figures, set the numerals in signal red with tabular figures, and caption every figure in italic ink-3 starting with \"Figure N.\".",
+      "Do use Barlow Condensed for names, heads, values and diagram labels, and regular Barlow for all reading text.",
+      "Do use the signal tint only to show the current selection and what it links to.",
+      "Do gate the wire draw-in behind `prefers-reduced-motion: no-preference` and keep state transitions at 160ms with the `cubic-bezier(0.16, 1, 0.3, 1)` ease.",
+      "Do turn tables into labelled blocks below 640px rather than letting them scroll sideways."
+    ],
+    "donts": [
+      "Don't add shadows, blurs or gradients; this world is flat.",
+      "Don't use rounded, filled or shadowed cards; group with a ruled frame or a grey fill.",
+      "Don't spread red beyond rules, numerals, markers, outlines and the single primary button per block; no red body text or large red fills.",
+      "Don't add a second accent colour.",
+      "Don't reuse the 11px uppercase field-label style as a kicker or eyebrow above headings; it belongs inside title block cells and mobile table rows only.",
+      "Don't add a part number or bare revision year to the title block, or other datasheet props a reader learns nothing from."
+    ]
+  }
+}

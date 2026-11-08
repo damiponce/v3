@@ -12,13 +12,12 @@
     "contactQ": "¿Querés trabajar juntos?",
     "contactCtA": "Contactame"
   },
-  "subtitle": "Desarrollador y estudiante de Ciencias de la Computación",
   "description": "Texto temporal",
-  "viewResume": "Ver Curriculum",
-  "viewResumeES": "Ver Curriculum (Español)",
-  "viewResumeEN": "Ver Curriculum (Inglés)",
-  "viewProjects": "Ver Proyectos",
-  "viewFreelance": "Ver Proyectos Freelance",
+  "viewResume": "Ver CV",
+  "viewResumeES": "Ver CV (español)",
+  "viewResumeEN": "Ver CV (inglés)",
+  "viewProjects": "Ver todos los proyectos",
+  "viewFreelance": "Ver proyectos freelance",
   "experience": {
     "title": "Experiencia"
   },

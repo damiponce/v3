@@ -103,7 +103,7 @@ export default function Index(
   return (
     <>
       <Head>
-        <title>Damián Ponce</title>
+        <title>{`${t('title')} | Damián Ponce`}</title>
       </Head>
       <Meta />
       <div className='relative'>

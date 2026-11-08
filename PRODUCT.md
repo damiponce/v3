@@ -24,7 +24,7 @@ Damián Ponce's personal site. Its main job is to get him hired as a developer. 
 2. **Ships for real clients and users:** live client sites, an event management system with 1000+ monthly users, and front-end lead on a research simulation suite.
 3. **Design-minded frontend developer:** frontend specialist whose edge is taste and UX, actively growing into full-stack.
 
-Until one is picked, keep it swappable and don't hard-code one framing across the whole site.
+All three are written as variants of the home subtitle and About text in `_sections/positioning.tsx`, picked by `ACTIVE_POSITIONING`. Until one is chosen, keep new framing there instead of hard-coding it across the site.
 
 ## Operating Context
 
@@ -35,9 +35,10 @@ Until one is picked, keep it swappable and don't hard-code one framing across th
 
 ## Capabilities and Constraints
 
-- Next.js 13 (pages router), TypeScript, Tailwind CSS, shadcn/ui primitives, framer-motion. Managed with pnpm; deployed through Docker (GitHub Actions workflow).
+- Next.js 13 (pages router), TypeScript, Tailwind CSS, shadcn/ui primitives, framer-motion. Managed with pnpm; deployed on Vercel (a Docker build workflow exists but is commented out).
 - **ES/EN bilingual is fixed.** Every page and content entry ships in both languages through next-i18next (`public/locales/{en,es}`) and the per-language objects in `_sections/*.ts`.
-- **Contact form and résumé PDFs are core.** The contact form is protected by Cloudflare Turnstile and validated with zod. CVs live at `public/assets/resume/CV_PONCE_{EN,ES}.pdf`.
+- **Contact form and résumé PDFs are core.** The contact page embeds a Tally form (one form per language; its field copy is edited in Tally, not in this repo) and shows `dev@damianponce.com` as the direct email. The `form` and `errors` strings in `contact.json` belong to an unused in-house form. CVs live at `public/assets/resume/CV_PONCE_{EN,ES}.pdf`.
+- **Spanish copy uses Argentine voseo** ("escribime", "contame", "usá") everywhere.
 - **The blog is real and planned.** The markdown pipeline (`_posts/`, KaTeX math, Shiki highlighting) stays, even though no real posts exist yet.
 - **The design gallery stays but is secondary** (`pages/design`). It supports the story and is not a headline section.
 - PostHog analytics tracks page views and page leaves.

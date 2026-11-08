@@ -1,7 +1,7 @@
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { InferGetStaticPropsType } from "next";
-import { useTranslation } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { z } from "zod";
@@ -20,7 +20,7 @@ export default function Contact(
   return (
     <>
       <Head>
-        <title>{t("title")}</title>
+        <title>{`${t("title")} | Damián Ponce`}</title>
       </Head>
       <Meta />
       <div className="">
@@ -32,7 +32,18 @@ export default function Contact(
                 {t("bigTitle")}
               </h1>
               <h2 className="text-xl font-medium tracking-[-0.02em] text-neutral-400 sm:text-xl text-balance mt-2">
-                {t("subtitle")}
+                <Trans
+                  t={t}
+                  i18nKey="subtitle"
+                  components={{
+                    email: (
+                      <a
+                        href="mailto:dev@damianponce.com"
+                        className="text-neutral-200 underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-200 focus-visible:decoration-neutral-200"
+                      />
+                    ),
+                  }}
+                />
               </h2>
               <ul className="group/list mt-12"></ul>
             </div>

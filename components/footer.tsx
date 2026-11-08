@@ -24,8 +24,8 @@ const Footer = ({ lang }: Props) => {
           <Link url='https://code.visualstudio.com/'>Visual Studio Code</Link>.
           Hecho con <Link url='https://nextjs.org/'>Next.js</Link> y{' '}
           <Link url='https://tailwindcss.com/'>Tailwind CSS</Link>. Desplegado
-          en <Link url='https://vercel.com/'>Vercel</Link>. Toda la tipografía
-          usa la tipografía <Link url='https://vercel.com/font'>Geist</Link>.
+          en <Link url='https://vercel.com/'>Vercel</Link>. El texto usa la
+          tipografía <Link url='https://vercel.com/font'>Geist</Link>.
         </p>
       </footer>
     ),
@@ -37,7 +37,7 @@ const Footer = ({ lang }: Props) => {
           coded in{' '}
           <Link url='https://code.visualstudio.com/'>Visual Studio Code</Link>{' '}
           by me. Built with <Link url='https://nextjs.org/'>Next.js</Link> and{' '}
-          <Link url='https://tailwindcss.com/'>Tailwind CSS</Link>, deployed in{' '}
+          <Link url='https://tailwindcss.com/'>Tailwind CSS</Link>, deployed on{' '}
           <Link url='https://vercel.com/'>Vercel</Link>. All text uses the{' '}
           <Link url='https://vercel.com/font/'>Geist</Link> font.
         </p>

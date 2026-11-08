@@ -9,6 +9,7 @@
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useSwipeable } from 'react-swipeable';
 import { variants, downloadPhoto, range } from '@/lib/utils';
 import type { ImageProps, SharedModalProps } from '@/lib/utils';
@@ -32,6 +33,15 @@ export default function SharedModal({
   direction,
 }: SharedModalProps) {
   const [loaded, setLoaded] = useState(false);
+  const es = useRouter().locale === 'es';
+  const label = {
+    prev: es ? 'Imagen anterior' : 'Previous image',
+    next: es ? 'Imagen siguiente' : 'Next image',
+    close: navigation
+      ? es ? 'Volver a la galería' : 'Back to gallery'
+      : es ? 'Cerrar' : 'Close',
+    thumb: (n: number) => (es ? `Ver imagen ${n}` : `View image ${n}`),
+  };
 
   let filteredImages = images?.filter((img: DesignImage) =>
     range(index - 15, index + 15).includes(img.id),
@@ -107,6 +117,7 @@ export default function SharedModal({
                       className='absolute left-3 top-[calc(50%-16px)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white focus:outline-none'
                       style={{ transform: 'translate3d(0, 0, 0)' }}
                       onClick={() => changePhotoId(index - 1)}
+                      aria-label={label.prev}
                     >
                       {/* <ChevronLeftIcon className='h-6 w-6' /> */}
                       <LucideChevronLeft />
@@ -117,6 +128,7 @@ export default function SharedModal({
                       className='absolute right-3 top-[calc(50%-16px)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white focus:outline-none'
                       style={{ transform: 'translate3d(0, 0, 0)' }}
                       onClick={() => changePhotoId(index + 1)}
+                      aria-label={label.next}
                     >
                       {/* <ChevronRightIcon className='h-6 w-6' /> */}
                       <LucideChevronRight />
@@ -152,6 +164,7 @@ export default function SharedModal({
               <div className='absolute top-0 left-0 flex items-center gap-2 p-3 text-white'>
                 <button
                   onClick={() => closeModal()}
+                  aria-label={label.close}
                   className='rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white'
                 >
                   {navigation ? <LucideUndo2 /> : <LucideX />}
@@ -181,6 +194,8 @@ export default function SharedModal({
                         }}
                         exit={{ width: '0%' }}
                         onClick={() => changePhotoId(id)}
+                        aria-label={label.thumb(id + 1)}
+                        aria-current={id === index ? 'true' : undefined}
                         key={id}
                         className={`${
                           id === index
@@ -191,7 +206,7 @@ export default function SharedModal({
                         } relative inline-block w-full shrink-0 transform-gpu overflow-hidden focus:outline-none`}
                       >
                         <Image
-                          alt='small photos on the bottom'
+                          alt=''
                           width={0} //{180}
                           height={0} //{120}
                           className={`${

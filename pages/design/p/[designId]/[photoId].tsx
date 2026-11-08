@@ -20,7 +20,7 @@ const Home: NextPage = ({ currentPhoto }: { currentPhoto: DesignImage }) => {
   return (
     <>
       <Head>
-        <title>Next.js Conf 2022 Photos</title>
+        <title>{`${router.locale === 'es' ? 'Diseño' : 'Design'} | Damián Ponce`}</title>
         <meta property='og:image' content={currentPhotoUrl} />
         <meta name='twitter:image' content={currentPhotoUrl} />
       </Head>

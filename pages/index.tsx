@@ -236,14 +236,14 @@ export default function Index(
                     url={'/design'}
                     title={
                       {
-                        es: 'Sección de diseño gráfico',
-                        en: 'Graphic design section',
+                        es: 'Diseño gráfico',
+                        en: 'Graphic design',
                       }[lang]
                     }
                     description={
                       {
-                        es: 'Esta página muestra todos mis proyectos de diseño visual a lo largo de los años.',
-                        en: 'This page showcases all of my visual design projects along the years.',
+                        es: 'Mi trabajo de diseño visual a lo largo de los años: logos, publicidades, proyectos escolares y más.',
+                        en: 'My visual design work over the years: logos, ads, school projects and more.',
                       }[lang]
                     }
                     technologies={['Illustrator', 'Photoshop', 'Figma']}

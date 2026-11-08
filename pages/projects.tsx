@@ -17,7 +17,7 @@ export default function Post(
   return (
     <>
       <Head>
-        <title>{t('title')}</title>
+        <title>{`${t('title')} | Damián Ponce`}</title>
       </Head>
       <Meta />
       <div className=''>

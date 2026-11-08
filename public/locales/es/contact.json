@@ -1,46 +1,46 @@
 {
   "title": "Contacto",
-  "bigTitle": "Ponte en contacto",
-  "subtitle": "Siempre estoy buscando nuevas oportunidades y colaboraciones.\n Siéntete libre de contactarme por email o a través del formulario de abajo.",
+  "bigTitle": "Escribime",
+  "subtitle": "Estoy abierto a puestos como desarrollador y a proyectos freelance. Escribime a <email>dev@damianponce.com</email> o usá el formulario de abajo.",
   "form": {
     "email": {
       "label": "Email o Teléfono",
       "placeholder": "tu@email.com o +1234567890",
-      "description": "Cómo puedo contactarte de vuelta"
+      "description": "Para poder responderte"
     },
     "name": {
       "label": "Nombre (opcional)",
       "placeholder": "Tu nombre",
-      "description": "Tu nombre o nombre de empresa"
+      "description": "Tu nombre o el de tu empresa"
     },
     "subject": {
       "label": "Asunto",
       "placeholder": "Consulta de proyecto, colaboración, etc.",
-      "description": "Breve descripción de lo que te gustaría discutir"
+      "description": "De qué querés hablar, en pocas palabras"
     },
     "message": {
       "label": "Mensaje",
-      "placeholder": "Cuéntame sobre tu proyecto, cronograma, presupuesto o cualquier pregunta que tengas...",
-      "description": "Describe tu proyecto o en qué te gustaría trabajar juntos"
+      "placeholder": "Contame sobre el puesto o proyecto, plazos, presupuesto o cualquier duda que tengas...",
+      "description": "En qué te gustaría que trabajemos"
     },
     "submit": "Enviar mensaje",
     "submitting": "Enviando...",
-    "success": "Formulario enviado exitosamente"
+    "success": "Mensaje enviado. Te respondo lo antes posible."
   },
   "errors": {
     "email": {
-      "required": "Email o número de teléfono es requerido",
-      "invalid": "Por favor ingresa un email válido o número de teléfono"
+      "required": "Ingresá un email o teléfono para que pueda responderte",
+      "invalid": "Ese email o teléfono no parece válido"
     },
     "name": {
       "maxLength": "El nombre no puede tener más de 150 caracteres"
     },
     "subject": {
-      "required": "El asunto es requerido",
+      "required": "Agregá un asunto",
       "maxLength": "El asunto no puede tener más de 150 caracteres"
     },
     "message": {
-      "required": "El mensaje es requerido",
+      "required": "Escribí un mensaje",
       "maxLength": "El mensaje no puede tener más de 10,000 caracteres"
     }
   }

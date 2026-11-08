@@ -36,11 +36,13 @@ export default function Carousel({
       <button
         className='absolute inset-0 z-30 cursor-default bg-black backdrop-blur-2xl'
         onClick={closeModal}
+        tabIndex={-1}
+        aria-hidden='true'
       >
         <Image
           src={`/assets/design/${currentPhoto.design}/${currentPhoto.public_id}.${currentPhoto.format}`}
           className='pointer-events-none h-full w-full blur-3xl scale-125 brightness-75'
-          alt='blurred background'
+          alt=''
           fill
           sizes={'15px'}
           priority={true}

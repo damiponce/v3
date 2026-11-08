@@ -12,12 +12,11 @@
     "contactQ": "Want to work together?",
     "contactCtA": "Get in touch"
   },
-  "subtitle": "Developer and Computer Science student",
   "description": "Temp text",
   "viewResume": "View Résumé",
   "viewResumeES": "View Résumé (Spanish)",
   "viewResumeEN": "View Résumé (English)",
-  "viewProjects": "View Projects",
+  "viewProjects": "View All Projects",
   "viewFreelance": "View Freelance Projects",
   "experience": {
     "title": "Experience"

@@ -15,6 +15,7 @@ import {
 } from "framer-motion";
 import FlashyTag from "./flashy-tag";
 import { ArrowRight } from "lucide-react";
+import { getPositioning } from "../_sections/positioning";
 
 function inProps(n = 0) {
   return {
@@ -196,6 +197,7 @@ type Props = {
 const Header = ({ t }: Props) => {
   const [activeId, setActiveId] = useState();
   useIntersectionObserver(setActiveId);
+  const { i18n } = useTranslation();
 
   // useEffect(() => {
   //    console.error(activeId);
@@ -263,7 +265,7 @@ const Header = ({ t }: Props) => {
             className="mt-3 text-lg font-[400] tracking-[-0.02rem] text-neutral-300 sm:text-xl text-balance mr-6"
             {...inProps(1)}
           >
-            {t("subtitle")}
+            {getPositioning(i18n.language).subtitle}
           </motion.h2>
           {/* <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p> */}
         </div>

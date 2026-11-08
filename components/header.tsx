@@ -245,7 +245,6 @@ const Header = ({ t }: Props) => {
               id="featured"
               activeId={activeId}
               order={2}
-              hasNew
             />
             <ToCItem
               name={t("toc.experience")}

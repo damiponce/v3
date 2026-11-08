@@ -22,8 +22,14 @@ function Root({ Component, pageProps }: AppProps) {
   const oldUrlRef = useRef('');
   const siteDescription =
     router.locale === 'en'
-      ? 'Full-stack developer — React, Next.js, Firebase, React Native, IoT'
-      : 'Desarrollador full-stack — React, Next.js, Firebase, React Native, IoT';
+      ? 'Full-stack developer: React, Next.js, Firebase, React Native, IoT'
+      : 'Desarrollador full-stack: React, Next.js, Firebase, React Native, IoT';
+
+  // Spanish is the default locale (served at /), English lives under /en.
+  const path = router.asPath.split(/[?#]/)[0].replace(/\/$/, '');
+  const urlFor = (locale: string) =>
+    `https://damianponce.com${locale === 'en' ? '/en' : ''}${path}`;
+  const canonical = urlFor(router.locale ?? 'es');
 
   useEffect(() => {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
@@ -85,9 +91,13 @@ function Root({ Component, pageProps }: AppProps) {
           <NextSeo
             title='Damián Ponce'
             description={siteDescription}
-            canonical='https://damianponce.com/'
+            canonical={canonical}
+            languageAlternates={[
+              { hrefLang: 'es', href: urlFor('es') },
+              { hrefLang: 'en', href: urlFor('en') },
+            ]}
             openGraph={{
-              url: 'https://damianponce.com/',
+              url: canonical,
               title: 'Damián Ponce',
               description: siteDescription,
               images: [

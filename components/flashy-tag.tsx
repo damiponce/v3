@@ -20,7 +20,6 @@ export default function FlashyTag({
       )}
       {...props}
     >
-      <div className='absolute inset-0 rounded-full shadow-[inset_0_0_8px_4px_#7F00FF77] z-[9] mix-blend-saturation animate-ping motion-reduce:hidden' />
       {children}
     </div>
   );

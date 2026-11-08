@@ -198,7 +198,7 @@ const ImgCard = ({
         {hasMedia && (
         <div
           className={cn(
-            'max-w-[200px] h-fit overflow-hidden object-contain',
+            'max-w-[140px] sm:max-w-[200px] h-fit overflow-hidden object-contain',
             'rounded border-2 border-neutral-200/10 transition group-hover:border-neutral-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1',
           )}
         >

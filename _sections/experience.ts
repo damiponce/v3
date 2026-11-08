@@ -13,6 +13,8 @@ type Experience = {
   links?: { name: string; url: string }[];
   technologies?: string[];
   highlight?: boolean;
+  // Kept for the résumé but left off the home page.
+  hideOnHome?: boolean;
   es: CardText;
   en: CardText;
 };
@@ -102,6 +104,8 @@ const EXPERIENCE: Experience[] = [
   // },
   {
     _key: "interpreter",
+    // Short role; About already covers the bilingual point.
+    hideOnHome: true,
     es: {
       date: "Dic 2022 →\nEne 2023",
       title: "Intérprete Español-Inglés",

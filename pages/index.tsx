@@ -138,7 +138,7 @@ export default function Index(
                 name={t('toc.experience')}
               >
                 <ol className='group/list'>
-                  {EXPERIENCE.map((item) => (
+                  {EXPERIENCE.filter((item) => !item.hideOnHome).map((item) => (
                     <TextCard
                       itemKey={`experience-${item._key}`}
                       key={`experience-${item._key}`}
@@ -274,7 +274,7 @@ export default function Index(
                   <ImgCard
                     itemKey={`design-card`}
                     img={
-                      '/assets/design/general-designs/remera-doomsday-clock.webp'
+                      '/assets/design/nasa-space-apps/logo-completo-alquid.webp'
                     }
                     url={'/design'}
                     title={

@@ -137,6 +137,7 @@ const GridCard = ({
             </ul>
           )} */}
         </div>
+        {(visual || img) && (
         <div
           className={cn(
             'mt-auto w-full h-fit overflow-hidden object-contain',
@@ -156,6 +157,7 @@ const GridCard = ({
             />
           )}
         </div>
+        )}
         {/* <img
           alt=''
           loading='lazy'

@@ -31,11 +31,19 @@ const BigImgCard = ({
       ? !(url.startsWith('https://') || url.startsWith('http://'))
       : false;
 
+  // No diagram and no image: render a text-only card instead of an empty box.
+  const hasMedia = Boolean(visual || img);
+
   return (
     <li className='mb-12' key={itemKey}>
       <div className='group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50'>
         <div className='absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(38,38,38,0.1)] lg:group-hover:drop-shadow-lg'></div>
-        <div className='z-10 sm:order-2 sm:col-span-4'>
+        <div
+          className={cn(
+            'z-10 sm:order-2',
+            hasMedia ? 'sm:col-span-4' : 'sm:col-span-8',
+          )}
+        >
           <h3 className='font-semibold leading-tight text-neutral-200 text-2xl'>
             {title}
           </h3>
@@ -110,6 +118,7 @@ const BigImgCard = ({
             </ul>
           )}
         </div>
+        {hasMedia && (
         <div
           className={cn(
             'max-w-[200px]_ [&>*]:aspect-[16/9] h-fit overflow-hidden object-contain',
@@ -129,6 +138,7 @@ const BigImgCard = ({
             />
           )}
         </div>
+        )}
       </div>
     </li>
   );

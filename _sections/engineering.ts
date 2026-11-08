@@ -11,16 +11,17 @@ type Project = {
   url: string;
   links?: { name: string; url: string }[];
   technologies?: string[];
+  // Listed only on the /projects page, not on the homepage.
+  archived?: boolean;
   es: CardText;
   en: CardText;
 };
 
-const PLACEHOLDER = "/assets/images/placeholder-banner.webp";
-
+// Entries without a photo yet use img: "" and render as text-only cards.
 const ENGINEERING: Project[] = [
   {
     _key: "homelab",
-    img: PLACEHOLDER, // TODO: homelab photo
+    img: "", // TODO: homelab photo
     url: "",
     technologies: ["Linux", "Docker", "Raspberry Pi", "Grafana", "InfluxDB"],
     es: {
@@ -38,7 +39,7 @@ const ENGINEERING: Project[] = [
   },
   {
     _key: "coffee-scale",
-    img: PLACEHOLDER, // TODO: coffee scale photo
+    img: "", // TODO: coffee scale photo
     url: "",
     technologies: ["ESP32", "C/C++", "3D printing"],
     es: {
@@ -57,8 +58,16 @@ const ENGINEERING: Project[] = [
   },
   {
     _key: "weather-station",
-    img: PLACEHOLDER, // TODO: weather station photo
+    // Hidden from the home page until it has a description and a photo.
+    archived: true,
+    img: "", // TODO: weather station photo
     url: "",
+    links: [
+      {
+        name: "GitHub",
+        url: "https://github.com/damiponce/weather-station-esp32",
+      },
+    ],
     technologies: ["ESP-IDF", "MQTT", "InfluxDB", "Grafana"],
     es: {
       date: "2023",

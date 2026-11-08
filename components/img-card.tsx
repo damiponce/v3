@@ -42,6 +42,9 @@ const ImgCard = ({
   const { i18n } = useTranslation();
   const lang = i18n.language;
 
+  // No diagram and no image: render a text-only card instead of an empty box.
+  const hasMedia = Boolean(visual || img);
+
   return (
     <li className='mb-12' key={itemKey}>
       <div className='group relative overflow-hidden_ grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50'>
@@ -86,7 +89,12 @@ const ImgCard = ({
             </>
           )} */}
         </div>
-        <div className='z-10 sm:order-2 sm:col-span-6'>
+        <div
+          className={cn(
+            'z-10 sm:order-2',
+            hasMedia ? 'sm:col-span-6' : 'sm:col-span-8',
+          )}
+        >
           <h3>
             {!url ? (
               <span
@@ -187,6 +195,7 @@ const ImgCard = ({
             </ul>
           )}
         </div>
+        {hasMedia && (
         <div
           className={cn(
             'max-w-[200px] h-fit overflow-hidden object-contain',
@@ -206,6 +215,7 @@ const ImgCard = ({
             />
           )}
         </div>
+        )}
         {/* <img
           alt=''
           loading='lazy'

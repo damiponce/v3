@@ -27,7 +27,7 @@ import { useEffect, useState } from 'react';
 import PostCard from '../components/post-card-v2';
 import GridCard from '@/components/grid-card';
 import FEATURED from '../_sections/featured';
-import IotDiagram from '../components/iot-diagram';
+import ArchDiagram from '../components/arch-diagram';
 import { SHOW_BLOG } from '../lib/flags';
 
 export default function Index(
@@ -174,8 +174,8 @@ export default function Index(
                       }
                       isNew={item.new}
                       visual={
-                        'diagram' in item && item.diagram === 'iot' ? (
-                          <IotDiagram lang={lang} />
+                        item.diagram ? (
+                          <ArchDiagram name={item.diagram} lang={lang} />
                         ) : undefined
                       }
                     />
@@ -198,8 +198,12 @@ export default function Index(
                       }
                       img={item.img}
                       visual={
-                        item.diagram === 'iot' ? (
-                          <IotDiagram lang={lang} layout='tile' />
+                        item.diagram ? (
+                          <ArchDiagram
+                            name={item.diagram}
+                            lang={lang}
+                            layout='tile'
+                          />
                         ) : undefined
                       }
                       url={item.url}
@@ -225,6 +229,11 @@ export default function Index(
                       itemKey={`coding-${item._key}`}
                       key={`coding-${item._key}`}
                       img={item.img}
+                      visual={
+                        item.diagram ? (
+                          <ArchDiagram name={item.diagram} lang={lang} />
+                        ) : undefined
+                      }
                       url={item.url}
                       title={item[lang].title}
                       description={item[lang].description}
@@ -247,7 +256,7 @@ export default function Index(
                 darker
               >
                 <ul className='group/list'>
-                  {ENGINEERING.map((item) => (
+                  {ENGINEERING.filter((item) => !item.archived).map((item) => (
                     <ImgCard
                       itemKey={`engineering-${item._key}`}
                       key={`engineering-${item._key}`}

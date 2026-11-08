@@ -1,3 +1,5 @@
+import type { DiagramKey } from '../components/arch-diagram';
+
 type CardText = {
   date: string; // not used
   title: string;
@@ -12,7 +14,8 @@ type Project = {
   links?: { name: string; url: string }[];
   technologies?: string[];
   new?: boolean;
-  diagram?: 'iot';
+  // Rendered as an inline architecture diagram in place of the image.
+  diagram?: DiagramKey;
   // Important projects get bigger tiles on the home page grid.
   important?: boolean;
   es: CardText;
@@ -23,8 +26,9 @@ const FREELANCE: Project[] = [
   {
     _key: 'eti',
     important: true,
-    img: '/assets/images/placeholder-banner.webp', // TODO: ETI screenshot
+    img: '', // TODO: ETI screenshot (then drop the diagram)
     url: '', // TODO: ETI live URL
+    diagram: 'eti',
     technologies: ['Next.js', 'React', 'TypeScript', 'Firebase', 'PostHog'],
     es: {
       date: '',
@@ -41,9 +45,8 @@ const FREELANCE: Project[] = [
   },  {
     _key: 'iot-grill',
     important: true,
-    img: '/assets/images/placeholder-banner.webp',
+    img: '',
     url: '',
-    // Rendered as an inline architecture diagram instead of the image.
     diagram: 'iot',
     technologies: [
       'Expo',

@@ -1,3 +1,5 @@
+import type { DiagramKey } from '../components/arch-diagram';
+
 type CardText = {
   date: string; // not used
   title: string;
@@ -12,6 +14,8 @@ type Project = {
   links?: { name: string; url: string }[];
   technologies?: string[];
   new?: boolean;
+  // Rendered as an inline architecture diagram in place of the image.
+  diagram?: DiagramKey;
   // Important projects render a step larger on the home page.
   important?: boolean;
   // Listed only on the /projects page, not on the homepage.
@@ -25,7 +29,8 @@ const CODING: Project[] = [
     _key: 'musictl',
     important: true,
     new: true,
-    img: '/assets/images/placeholder-banner.webp', // TODO: Music Timeline screenshot
+    img: '', // TODO: Music Timeline screenshot (then drop the diagram)
+    diagram: 'musictl',
     url: 'https://musictl.damianponce.com',
     // TODO: add { name: 'GitHub', url: '...' } if the repo is public
     technologies: [

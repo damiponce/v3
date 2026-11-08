@@ -1,0 +1,26 @@
+.header { max-width:1240px; margin:auto; padding:16px 20px; border-bottom:1px solid #0f1012; display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; }
+.header > a { font-size:22px; font-weight:600; }
+.header nav { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; }
+.root a { text-underline-offset:4px; }
+.root a:hover, .root a[aria-current] { text-decoration:underline; }
+.title { border:2px solid #0f1012; border-top:8px solid #c8102e; padding:20px 24px; margin:28px 0 40px; font-size:clamp(36px,5vw,52px); line-height:1.1; font-weight:700; }
+.footer { margin-top:48px; border-top:1px solid; padding-top:16px; font-size:13px; }
+.root table { width:100%; border-collapse:collapse; font-size:14.5px; }
+.root th, .root td { border:1px solid #0f1012; padding:8px 10px; text-align:left; vertical-align:top; }
+.root th { background:#e6e7e9; }
+.root td a { text-decoration:underline; display:inline-block; margin-right:12px; }
+.root section { margin-bottom:40px; }
+.root h2 { font-family:var(--ds-cond); font-size:26px; font-weight:700; border-bottom:2px solid; margin-bottom:16px; }
+.root article { max-width:72ch; margin:0 auto 32px; }
+.root article p { margin-bottom:16px; }
+.root article a { text-decoration:underline; }
+.root :global(.markdown-body) { color:#0f1012; background:#fff; font-family:var(--ds-body); --color-fg-default:#0f1012; --color-canvas-default:#fff; --color-canvas-subtle:#e6e7e9; --color-border-default:#5a5d62; --color-accent-fg:#a50d26; }
+.root :global(.markdown-body) pre { overflow:auto; border:1px solid #0f1012; border-radius:0; }
+.root :global(.markdown-body) h2 { margin-top:32px; }
+@media(max-width:640px) {
+.root table thead { display:none; }
+.root table tr { display:block; margin-bottom:16px; }
+.root table td { display:grid; grid-template-columns:90px minmax(0,1fr); overflow-wrap:anywhere; border-bottom:0; }
+.root table td:last-child { border-bottom:1px solid; }
+.root table td::before { content:attr(data-label); font-size:11px; font-weight:600; text-transform:uppercase; }
+}

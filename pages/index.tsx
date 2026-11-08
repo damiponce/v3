@@ -77,7 +77,7 @@ export default function Index(
       </Head>
       <Meta />
       <div className='grid-background' />
-      <div className='relative overflow-x-hidden_'>
+      <div className='relative overflow-x-clip'>
         {/* <div
           className='pointer-events-none fixed inset-0 z-[-30] lg:absolute '
           style={
@@ -102,11 +102,10 @@ export default function Index(
               {/* <Section id='3d' name='3D' className='h-[600px]'>
                 <ThreeD />
               </Section> */}
-              <Section index={0} id='about' name={t('toc.about')}>
+              <Section id='about' name={t('toc.about')}>
                 <About lang={lang} />
               </Section>
               <Section
-                index={1}
                 id='featured'
                 darker
                 name={t('toc.featuredTitle')}
@@ -135,7 +134,6 @@ export default function Index(
                 </ul>
               </Section>
               <Section
-                index={2}
                 id='experience'
                 name={t('toc.experience')}
               >
@@ -175,7 +173,6 @@ export default function Index(
                 </a>
               </Section>
               <Section
-                index={3}
                 id='freelance'
                 name={t('toc.projects') + ' ‣ ' + t('toc.freelance')}
                 darker
@@ -211,7 +208,6 @@ export default function Index(
                 <ViewFull text={t('viewFreelance')} url='freelance' />
               </Section>
               <Section
-                index={4}
                 id='coding'
                 name={t('toc.projects') + ' ‣ ' + t('toc.coding')}
               >
@@ -242,7 +238,6 @@ export default function Index(
               </Section>
 
               <Section
-                index={5}
                 id='engineering'
                 name={t('toc.projects') + ' ‣ ' + t('toc.engineering')}
                 darker
@@ -266,7 +261,6 @@ export default function Index(
                 <ViewFull text={t('viewProjects')} url='projects' />
               </Section>
               <Section
-                index={6}
                 id='design'
                 name={t('toc.projects') + ' ‣ ' + t('toc.design')}
               >
@@ -300,7 +294,7 @@ export default function Index(
                 </ul>
               </Section>
               {SHOW_BLOG && (
-              <Section index={7} id='blog' name='Blog' darker className='mb-12'>
+              <Section id='blog' name='Blog' darker className='mb-12'>
                 <ol className='group/list -mb-16'>
                   {_props.allPosts.map(
                     (post) =>
@@ -318,7 +312,7 @@ export default function Index(
                 </ol>
               </Section>
               )}
-              <Section index={8} id='education' name={t('toc.education')} darker>
+              <Section id='education' name={t('toc.education')} darker>
                 <ol className='group/list -mb-6'>
                   {EDUCATION.map((item) => (
                     <TextCard

@@ -47,8 +47,9 @@ const Socials = ({ children }: Props) => {
           </svg>
         </Link>
       </li>
-      <div className="-mx-1"></div>
-      <LangSwitcher />
+      <li className="-ml-1">
+        <LangSwitcher />
+      </li>
     </ul>
   );
 };

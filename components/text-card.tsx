@@ -27,13 +27,13 @@ const TextCard = ({
   technologies,
   highlight,
 }: Props) => {
-  const Titles = ({ isLink = false }) => (
+  const Titles = ({ isExternal = false }) => (
     <>
       <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
       <span>
         {title}{" "}
         <span className="inline-block">
-          {isLink && (
+          {isExternal && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -64,7 +64,7 @@ const TextCard = ({
         <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-neutral-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(38,38,38,0.1)] lg:group-hover:drop-shadow-lg"></div>
 
         <header
-          className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-neutral-500 sm:col-span-2 whitespace-pre-line"
+          className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-neutral-400 sm:col-span-2 whitespace-pre-line"
           aria-label={date}
         >
           {date}
@@ -89,14 +89,14 @@ const TextCard = ({
                   onClick={(e) => {
                     isUrlLocal
                       ? (e.preventDefault(),
-                        document.querySelector(url).scrollIntoView({
+                        document.querySelector(url)?.scrollIntoView({
                           behavior: "smooth",
                         }))
                       : null;
                   }}
                   aria-label={`${title} - ${place}`}
                 >
-                  {<Titles isLink />}
+                  <Titles isExternal={!isUrlLocal} />
                 </Link>
               ) : (
                 <Titles />
@@ -104,7 +104,7 @@ const TextCard = ({
             </div>
             {position && (
               <div>
-                <div className="text-neutral-500" aria-hidden="true">
+                <div className="text-neutral-400" aria-hidden="true">
                   {position}
                 </div>
               </div>

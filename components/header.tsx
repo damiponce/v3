@@ -19,11 +19,12 @@ import { getPositioning } from "../_sections/positioning";
 import { SHOW_BLOG } from "../lib/flags";
 import { EMAIL, resumeFor } from "../lib/contact";
 
+// Entrance for the header items: a CSS animation, so the rail is visible
+// even before (or without) hydration, and skipped under reduced motion.
 function inProps(n = 0) {
   return {
-    initial: { opacity: 0, x: -20 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.18, delay: 0.04 * n },
+    className: "motion-safe:animate-enter",
+    style: { animationDelay: `${40 * n}ms` },
   };
 }
 
@@ -96,7 +97,10 @@ const ToCItem = ({
   const lang = i18n.language;
 
   return (
-    <motion.li style={{ order }} {...inProps(order + 1)}>
+    <li
+      className={inProps(order + 1).className}
+      style={{ order, ...inProps(order + 1).style }}
+    >
       <Link
         className={cn("group flex items-center py-3 h-[40px] relative")}
         href={`#${target}`}
@@ -118,7 +122,7 @@ const ToCItem = ({
         <span
           data-active={active ? "true" : "false"}
           className={cn(
-            "text-xs font-bold uppercase tracking-widest text-neutral-500 h-4",
+            "text-xs font-bold uppercase tracking-widest text-neutral-400 h-4",
             "data-[active=true]:lg:text-neutral-200",
             "group-hover:text-neutral-200 group-focus-visible:text-neutral-200"
           )}
@@ -136,7 +140,7 @@ const ToCItem = ({
           </FlashyTag>
         )}
       </Link>
-    </motion.li>
+    </li>
   );
 };
 
@@ -164,9 +168,12 @@ const Header = ({ t }: Props) => {
     <header className=" lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div className={cn("flex-1 flex flex-col justify-between")}>
         <div className="mb-8">
-          <motion.h1
-            className="text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none "
-            {...inProps()}
+          <h1
+            className={cn(
+              "text-5xl font-bold tracking-tight text-neutral-200 sm:text-[48px] leading-none",
+              inProps().className
+            )}
+            style={inProps().style}
           >
             <Link href="/" className="relative -ml-[1.5px]">
               <span
@@ -210,14 +217,17 @@ const Header = ({ t }: Props) => {
                 Damián Ponce
               </motion.span>
             </Link>
-          </motion.h1>
+          </h1>
 
-          <motion.h2
-            className="mt-3 text-lg font-[400] tracking-[-0.02rem] text-neutral-300 sm:text-xl text-balance mr-6"
-            {...inProps(1)}
+          <h2
+            className={cn(
+              "mt-3 text-lg font-[400] tracking-[-0.02rem] text-neutral-300 sm:text-xl text-balance mr-6",
+              inProps(1).className
+            )}
+            style={inProps(1).style}
           >
             {getPositioning(i18n.language).subtitle}
-          </motion.h2>
+          </h2>
           {/* <p className='mt-4 max-w-xs leading-normal'>{t('description')}</p> */}
         </div>
 
@@ -266,7 +276,10 @@ const Header = ({ t }: Props) => {
           </ul>
         </nav>
         <div className="fill flex flex-[3] min-h-6" />
-        <motion.div {...inProps(9)} className="flex flex-col gap-3 mb-8">
+        <div
+          className={cn("flex flex-col gap-3 mb-8", inProps(7).className)}
+          style={inProps(7).style}
+        >
           <div className="text-base font-medium text-left text-neutral-300 h-5 leading-5">
             {t("toc.contactQ")}
           </div>
@@ -279,7 +292,7 @@ const Header = ({ t }: Props) => {
             >
               {/* #3b65de66 */}
               <span
-                className="group-hover:drop-shadow-[0_1.5px_3px_#0004] group-hover:!text-white transition-all duration-150 bg-clip-text animate-shine"
+                className="group-hover:drop-shadow-[0_1.5px_3px_#0004] group-hover:!text-white transition-all duration-150 bg-clip-text animate-shine motion-reduce:animate-none motion-reduce:!text-white"
                 style={{
                   backgroundImage:
                     "linear-gradient(120deg, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.7) 60%)",
@@ -308,10 +321,10 @@ const Header = ({ t }: Props) => {
           >
             {EMAIL}
           </a>
-        </motion.div>
-        <motion.div {...inProps(10)}>
+        </div>
+        <div {...inProps(8)}>
           <Socials />
-        </motion.div>
+        </div>
       </div>
     </header>
   );

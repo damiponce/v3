@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { cn } from '../lib/utils';
 import React from 'react';
 
@@ -8,19 +7,13 @@ type Props = {
   name: string;
   className?: string;
   darker?: boolean;
-  index?: number;
 };
 
-function inProps(n = 0) {
-  return {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.18, delay: 0.3 * n },
-  };
-}
-const Section = ({ children, id, name, className, darker, index }: Props) => {
+// Sections render visible from the server; the only entrance motion on the
+// page is the header's (see header.tsx).
+const Section = ({ children, id, name, className, darker }: Props) => {
   return (
-    <motion.section
+    <section
       id={id}
       data-heading
       className={cn(
@@ -30,7 +23,6 @@ const Section = ({ children, id, name, className, darker, index }: Props) => {
         //   'mlg:bg-[#121212] mmd:px-6 mmd:-mx-6 mlg:px-12 mlg:-mx-12 mlg:pb-6 mlg:mb-10',
         className,
       )}
-      {...inProps(index)}
     >
       {darker && (
         <div className='absolute inset-0 mlg:bg-[#050505] mix-blend-difference mmd:px-6 mmd:-mx-6 mlg:px-12 mlg:-mx-12 mlg:pb-6-mlg:mb-10 _[mask-image:linear-gradient(to_bottom,black_calc(100%-32px),transparent_100%)] pointer-events-none' />
@@ -49,7 +41,7 @@ const Section = ({ children, id, name, className, darker, index }: Props) => {
       </div>
       {/* <h3 className='p-4 -m-4 text-xl'>{name}</h3> */}
       {children}
-    </motion.section>
+    </section>
   );
 };
 

@@ -10,13 +10,12 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
-  			'100': '],',
   			'accent-1': '#FAFAFA',
   			'accent-2': '#EAEAEA',
   			'accent-7': '#333',
   			success: '#0070f3',
   			cyan: '#79FFE1',
-  			highlight: 'colors.neutral[',
+  			highlight: '#f5f5f5',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -136,6 +135,16 @@ module.exports = {
   					opacity: '0'
   				}
   			},
+  			enter: {
+  				from: {
+  					opacity: '0',
+  					transform: 'translateX(-12px)'
+  				},
+  				to: {
+  					opacity: '1',
+  					transform: 'none'
+  				}
+  			},
   			shine: {
   				'0%': {
   					'background-position': '100%'
@@ -150,7 +159,8 @@ module.exports = {
   			gradient: 'gradient 8s linear infinite',
   			'background-position-spin': 'background-position-spin 3000ms infinite alternate',
   			ping: 'tag_ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
-  			shine: 'shine 5s linear infinite'
+  			shine: 'shine 5s linear infinite',
+  			enter: 'enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

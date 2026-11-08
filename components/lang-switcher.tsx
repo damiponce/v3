@@ -1,5 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { cn } from '../lib/utils';
 
 const LangSwitcher = ({ rightSide = false }) => {
@@ -8,16 +9,20 @@ const LangSwitcher = ({ rightSide = false }) => {
   const router = useRouter();
 
   const { pathname, asPath, query } = router;
+  const other = i18n.language === 'en' ? 'es' : 'en';
+
+  // A real link to the same page in the other locale: focusable, works
+  // without JS, and Next keeps the route and query.
   return (
-    <span
+    <Link
+      href={{ pathname, query }}
+      as={asPath}
+      locale={other}
+      hrefLang={other}
+      lang={other}
       className={cn(
-        'group/langsw w-fit inline-flex items-center font-medium text-neutral-500 cursor-pointer leading-tight px-1',
+        'group/langsw w-fit inline-flex items-center font-medium text-neutral-400 hover:text-neutral-200 focus-visible:text-neutral-200 transition-colors leading-tight px-1',
       )}
-      onClick={() =>
-        router.push({ pathname, query }, asPath, {
-          locale: i18n.language === 'en' ? 'es' : 'en',
-        })
-      }
     >
       {/* <svg
         className='ml-0.5 h-4 w-4'
@@ -55,7 +60,7 @@ const LangSwitcher = ({ rightSide = false }) => {
         />
       </svg>
       {rightSide ? null : i18n.language === 'en' ? 'Español' : 'English'}
-    </span>
+    </Link>
   );
 };
 

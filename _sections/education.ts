@@ -30,9 +30,9 @@ const EDUCATION: Education[] = [
     },
     en: {
       date: "2026 → ...",
-      title: " MSc in Computer Science",
+      title: "Computer Science (Licenciatura)",
       place: "UBA",
-      position: "Master's",
+      position: "Undergraduate degree",
       // description: '-------------',
     },
   },

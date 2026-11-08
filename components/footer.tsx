@@ -16,7 +16,7 @@ const Link = ({ url, children }: { url: string; children: string }) => (
 const Footer = ({ lang }: Props) => {
   return {
     es: (
-      <footer className='max-w-md pb-16 text-sm text-neutral-500 sm:pb-0'>
+      <footer className='max-w-md pb-16 text-sm text-neutral-400 sm:pb-0'>
         <p>
           Layout basado en el diseño de{' '}
           <Link url='https://brittanychiang.com/'>Brittany Chiang</Link>. Hecho
@@ -25,7 +25,7 @@ const Footer = ({ lang }: Props) => {
       </footer>
     ),
     en: (
-      <footer className='max-w-md pb-16 text-sm text-neutral-500 sm:pb-0'>
+      <footer className='max-w-md pb-16 text-sm text-neutral-400 sm:pb-0'>
         <p>
           Layout based on{' '}
           <Link url='https://brittanychiang.com/'>Brittany Chiang</Link>

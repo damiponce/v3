@@ -56,6 +56,12 @@ a {
   animation: moveGrid 10s linear infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .grid-background {
+    animation: none;
+  }
+}
+
 @keyframes moveGrid {
   0% {
     background-position: 0 0;

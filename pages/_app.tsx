@@ -5,7 +5,6 @@ import '../components/github-markdown.css';
 import { appWithTranslation } from 'next-i18next';
 import Script from 'next/script';
 import { NextSeo } from 'next-seo';
-import { motion } from 'framer-motion';
 
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
@@ -88,7 +87,7 @@ function Root({ Component, pageProps }: AppProps) {
             description={siteDescription}
             canonical='https://damianponce.com/'
             openGraph={{
-              url: 'https://damianponce.com/np',
+              url: 'https://damianponce.com/',
               title: 'Damián Ponce',
               description: siteDescription,
               images: [
@@ -119,14 +118,7 @@ function Root({ Component, pageProps }: AppProps) {
           gtag('config', 'G-W2WTZGZP5B');
         `}
           </Script>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.3 }}
-          >
-            <Component {...pageProps} />
-          </motion.div>
+          <Component {...pageProps} />
         </>
       </PostHogProvider>
     </StrictMode>

@@ -1,3 +1,4 @@
+import SheetPage from '../../components/sheet-page';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import PostBody from '../../components/post-body';
@@ -22,46 +23,20 @@ type Props = {
 
 export default function Post({ post, morePosts, preview }: Props) {
   const router = useRouter();
-  const title = `${post.title} | Damián Ponce`;
+  const title = `${post?.title} | Damián Ponce`;
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
     <>
       <Head>
-        <title>Damián Ponce</title>
+        <title>{title}</title>
       </Head>
       <Meta />
-      <div className=''>
-        <div className='mx-auto min-h-screen max-w-screen-xl  px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0'>
-          <div className='lg:py-24 max-w-2xl mx-auto'>
-            {router.isFallback ? (
-              <PostTitle>Loading…</PostTitle>
-            ) : (
-              <>
-                <Back langSw={false} />
-                <article className='mb-32'>
-                  <Head>
-                    <title>{title}</title>
-                    <meta property='og:image' content={post.ogImage.url} />
-                  </Head>
-                  <PostHeader
-                    title={post.title}
-                    subtitle={post.subtitle}
-                    // coverImage={post.coverImage}
-                    date={post.date}
-                    author={post.author}
-                  />
-                  <PostBody
-                    content={post.content}
-                    imageSizes={post.imageSizes}
-                  />
-                </article>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
+      <SheetPage title={post.title}><article>
+        <p>{post.subtitle}</p><p><time dateTime={post.date}>{post.date.slice(0,10)}</time></p>
+        <PostBody content={post.content} imageSizes={post.imageSizes} />
+      </article></SheetPage>
     </>
   );
 }
@@ -111,17 +86,18 @@ export async function getStaticProps({ params }: Params) {
   };
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
   const posts = getAllPosts(['slug']);
 
   return {
-    paths: posts.map((post) => {
+    paths: locales.flatMap(locale => posts.map((post) => {
       return {
+        locale,
         params: {
           slug: post.slug,
         },
       };
-    }),
+    })),
     fallback: false,
   };
 }

@@ -29,7 +29,7 @@ function PostBody({ content, imageSizes }: Props) {
   React.useEffect(() => {
     const f = async () => {
       const highlighter = await getHighlighterCore({
-        themes: [import("shiki/themes/vesper.mjs")],
+        themes: [import("shiki/themes/github-light.mjs")],
         langs: [
           import("shiki/langs/javascript.mjs"),
           import("shiki/langs/c.mjs"),
@@ -85,7 +85,7 @@ function PostBody({ content, imageSizes }: Props) {
                 (parse(
                   highlighter.codeToHtml(children[0] as string, {
                     lang: match ? match[1] : "text",
-                    theme: "vesper",
+                    theme: "github-light",
                   }),
                   {}
                 ) as React.JSX.Element)

@@ -443,6 +443,7 @@ export default function Datasheet() {
           <p className={s.noteLinks}>
             <Link href='/projects'>{t('ds.allProjects')}</Link>
             <Link href='/design'>{t('ds.design')}</Link>
+            <Link href='/blog'>Blog</Link>
           </p>
         </section>
 

@@ -15,7 +15,7 @@ const Home: NextPage = ({ currentPhoto }: { currentPhoto: DesignImage }) => {
   let designIndex = Number(designId);
   let photoIndex = Number(photoId);
 
-  const currentPhotoUrl = `/assets/design/${currentPhoto.design}/${currentPhoto.id}`;
+  const currentPhotoUrl = `/assets/design/${currentPhoto.design}/${currentPhoto.public_id}.${currentPhoto.format}`;
 
   return (
     <>

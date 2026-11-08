@@ -1,3 +1,4 @@
+import SheetPage from '../components/sheet-page';
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { InferGetStaticPropsType } from "next";
@@ -23,15 +24,13 @@ export default function Contact(
         <title>{`${t("title")} | Damián Ponce`}</title>
       </Head>
       <Meta />
-      <div className="">
-        <div className="mx-auto min-h-screen max-w-[1000px]  px-6 py-8 font-sans md:px-12 md:py-14 lg:px-24 lg:py-20">
+      <SheetPage title={t("bigTitle")}>
+        <div className="mx-auto min-h-screen max-w-[1000px]  px-6 py-0 font-sans md:px-12 md:py-0 lg:px-24 lg:py-0">
           <div className=" max-w-screen-xl mx-auto">
             <div className="">
-              <Back />
-              <h1 className="text-4xl font-bold tracking-tight text-neutral-200 sm:text-5xl mt-4">
-                {t("bigTitle")}
-              </h1>
-              <h2 className="text-xl font-medium tracking-[-0.02em] text-neutral-400 sm:text-xl text-balance mt-2">
+
+
+              <h2 className="text-xl font-medium tracking-[-0.02em] text-neutral-700 sm:text-xl text-balance mt-2">
                 <Trans
                   t={t}
                   i18nKey="subtitle"
@@ -39,7 +38,7 @@ export default function Contact(
                     email: (
                       <a
                         href="mailto:dev@damianponce.com"
-                        className="text-neutral-200 underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-200 focus-visible:decoration-neutral-200"
+                        className="text-black underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-200 focus-visible:decoration-neutral-200"
                       />
                     ),
                   }}
@@ -53,6 +52,7 @@ export default function Contact(
                   ? "https://tally.so/embed/n04rGj?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
                   : "https://tally.so/embed/mZx5yo?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
               }
+              title={t("bigTitle")}
               loading="lazy"
               width="100%"
               height="238"
@@ -68,7 +68,7 @@ export default function Contact(
             ></Script>
           </div>
         </div>
-      </div>
+      </SheetPage>
     </>
   );
 }

@@ -33,21 +33,7 @@ export default function Carousel({
 
   return (
     <div className='fixed inset-0 flex items-center justify-center'>
-      <button
-        className='absolute inset-0 z-30 cursor-default bg-black backdrop-blur-2xl'
-        onClick={closeModal}
-        tabIndex={-1}
-        aria-hidden='true'
-      >
-        <Image
-          src={`/assets/design/${currentPhoto.design}/${currentPhoto.public_id}.${currentPhoto.format}`}
-          className='pointer-events-none h-full w-full blur-3xl scale-125 brightness-75'
-          alt=''
-          fill
-          sizes={'15px'}
-          priority={true}
-        />
-      </button>
+      <div className="absolute inset-0 bg-white border-t-8 border-[#c8102e]" />
       <SharedModal
         designIndex={designIndex}
         index={index}

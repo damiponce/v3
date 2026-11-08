@@ -128,7 +128,7 @@ The developer is documented the way a part is documented: a red top rule, a rule
 
 Density is that of a technical document: compact tables, short lists, generous but regular section spacing, and a 1240px sheet width. Type is Barlow throughout, with Barlow Condensed for anything that names something (the name, section heads, values in the title block, figure block labels) and regular Barlow for running text. Motion is restrained to a 160ms state ease and one authored moment, the signal path in Figure 1 drawing in left to right.
 
-The world was chosen to replace a dark, sticky-rail portfolio template. It currently covers the home page only.
+The world was chosen to replace a dark, sticky-rail portfolio template. It is the visual system for every public route.
 
 **Key Characteristics:**
 - White paper, near-black ink, one signal red.
@@ -259,3 +259,25 @@ A 2px ink frame with an 8px signal red top border, padded 22px 24px 26px, holdin
 - **Don't** add a second accent colour.
 - **Don't** reuse the 11px uppercase field-label style as a kicker or eyebrow above headings; it belongs inside title block cells and mobile table rows only.
 - **Don't** add a part number or bare revision year to the title block, or other datasheet props a reader learns nothing from.
+
+
+## Secondary pages
+
+All routes share the white sheet, Barlow typography, running navigation, red
+top rule, and bordered title area. Navigation must remain available on phones,
+wrap without horizontal overflow, and identify the current route.
+
+- Projects: a complete ruled inventory. Preserve every field and link on mobile;
+  use labelled stacked rows instead of hiding columns.
+- Graphic design: a full-width image catalogue with numbered, ruled category
+  headings. Preserve artwork colours and aspect ratios; square frames replace
+  rounded thumbnails. Artwork detail pages retain gallery navigation.
+- Blog: a dated article index and a narrow reading column for articles. Use
+  condensed headings, ink body text, light code blocks, and scrollable code.
+- Freelance: application-note rows with light architecture figures and plain
+  technology lists.
+- Contact: the same title block and a clearly titled embedded form.
+- Not found: a simple document error with a route back home.
+
+Use existing translated content. Keep image viewers visually isolated where a
+dark backdrop is necessary for viewing artwork. Never recolour the artwork.

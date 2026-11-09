@@ -3,126 +3,126 @@
   src: url('/fonts/reforma/Reforma1918-Blanca.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1918';
   src: url('/fonts/reforma/Reforma1918-BlancaItalica.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1918';
   src: url('/fonts/reforma/Reforma1918-Gris.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1918';
   src: url('/fonts/reforma/Reforma1918-GrisItalica.woff2') format('woff2');
   font-weight: 500;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1918';
   src: url('/fonts/reforma/Reforma1918-Negra.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1918';
   src: url('/fonts/reforma/Reforma1918-NegraItalica.woff2') format('woff2');
   font-weight: 700;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1969';
   src: url('/fonts/reforma/Reforma1969-Blanca.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1969';
   src: url('/fonts/reforma/Reforma1969-BlancaItalica.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1969';
   src: url('/fonts/reforma/Reforma1969-Gris.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1969';
   src: url('/fonts/reforma/Reforma1969-GrisItalica.woff2') format('woff2');
   font-weight: 500;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1969';
   src: url('/fonts/reforma/Reforma1969-Negra.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma1969';
   src: url('/fonts/reforma/Reforma1969-NegraItalica.woff2') format('woff2');
   font-weight: 700;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma2018';
   src: url('/fonts/reforma/Reforma2018-Blanca.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma2018';
   src: url('/fonts/reforma/Reforma2018-BlancaItalica.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma2018';
   src: url('/fonts/reforma/Reforma2018-Gris.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma2018';
   src: url('/fonts/reforma/Reforma2018-GrisItalica.woff2') format('woff2');
   font-weight: 500;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma2018';
   src: url('/fonts/reforma/Reforma2018-Negra.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Reforma2018';
   src: url('/fonts/reforma/Reforma2018-NegraItalica.woff2') format('woff2');
   font-weight: 700;
   font-style: italic;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: 'Server Mono';
@@ -154,3 +154,8 @@ body .blog.blog :global(.markdown-body) pre {
 }
 .controls { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 24px; }
 .controls select { background: white; color: #0f1012; border: 1px solid; padding: 4px 8px; }
+
+/* Font-relative widths change when a different face becomes available. */
+body .blog.blog article {
+  max-width: 44rem;
+}

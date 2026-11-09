@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+<title id="title">ETI screenshot composition reference</title>
+<desc id="desc">Conceptual public event page, not the live ETI interface. A prominent event name, open registration status and registration button, without attendee information.</desc>
+<rect width="960" height="640" fill="#f7f4ed"/>
+<path d="M0 0H960V8H0Z" fill="#782d36"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#292621">
+<text x="54" y="68" font-size="31" font-weight="700" letter-spacing="-1">ETI</text>
+<text x="906" y="62" font-size="16" text-anchor="end">Encuentro Tanguero del Interior</text>
+<path d="M54 95H906" stroke="#d9d2c7"/>
+<text x="54" y="158" font-size="16" letter-spacing="3" fill="#782d36">TANGO · ENCUENTRO · COMUNIDAD</text>
+<text x="50" y="240" font-family="Georgia, serif" font-size="69" letter-spacing="-2">Encuentro</text>
+<text x="50" y="316" font-family="Georgia, serif" font-size="69" letter-spacing="-2">Tanguero</text>
+<text x="50" y="392" font-family="Georgia, serif" font-size="69" letter-spacing="-2">del Interior</text>
+<path d="M54 434H120" stroke="#782d36" stroke-width="3"/>
+<text x="54" y="473" font-size="20" fill="#625b53">Información del encuentro</text>
+<text x="54" y="503" font-size="20" fill="#625b53">e inscripción en un mismo lugar.</text>
+<rect x="574" y="176" width="332" height="330" rx="6" fill="#fffdf9" stroke="#d9d2c7"/>
+<circle cx="607" cy="214" r="4" fill="#782d36"/>
+<text x="621" y="220" font-size="16" fill="#782d36">Inscripciones abiertas</text>
+<text x="600" y="272" font-size="29" font-family="Georgia, serif">Participá del encuentro</text>
+<text x="600" y="310" font-size="17" fill="#625b53">Consultá los requisitos y</text>
+<text x="600" y="335" font-size="17" fill="#625b53">completá tu inscripción.</text>
+<rect x="600" y="367" width="280" height="60" rx="3" fill="#782d36"/>
+<text x="623" y="405" font-size="21" fill="#fffdf9">Inscribirme</text>
+<path d="M844 397H861M854 390L861 397L854 404" fill="none" stroke="#fffdf9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="600" y="468" font-size="16" fill="#625b53" text-decoration="underline">Ya tengo una cuenta</text>
+<path d="M54 566H906" stroke="#d9d2c7"/>
+<text x="54" y="603" font-size="16" fill="#625b53">El encuentro</text>
+<text x="240" y="603" font-size="16" fill="#625b53">Inscripción</text>
+<text x="414" y="603" font-size="16" fill="#625b53">Preguntas frecuentes</text>
+<text x="906" y="603" text-anchor="end" font-size="16" fill="#625b53">Contacto</text>
+</g>
+</svg>

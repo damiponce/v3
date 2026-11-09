@@ -38,7 +38,7 @@ export default function Contact(
                     email: (
                       <a
                         href="mailto:dev@damianponce.com"
-                        className="text-black underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-200 focus-visible:decoration-neutral-200"
+                        className="text-black underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-900 focus-visible:decoration-neutral-900"
                       />
                     ),
                   }}

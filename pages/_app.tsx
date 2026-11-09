@@ -73,6 +73,7 @@ function Root({ Component, pageProps }: AppProps) {
       <PostHogProvider client={posthog}>
         <>
           <Head>
+            <meta name='theme-color' content='#ffffff' />
             <meta
               name='viewport'
               content='width=device-width, initial-scale=1, minimum-scale=1'

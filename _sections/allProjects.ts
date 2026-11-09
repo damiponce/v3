@@ -56,6 +56,7 @@ export const allProjects: Project[] = [
     project: { es: 'ETI: plataforma de eventos', en: 'ETI: event platform' },
     madeAt: 'ETI',
     builtWith: ['Next.js', 'React', 'TypeScript', 'Firebase', 'PostHog'],
+    links: [{ name: 'etitango.com.ar', url: 'https://etitango.com.ar' }],
   },
   {
     _key: 'vssete',

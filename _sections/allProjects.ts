@@ -63,7 +63,17 @@ export const allProjects: Project[] = [
     project: 'Vssete',
     madeAt: 'Freelance',
     builtWith: [],
-    links: [{ name: 'vssete.com', url: 'https://vssete.com/' }],
+    links: [{ name: 'vssete.vercel.app', url: 'https://vssete.vercel.app/' }],
+  },
+  {
+    _key: 'montajes-industriales-aed',
+    year: '2025',
+    project: 'Montajes Industriales AED',
+    madeAt: 'Freelance',
+    builtWith: [],
+    links: [
+      { name: 'montajes-industriales-aed.vercel.app', url: 'https://montajes-industriales-aed.vercel.app/' },
+    ],
   },
   {
     _key: 'italtechnics',
@@ -72,7 +82,7 @@ export const allProjects: Project[] = [
     madeAt: 'Freelance',
     builtWith: [],
     links: [
-      { name: 'italtechnics.com.ar', url: 'https://italtechnics.com.ar/' },
+      { name: 'servicio-tecnico-omar.vercel.app', url: 'https://servicio-tecnico-omar.vercel.app/' },
     ],
   },
   {

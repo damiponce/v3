@@ -143,7 +143,7 @@ const FREELANCE: Project[] = [
   {
     _key: 'vssete',
     img: '/assets/images/vssete-banner.webp',
-    url: 'https://vssete.com',
+    url: 'https://vssete.vercel.app',
     technologies: [],
     es: {
       date: '',
@@ -157,9 +157,25 @@ const FREELANCE: Project[] = [
     },
   },
   {
+    _key: 'montajes-industriales-aed',
+    img: '',
+    url: 'https://montajes-industriales-aed.vercel.app/',
+    technologies: [],
+    es: {
+      date: '2025',
+      title: 'Montajes Industriales AED',
+      description: '',
+    },
+    en: {
+      date: '2025',
+      title: 'Montajes Industriales AED',
+      description: '',
+    },
+  },
+  {
     _key: 'italtechnics',
     img: '/assets/images/italtechnics-banner.webp',
-    url: 'https://italtechnics.com.ar',
+    url: 'https://servicio-tecnico-omar.vercel.app',
     technologies: [],
     es: {
       date: '',

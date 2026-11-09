@@ -45,9 +45,8 @@ const FREELANCE: Project[] = [
   },  {
     _key: 'iot-grill',
     important: true,
-    img: '',
+    img: '/assets/images/iot-connection.svg',
     url: '',
-    diagram: 'iot',
     technologies: [
       'Expo',
       'React Native',

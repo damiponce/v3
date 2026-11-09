@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Connected device, cloud and mobile app</title>
+  <desc id="desc">A simplified illustration of a microcontroller sending data through a cloud backend to a phone app.</desc>
+  <rect width="960" height="640" fill="#fff"/>
+  <!-- Three large silhouettes, without labels or interface details. -->
+  <g fill="none" stroke="#22262b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="88" y="235" width="170" height="170" rx="10" fill="#f2f3f4"/>
+    <rect x="128" y="275" width="90" height="90" rx="3" fill="#fff"/>
+    <path d="M121 212V235M173 212V235M225 212V235M121 405V428M173 405V428M225 405V428M65 268H88M65 320H88M65 372H88M258 268H281M258 320H281M258 372H281"/>
+    <path d="M425 373H537C569 373 589 353 589 327C589 302 570 281 544 279C535 250 511 230 481 230C445 230 417 255 413 289C385 289 366 306 366 332C366 355 386 373 409 373Z" fill="#f2f3f4"/>
+    <rect x="702" y="175" width="180" height="290" rx="25" fill="#fff"/>
+    <path d="M766 198H818M770 442H814"/>
+  </g>
+  <!-- One clear route through the backend. -->
+  <g fill="none" stroke="#c8102e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M304 320H340M329 309L340 320L329 331M615 320H674M663 309L674 320L663 331"/>
+    <path d="M780 277V324A24 24 0 1 0 804 324V277A12 12 0 0 0 780 277Z"/>
+    <path d="M792 293V342"/>
+  </g>
+</svg>

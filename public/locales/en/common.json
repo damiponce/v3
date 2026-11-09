@@ -71,8 +71,8 @@
     "figure": "Figure",
     "figs": {
       "eti": "ETI platform architecture.",
-      "iot-grill": "Device provisioning flow.",
-      "musictl": "Music Timeline data flow.",
+      "iot-grill": "Connected device, cloud and mobile app.",
+      "musictl": "Albums by release date in Music Timeline.",
       "satview": "SatView project identity."
     },
     "meta": {

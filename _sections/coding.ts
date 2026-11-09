@@ -29,8 +29,7 @@ const CODING: Project[] = [
     _key: 'musictl',
     important: true,
     new: true,
-    img: '', // TODO: Music Timeline screenshot (then drop the diagram)
-    diagram: 'musictl',
+    img: '/assets/images/music-timeline-banner.webp',
     url: 'https://musictl.damianponce.com',
     // TODO: add { name: 'GitHub', url: '...' } if the repo is public
     technologies: [

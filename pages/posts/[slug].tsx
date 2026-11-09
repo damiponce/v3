@@ -1,3 +1,4 @@
+import BlogFontPreview from '../../components/blog-font-preview';
 import SheetPage from '../../components/sheet-page';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
@@ -33,10 +34,10 @@ export default function Post({ post, morePosts, preview }: Props) {
         <title>{title}</title>
       </Head>
       <Meta />
-      <SheetPage title={post.title}><article>
+      <SheetPage title={post.title}><BlogFontPreview><article>
         <p>{post.subtitle}</p><p><time dateTime={post.date}>{post.date.slice(0,10)}</time></p>
         <PostBody content={post.content} imageSizes={post.imageSizes} />
-      </article></SheetPage>
+      </article></BlogFontPreview></SheetPage>
     </>
   );
 }

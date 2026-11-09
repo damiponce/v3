@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'Reforma1918';
+  src: url('/fonts/reforma/Reforma1918-Blanca.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1918';
+  src: url('/fonts/reforma/Reforma1918-BlancaItalica.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1918';
+  src: url('/fonts/reforma/Reforma1918-Gris.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1918';
+  src: url('/fonts/reforma/Reforma1918-GrisItalica.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1918';
+  src: url('/fonts/reforma/Reforma1918-Negra.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1918';
+  src: url('/fonts/reforma/Reforma1918-NegraItalica.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1969';
+  src: url('/fonts/reforma/Reforma1969-Blanca.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1969';
+  src: url('/fonts/reforma/Reforma1969-BlancaItalica.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1969';
+  src: url('/fonts/reforma/Reforma1969-Gris.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1969';
+  src: url('/fonts/reforma/Reforma1969-GrisItalica.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1969';
+  src: url('/fonts/reforma/Reforma1969-Negra.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma1969';
+  src: url('/fonts/reforma/Reforma1969-NegraItalica.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma2018';
+  src: url('/fonts/reforma/Reforma2018-Blanca.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma2018';
+  src: url('/fonts/reforma/Reforma2018-BlancaItalica.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma2018';
+  src: url('/fonts/reforma/Reforma2018-Gris.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma2018';
+  src: url('/fonts/reforma/Reforma2018-GrisItalica.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma2018';
+  src: url('/fonts/reforma/Reforma2018-Negra.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Reforma2018';
+  src: url('/fonts/reforma/Reforma2018-NegraItalica.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Server Mono';
+  src: url('/fonts/server-mono/ServerMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+body .blog.blog article,
+body .blog.blog article *:not(.katex, .katex *) {
+  font-family: var(--blog-font), Georgia, serif;
+}
+body .blog.blog article :is(pre, code, kbd, samp),
+body .blog.blog article :is(pre, code, kbd, samp) * {
+  font-family: 'Server Mono', var(--font-geist-mono), ui-monospace, monospace;
+}
+body .blog.blog :global(.markdown-body) {
+  --color-neutral-muted: #eff1f3;
+  --color-canvas-subtle: #f6f8fa;
+  color-scheme: light;
+}
+body .blog.blog :global(.markdown-body) pre {
+  background: #f6f8fa !important;
+  color: #24292e;
+}
+.controls { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 24px; }
+.controls select { background: white; color: #0f1012; border: 1px solid; padding: 4px 8px; }

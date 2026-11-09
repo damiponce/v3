@@ -52,6 +52,7 @@ export default function Contact(
                   ? "https://tally.so/embed/n04rGj?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
                   : "https://tally.so/embed/mZx5yo?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"
               }
+              style={{ colorScheme: "light" }}
               title={t("bigTitle")}
               loading="lazy"
               width="100%"

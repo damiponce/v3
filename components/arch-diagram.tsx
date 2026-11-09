@@ -28,10 +28,10 @@ const DIAGRAMS: Record<DiagramKey, Diagram> = {
     },
   },
   eti: {
-    nodes: ['Next.js', 'Auth', 'Claims', 'Roles'],
+    nodes: ['Next.js', 'Auth', 'Functions', 'Firestore'],
     label: {
-      en: 'Architecture: the Next.js front end signs users in with Firebase Auth, and custom claims on each account set the role that controls who can access what.',
-      es: 'Arquitectura: el front-end en Next.js inicia sesión con Firebase Auth, y los custom claims de cada cuenta definen el rol que controla quién puede acceder a qué.',
+      en: 'ETI platform: a Next.js interface, Firebase Authentication, Cloud Functions and registration records in Firestore.',
+      es: 'Plataforma ETI: interfaz en Next.js, autenticación con Firebase, Cloud Functions y registros de inscripción en Firestore.',
     },
   },
   musictl: {
@@ -117,7 +117,7 @@ const Arrow = ({ x1, y1, x2, y2, tone }: Line & { tone: Tone }) => {
           {...STROKE}
           strokeWidth={tone.strokeWidth}
           strokeLinecap='butt'
-          // Same 2px line at any rendered size, matching Figure 1.
+          // Same 2px line at any rendered size, matching the page rules.
           vectorEffect='non-scaling-stroke'
           className={tone.line}
         />

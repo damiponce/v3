@@ -70,13 +70,13 @@ const CODING: Project[] = [
       date: '2024',
       title: 'SatView - Visualizador de satélites',
       description:
-        'Diseñada desde cero, esta aplicación web te permite ver y rastrear satélites terrestres en tiempo real. Utiliza la API de Space-Track para obtener los últimos datos de satélites y three.js para renderizar la escena 3D.',
+        'Desarrollé un visualizador 3D para explorar y seguir satélites en órbita terrestre. Integré datos orbitales de la API de Space-Track y rendericé la escena con Three.js.',
     },
     en: {
       date: '2024',
       title: 'SatView - Satellite Visualizer',
       description:
-        'Designed from the ground up, this web app allows you to view and track Earth satellites in real-time. It uses the Space-Track API to get the latest satellite data and three.js to render the 3D scene.',
+        'I built a 3D viewer for exploring and tracking satellites in Earth orbit. I integrated orbital data from the Space-Track API and rendered the scene with Three.js.',
     },
   },
   {

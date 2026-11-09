@@ -13,6 +13,7 @@ const FEATURED = [
   pick(FREELANCE, 'eti'),
   pick(FREELANCE, 'iot-grill'),
   pick(CODING, 'musictl'),
+  pick(CODING, 'satview'),
 ];
 
 export default FEATURED;

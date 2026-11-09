@@ -323,9 +323,6 @@ body .root :global(.cond) * {
   border: 1px solid var(--ink);
   vertical-align: top;
 }
-.table tr[data-hot='true'] td {
-  background: var(--tint);
-}
 .table td a {
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -420,99 +417,12 @@ body .root :global(.cond) * {
 }
 
 /* ---------- Figures ---------- */
-.figure {
-  margin: 36px 0 0;
-  border: 2px solid var(--ink);
-  padding: 20px 24px 12px;
-}
-.figure svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.figure .wide {
-  display: none;
-}
-.figure .tall {
-  display: block;
-  max-width: 320px;
-  margin: 0 auto;
-}
-@media (min-width: 760px) {
-  .figure .wide {
-    display: block;
-  }
-  .figure .tall {
-    display: none;
-  }
-}
 .caption {
   margin: 8px 0 0;
   font-size: 13px;
   color: var(--ink-3);
   font-style: italic;
 }
-.block {
-  cursor: pointer;
-}
-.block rect {
-  fill: var(--fill);
-  stroke: var(--ink);
-  stroke-width: 2;
-  transition: fill 160ms var(--ease-out), stroke 160ms var(--ease-out);
-}
-.block text {
-  fill: var(--ink);
-}
-.block .sub {
-  fill: var(--ink-2);
-}
-.block:focus {
-  outline: none;
-}
-.block[data-hot='true'] rect,
-.block[aria-pressed='true'] rect,
-.block:focus-visible rect {
-  fill: var(--tint);
-  stroke: var(--red);
-  stroke-width: 3;
-}
-.wire {
-  stroke: var(--ink);
-  stroke-width: 2;
-  fill: none;
-}
-@media (prefers-reduced-motion: no-preference) {
-  /* One authored moment: the signal path draws in, left to right. */
-  .wire {
-    stroke-dasharray: 100;
-    animation: draw 700ms var(--ease-out) both;
-  }
-  .wire:nth-of-type(2) {
-    animation-delay: 120ms;
-  }
-  .wire:nth-of-type(3) {
-    animation-delay: 240ms;
-  }
-}
-@keyframes draw {
-  from {
-    stroke-dashoffset: 100;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-.figLabel {
-  fill: var(--ink-3);
-  font-size: 14px;
-}
-.hint {
-  margin: 4px 0 0;
-  font-size: 13px;
-  color: var(--ink-3);
-}
-
 /* ---------- Application notes ---------- */
 .notes {
   display: grid;
@@ -534,9 +444,6 @@ body .root :global(.cond) * {
   .note {
     grid-template-columns: 260px minmax(0, 1fr);
   }
-}
-.note[data-hot='true'] .noteTitle {
-  color: var(--red);
 }
 .noteFig {
   margin: 0;

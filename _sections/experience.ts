@@ -25,21 +25,21 @@ const EXPERIENCE: Experience[] = [
   {
     _key: "eti-tango-fullstack",
     highlight: true,
-    url: "",
-    technologies: ["Next.js", "React", "TypeScript", "Firebase", "PostHog"],
+    url: "https://etitango.com.ar",
+    technologies: ["Next.js", "React", "TypeScript", "Firebase", "Cloud Functions", "PostHog"],
     es: {
       date: "Jun 2025 → presente",
       title: "Desarrollador Full-Stack",
       position: "Encuentro Tanguero del Interior (ETI)",
       description:
-        "Diseñé y desarrollé la plataforma de eventos de punta a punta: más de 2000 usuarios registrados y hasta 1000 usuarios activos por mes en el pico. Acceso por roles con custom claims de Firebase Auth.",
+        "Diseñé y desarrollé la plataforma de eventos de punta a punta: más de 2000 usuarios registrados y hasta 1000 usuarios activos por mes en el pico. Gestión de inscripciones, aprobaciones y cupos.",
     },
     en: {
       date: "Jun 2025 → present",
       title: "Full-Stack Developer",
       position: "Encuentro Tanguero del Interior (ETI)",
       description:
-        "Designed and built the event platform end to end: 2,000+ registered users, up to 1,000 monthly active users at peak. Role-based access with Firebase Auth custom claims.",
+        "Designed and built the event platform end to end: 2,000+ registered users, up to 1,000 monthly active users at peak. Registration, approval and capacity management.",
     },
   },
   {

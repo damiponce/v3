@@ -38,25 +38,25 @@
     "bodyAfter": ", o usá el formulario de contacto si tenés un proyecto en mente. Mi CV está disponible en español y en inglés."
   },
   "ds": {
-    "skip": "Ir a las características",
-    "kind": "Hoja de datos",
+    "skip": "Ir al perfil",
+    "kind": "Desarrollador full-stack",
     "sections": "Secciones",
     "description": "Desarrollador full-stack para web, mobile y dispositivos conectados",
     "languages": "Idiomas",
     "documents": "Documentos",
     "h": {
-      "features": "Características",
-      "applications": "Aplicaciones",
+      "features": "Perfil",
+      "applications": "Qué desarrollo",
       "stack": "Stack típico",
-      "notes": "Notas de aplicación",
-      "history": "Historial de revisiones",
-      "other": "Otras aplicaciones",
-      "background": "Formación",
+      "notes": "Trabajo y proyectos",
+      "history": "Experiencia laboral",
+      "other": "Más proyectos",
+      "background": "Formación académica",
       "contact": "Contacto"
     },
     "col": {
       "layer": "Capa",
-      "parts": "Partes",
+      "parts": "Tecnologías",
       "usedIn": "Usado en",
       "date": "Fecha",
       "role": "Rol",
@@ -68,24 +68,25 @@
       "link": "Link",
       "program": "Carrera"
     },
-    "fig1": "Figura 1. Diagrama de bloques funcional: las capas que hago, como en el monitor de parrilla IoT.",
-    "fig1hint": "Tocá o elegí un bloque para ver dónde se usa esa capa.",
     "figure": "Figura",
     "figs": {
-      "eti": "Flujo de acceso de ETI.",
+      "eti": "Arquitectura de la plataforma ETI.",
       "iot-grill": "Flujo de configuración del dispositivo.",
-      "musictl": "Flujo de datos de Music Timeline."
+      "musictl": "Flujo de datos de Music Timeline.",
+      "satview": "Identidad visual de SatView."
     },
     "meta": {
       "eti": "Desarrollador full-stack en ETI · desde junio de 2025",
       "iot-grill": "Freelance · startup de hardware · 2026",
-      "musictl": "Proyecto personal · 2026"
+      "musictl": "Proyecto personal · 2026",
+      "satview": "Proyecto personal · 2024"
     },
     "fixed": "El problema más difícil",
     "noLink": "No público",
     "allProjects": "Todos los proyectos, por año",
     "design": "Trabajo de diseño gráfico",
     "footer": "Diseñado y programado por Damián Ponce con Next.js.",
-    "currentRole": "Rol actual"
+    "currentRole": "Rol actual",
+    "languageValue": "Español · Inglés"
   }
 }

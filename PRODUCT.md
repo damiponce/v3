@@ -18,7 +18,7 @@ Damián Ponce's personal site. Its main job is to get him hired as a developer. 
 
 ## Positioning
 
-**Full-stack developer** with 4+ years of paid client work, shipping web and mobile products end to end: UI, backend, cloud functions and ESP32-connected devices. Avionics technician background; bilingual ES/EN (C2).
+**Full-stack developer** with 4+ years of paid client work, shipping web and mobile products end to end: UI, backend, cloud functions and ESP32-connected devices. Avionics technician background; works in Spanish and English.
 
 The home subtitle and About text live in `_sections/positioning.tsx` (`ACTIVE_POSITIONING`). Earlier candidate angles (engineer + designer, ships for real users, design-minded frontend) are in git history at 27a37c9.
 
@@ -46,12 +46,13 @@ The home subtitle and About text live in `_sections/positioning.tsx` (`ACTIVE_PO
 
 - Name: Damián Ponce.
 - Voice: first person, direct, plain. The current About copy sets the tone in both languages.
+- Keep the datasheet influence visual. Use clear portfolio labels (Work & projects, Experience, Education), lead with the scope of the work, and leave implementation details to project descriptions. Describe language ability through working use rather than a CEFR level.
 
 ## Evidence on Hand
 
-- Experience (`_sections/experience.ts`): Full-Stack Developer at Encuentro Tanguero del Interior (ETI, Jun 2025 to present; 2,000+ registered users, up to 1,000 MAU at peak; Firebase Auth custom claims); Front-End Lead at GMF - LAyF - UTN FRH (2024, VFR battery simulation suite); Full-Stack Developer, freelance (May 2022 to present; web, mobile and IoT for clients in Argentina and Chile); Spanish-English Interpreter (Dec 2022 to Jan 2023).
-- Featured projects (`_sections/featured.ts`) are picked by key from their own category: ETI and the IoT grill monitor (device + companion app, for a hardware startup client) from Freelance, and Music Timeline (personal project) from Coding. **The grill client's product name must never appear anywhere in the repo**: no text, file names, alt text or URLs.
-- Education (`_sections/education.ts`): CS degree at UBA (2026 onward), Electronic Engineering at UTN FRH (2021 to 2025), Avionics Technician at INAC - CIATA (2014 to 2020).
+- Experience (`_sections/experience.ts`): Full-Stack Developer at Encuentro Tanguero del Interior (ETI, Jun 2025 to present; 2,000+ registered users, up to 1,000 MAU at peak; registration, approval and capacity management); Front-End Lead at GMF - LAyF - UTN FRH (2024, VFR battery simulation suite); Full-Stack Developer, freelance (May 2022 to present; web, mobile and IoT for clients in Argentina and Chile); Spanish-English Interpreter (Dec 2022 to Jan 2023).
+- Featured projects (`_sections/featured.ts`) are picked by key from their own category: ETI and the IoT grill monitor (device + companion app, for a hardware startup client) from Freelance, and Music Timeline and SatView (personal projects) from Coding. **The grill client's product name must never appear anywhere in the repo**: no text, file names, alt text or URLs.
+- Education (`_sections/education.ts`): CS degree at UBA - FCEyN (2026 onward), partial Electronic Engineering studies at UTN FRH (2021 to 2025, degree not completed), Avionics Technician at INAC - CIATA (2014 to 2020).
 - Live freelance client sites (`_sections/freelance.ts`): Spark Argentina, DreamBuilders, Botaaguas, Vssete, ItalTechnics, Círculo Místico.
 - Coding and engineering projects: `_sections/coding.ts`, `_sections/engineering.ts`, `data/projects/allProjects.json`.
 - Design work: `public/assets/design/`.

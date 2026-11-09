@@ -191,7 +191,7 @@ A single sheet, max 1240px wide, centred, with a 20px side gutter that respects 
 
 The sheet opens with the 8px red rule (28px below the header), then the title block: a four-column ruled grid (1.6fr 0.9fr 0.6fr 0.9fr) from 900px, collapsing to two columns with the name and the documents cell spanning full width. Below it, features, applications and the stack table sit in a column grid: one column, two from 760px, three (1fr 1fr 1.15fr) from 1100px, with 32px gaps (36px at the widest).
 
-Sections are 40px apart. Application notes stack as rows divided by 1px ink rules, each a 260px figure column beside the text from 900px. The page closes with the contact frame 48px down and a small footer over a 1px rule.
+Sections are 40px apart. Featured projects stack as rows divided by 1px ink rules, each a 260px figure column beside the text from 900px. The page closes with the contact frame 48px down and a small footer over a 1px rule.
 
 Breakpoints in use: 640px (tables become labelled blocks; header trims), 760px (column grid; wide diagram replaces the tall one), 900px (title block row, note figure column, header section links), 1100px (three columns).
 
@@ -227,16 +227,15 @@ The datasheet's identity table. A ruled grid with a red rule above it; each cell
 Uppercase condensed 22px head on a 2px ink underline, preceded by a red tabular numeral. Numbering is continuous down the page.
 
 ### Tables
-Full-width, collapsed 1px ink borders, grey header row in uppercase 13px, body cells 7px 10px at 14.5px with tabular figures. Secondary columns go ink-3. A row linked to the current diagram selection takes the signal tint. Links inside cells are underlined. Below 640px rows become labelled blocks (see Layout).
+Full-width, collapsed 1px ink borders, grey header row in uppercase 13px, body cells 7px 10px at 14.5px with tabular figures. Secondary columns go ink-3. Links inside cells are underlined. Below 640px rows become labelled blocks (see Layout).
 
 ### Figures
 A 2px ink frame with 20px 24px 12px padding around an SVG, followed by an italic ink-3 caption ("Figure N. ...") and an optional ink-3 hint line. Inline note figures use a 1px frame with the caption beneath.
 
-### Block Diagram (signature)
-Grey-filled square blocks with 2px ink strokes and condensed bold labels, joined by 2px ink wires with solid arrowheads and small ink-3 wire labels. Each block is a keyboard and pointer toggle: hover, focus or selection fills it with the tint and switches the stroke to 3px signal red, and highlights the matching stack row and application notes. A tap pins the highlight. With motion allowed, the wires draw in over 700ms, staggered 120ms. Desktop shows a horizontal chain; below 760px a vertical one.
+### Featured Project
+A row with a figure column and a text column, divided from its neighbours by a 1px ink rule. Condensed 26px title with a red decimal number, an ink-3 meta line, a 60ch ink-2 body, an optional challenge note on grey fill, a technologies line, and underlined links. Prefer product screenshots or device photographs; architecture diagrams can fill in until those assets exist.
 
-### Application Note
-A row with a figure column and a text column, divided from its neighbours by a 1px ink rule. Condensed 26px title with a red decimal number, an ink-3 meta line, a 60ch ink-2 body, an optional "Fixed" note on the grey fill with a red uppercase run-in label, a "Parts" line, and underlined links. When the note uses the selected diagram layer, its title turns red.
+Use plain portfolio labels in navigation and headings: Work & projects, Experience, and Education. Keep the datasheet influence in typography, rules and numbering. There is no overview block diagram above the featured projects.
 
 ### Contact Frame
 A 2px ink frame with an 8px signal red top border, padded 22px 24px 26px, holding a display-size heading, a 17px paragraph with the email in bold ink, and a row with the primary résumé button and text links.
@@ -249,7 +248,7 @@ A 2px ink frame with an 8px signal red top border, padded 22px 24px 26px, holdin
 - **Do** number sections, notes and figures, set the numerals in signal red with tabular figures, and caption every figure in italic ink-3 starting with "Figure N.".
 - **Do** use Barlow Condensed for names, heads, values and diagram labels, and regular Barlow for all reading text.
 - **Do** use the signal tint only to show the current selection and what it links to.
-- **Do** gate the wire draw-in behind `prefers-reduced-motion: no-preference` and keep state transitions at 160ms with the `cubic-bezier(0.16, 1, 0.3, 1)` ease.
+- **Do** keep state transitions at 160ms with the `cubic-bezier(0.16, 1, 0.3, 1)` ease.
 - **Do** turn tables into labelled blocks below 640px rather than letting them scroll sideways.
 
 ### Don't:

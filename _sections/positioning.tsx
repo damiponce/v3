@@ -21,7 +21,7 @@ export const POSITIONING: Record<PositioningKey, Positioning> = {
         </>,
         <>
           I trained as an <b>avionics technician</b> before moving into
-          software, and I work in Spanish and English (C2).
+          software, and I work in Spanish and English.
         </>,
       ],
     },
@@ -36,7 +36,7 @@ export const POSITIONING: Record<PositioningKey, Positioning> = {
         </>,
         <>
           Me formé como <b>técnico aviónico</b> antes de dedicarme al software,
-          y trabajo en español e inglés (nivel C2).
+          y trabajo en español e inglés.
         </>,
       ],
     },

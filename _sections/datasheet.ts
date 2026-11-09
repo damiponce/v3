@@ -25,14 +25,14 @@ export const LAYERS: { id: Layer; name: L; parts: string; usedIn: L }[] = [
   {
     id: 'backend',
     name: { en: 'Backend', es: 'Backend' },
-    parts: 'Firebase, Auth custom claims',
+    parts: 'Firebase Auth, Firestore',
     usedIn: { en: 'ETI, IoT app', es: 'ETI, app IoT' },
   },
   {
     id: 'cloud',
     name: { en: 'Cloud functions', es: 'Cloud functions' },
     parts: 'Firebase Cloud Functions',
-    usedIn: { en: 'IoT app', es: 'App IoT' },
+    usedIn: { en: 'ETI, IoT app', es: 'ETI, app IoT' },
   },
   {
     id: 'device',
@@ -42,22 +42,14 @@ export const LAYERS: { id: Layer; name: L; parts: string; usedIn: L }[] = [
   },
 ];
 
-// Which layers each featured project uses, for the block diagram's
-// cross-reference highlight.
-export const FEATURED_LAYERS: Record<string, Layer[]> = {
-  eti: ['ui', 'backend'],
-  'iot-grill': ['ui', 'backend', 'cloud', 'device'],
-  musictl: ['ui'],
-};
-
 export const FEATURES: L[] = [
   { en: '4+ years of paid client work', es: 'Más de 4 años de trabajo pago para clientes' },
   { en: 'Web and mobile products, end to end', es: 'Productos web y mobile, de punta a punta' },
   { en: 'UI, backend and cloud functions', es: 'Interfaz, backend y cloud functions' },
-  { en: 'ESP32 devices, Wi-Fi set up over SoftAP', es: 'Dispositivos ESP32, Wi-Fi configurado por SoftAP' },
+  { en: 'ESP32 devices and wireless IoT communication', es: 'Dispositivos ESP32 y comunicación inalámbrica IoT' },
   { en: 'iOS and Android with Expo / React Native', es: 'iOS y Android con Expo / React Native' },
   { en: 'Trained as an avionics technician', es: 'Formado como técnico aviónico' },
-  { en: 'Works in Spanish and English (C2)', es: 'Trabaja en español e inglés (C2)' },
+  { en: 'I work in Spanish and English', es: 'Trabajo en español e inglés' },
 ];
 
 export const APPLICATIONS: L[] = [

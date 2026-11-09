@@ -25,13 +25,13 @@ const EDUCATION: Education[] = [
     es: {
       date: "2026 → ...",
       title: "Lic. en Ciencias de la Computación",
-      place: "UBA",
+      place: "UBA - FCEyN",
       position: "Licenciatura",
     },
     en: {
       date: "2026 → ...",
       title: "Computer Science (Licenciatura)",
-      place: "UBA",
+      place: "UBA - FCEyN",
       position: "Undergraduate degree",
       // description: '-------------',
     },
@@ -41,13 +41,13 @@ const EDUCATION: Education[] = [
     url: "https://frh.utn.edu.ar/",
     es: {
       date: "2021 → 2025",
-      title: "Ingeniería Electrónica",
+      title: "Ingeniería Electrónica (estudios parciales, sin título)",
       place: "UTN FRH",
       position: "Ingeniería",
     },
     en: {
       date: "2021 → 2025",
-      title: "Electronic Engineering",
+      title: "Electronic Engineering (coursework, degree not completed)",
       place: "UTN FRH",
       position: "Engineering",
     },

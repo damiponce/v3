@@ -27,20 +27,20 @@ const FREELANCE: Project[] = [
     _key: 'eti',
     important: true,
     img: '', // TODO: ETI screenshot (then drop the diagram)
-    url: '', // TODO: ETI live URL
+    url: 'https://etitango.com.ar',
     diagram: 'eti',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Firebase', 'PostHog'],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Firebase', 'Cloud Functions', 'PostHog'],
     es: {
       date: '',
-      title: 'ETI: plataforma de eventos',
+      title: 'ETI · Encuentro Tanguero del Interior',
       description:
-        'Plataforma de eventos para el Encuentro Tanguero del Interior. La diseñé y desarrollé de punta a punta: front-end en Next.js, backend en Firebase y acceso por roles con custom claims de Firebase Auth. Más de 2000 usuarios registrados y hasta 1000 usuarios activos por mes en el pico.\n\nEl problema más difícil: encontré y resolví en producción un bug de refresco de tokens en el flujo de custom claims que define quién puede acceder a qué.',
+        'Diseñé y desarrollé la plataforma de inscripción y gestión del encuentro, con Next.js y Firebase. Más de 2000 usuarios registrados y hasta 1000 usuarios activos por mes en el pico.\n\nEl problema más difícil: amplié el modelo de datos y el flujo de inscripción con la convocatoria abierta. Migré las inscripciones existentes e implementé transacciones para mantener consistentes las aprobaciones, las cancelaciones, la lista de espera y los cupos.',
     },
     en: {
       date: '',
-      title: 'ETI: event platform',
+      title: 'ETI · Encuentro Tanguero del Interior',
       description:
-        'Event platform for Encuentro Tanguero del Interior. I designed and built it end to end: Next.js front end, Firebase backend, and role-based access with Firebase Auth custom claims. 2,000+ registered users, up to 1,000 monthly active users at peak.\n\nHardest problem: I tracked down and fixed a token-refresh bug in production, in the custom claims flow that controls who can access what.',
+        'I designed and built the event registration and management platform with Next.js and Firebase. 2,000+ registered users, up to 1,000 monthly active users at peak.\n\nHardest problem: I expanded the registration data model and workflow while signups stayed open. I migrated existing registrations and introduced transactional updates to keep approvals, cancellations, waitlists and capacity counts consistent.',
     },
   },  {
     _key: 'iot-grill',

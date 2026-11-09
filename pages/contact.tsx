@@ -30,7 +30,7 @@ export default function Contact(
             <div className="">
 
 
-              <h2 className="text-xl font-medium tracking-[-0.02em] text-neutral-700 sm:text-xl text-balance mt-2">
+              <p className="mb-12 max-w-[65ch] text-lg font-normal leading-relaxed text-neutral-700">
                 <Trans
                   t={t}
                   i18nKey="subtitle"
@@ -43,8 +43,7 @@ export default function Contact(
                     ),
                   }}
                 />
-              </h2>
-              <ul className="group/list mt-12"></ul>
+              </p>
             </div>
             <iframe
               data-tally-src={

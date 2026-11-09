@@ -10,7 +10,7 @@
 }
 
 /*  */
-*:not(.katex *, code *) {
+*:not(:where(.katex, .katex *, pre, pre *, code, code *, kbd, kbd *, samp, samp *)) {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',

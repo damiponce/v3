@@ -24,7 +24,7 @@
 
 /* The global stylesheet sets Geist on every element; this page has its own faces. */
 body .root,
-body .root * {
+body .root *:not(:where(:global(.katex), :global(.katex) *)) {
   font-family: var(--ds-body), 'Helvetica Neue', Arial, sans-serif;
   font-feature-settings: normal;
 }

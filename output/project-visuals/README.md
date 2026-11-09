@@ -1,6 +1,6 @@
 # Project image concepts
 
-The original concepts are 960 × 640. SVG files are editable originals; PNG files are ready to share. The ETI reference remains a concept. The website now uses the simplified IoT illustration described below.
+The original concepts are 960 × 640. SVG files are editable originals; PNG files are ready to share. The ETI reference remains a concept; the website uses the supplied ETI logo instead. The website now uses the simplified IoT illustration described below.
 
 ## ETI screenshot reference
 

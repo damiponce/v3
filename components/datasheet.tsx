@@ -173,7 +173,7 @@ export default function Datasheet() {
                 <article key={p._key} className={s.note}>
                   <figure className={s.noteFig}>
                     {p.img ? (
-                      <img src={p.img} alt={t(`ds.figs.${p._key}`)} loading='lazy' />
+                      <img src={p.img} alt={t(`ds.figs.${p._key}`)} loading='lazy' className={p._key === 'eti' ? s.projectLogo : undefined} />
                     ) : p.diagram ? (
                       <ArchDiagram name={p.diagram} lang={lang} layout='tile' tone='light' />
                     ) : null}

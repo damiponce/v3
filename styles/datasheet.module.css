@@ -455,6 +455,14 @@ body .root :global(.cond) * {
   height: auto;
   border: 1px solid var(--ink);
 }
+/* Logos share the screenshots' 3:2 frame, with proportional breathing room. */
+.projectLogo {
+  box-sizing: border-box;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  padding: 9%;
+  background: #fff;
+}
 .noteTitle {
   margin: 0;
   font-weight: 700;

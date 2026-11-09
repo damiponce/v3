@@ -26,9 +26,8 @@ const FREELANCE: Project[] = [
   {
     _key: 'eti',
     important: true,
-    img: '', // TODO: ETI screenshot (then drop the diagram)
+    img: '/assets/images/eti-logo.svg',
     url: 'https://etitango.com.ar',
-    diagram: 'eti',
     technologies: ['Next.js', 'React', 'TypeScript', 'Firebase', 'Cloud Functions', 'PostHog'],
     es: {
       date: '',

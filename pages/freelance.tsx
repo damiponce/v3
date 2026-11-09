@@ -1,4 +1,5 @@
 import SheetPage from '../components/sheet-page';
+import s from '../styles/datasheet.module.css';
 import Head from "next/head";
 import Meta from "../components/meta";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -36,7 +37,7 @@ export default function Freelance(
               <ul className="group/list mt-12">
                 {FREELANCE.map((item) => (
                   <li key={item._key} className="border-b border-black py-6 grid gap-6 md:grid-cols-[260px_1fr]">
-                    <div>{item.diagram ? <ArchDiagram name={item.diagram} lang={lang} layout="tile" tone="light" /> : item.img ? <img src={item.img} alt={item[lang].title} className="w-full h-auto border border-black" /> : null}</div>
+                    <div>{item.diagram ? <ArchDiagram name={item.diagram} lang={lang} layout="tile" tone="light" /> : item.img ? <img src={item.img} alt={item[lang].title} className={`w-full h-auto border border-black ${item._key === 'eti' ? s.projectLogo : ''}`} /> : null}</div>
                     <div><h2>{item[lang].title}</h2><p className="whitespace-pre-line">{item[lang].description}</p>
                     <p className="my-4 text-sm">{(item[lang].technologies ?? item.technologies)?.join(', ')}</p>
                     {item.url && <a className="underline mr-4" href={item.url}>{item[lang].title}</a>}

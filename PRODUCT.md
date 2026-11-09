@@ -36,7 +36,7 @@ The home subtitle and About text live in `_sections/positioning.tsx` (`ACTIVE_PO
 - **Contact form and résumé PDFs are core.** The contact page embeds a Tally form (one form per language; its field copy is edited in Tally, not in this repo) and shows `dev@damianponce.com` as the direct email. The `form` and `errors` strings in `contact.json` belong to an unused in-house form. CVs live at `public/assets/resume/CV_PONCE_{EN,ES}.pdf`.
 - **Spanish copy uses Argentine voseo** ("escribime", "contame", "usá") everywhere.
 - **The blog is real and planned.** The markdown pipeline (`_posts/`, KaTeX math, Shiki highlighting) stays, but the home section and nav link are hidden behind `SHOW_BLOG` in `lib/flags.ts` until real posts exist.
-- **The design gallery stays but is secondary** (`pages/design`). It supports the story and is not a headline section.
+- **The design gallery is archived** in `archive/design` and is not part of the public site.
 - PostHog analytics tracks page views and page leaves.
 - OG images are generated at `pages/api/og.tsx`.
 - Three.js / react-three-fiber 3D components exist but are currently disabled on the home page.
@@ -55,7 +55,7 @@ The home subtitle and About text live in `_sections/positioning.tsx` (`ACTIVE_PO
 - Education (`_sections/education.ts`): CS degree at UBA - FCEyN (2026 onward), partial Electronic Engineering studies at UTN FRH (2021 to 2025, degree not completed), Avionics Technician at INAC - CIATA (2014 to 2020).
 - Live freelance client sites (`_sections/freelance.ts`): Spark Argentina, DreamBuilders, Botaaguas, Vssete, ItalTechnics, Círculo Místico.
 - Coding and engineering projects: `_sections/coding.ts`, `_sections/engineering.ts`, `data/projects/allProjects.json`.
-- Design work: `public/assets/design/`.
+- Archived design work: `archive/design/public/assets/design/` (not publicly served).
 - Résumés in both languages (paths above).
 
 **Absences that must not be faked:** no testimonials, client quotes, metrics beyond the ones above, or press. The blog has only placeholder posts (`_posts/test.md`, `_posts/wip.md`). The home `description` string in `public/locales/en/common.json` is still "Temp text".

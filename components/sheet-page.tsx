@@ -11,7 +11,7 @@ const cond = Barlow_Condensed({ subsets: ['latin'], weight: ['500', '600', '700'
 export default function SheetPage({ title, children }: { title: string; children: ReactNode }) {
   const router = useRouter();
   const en = router.locale === 'en';
-  const links = [['/projects', en ? 'Projects' : 'Proyectos'], ['/design', en ? 'Design' : 'Diseño'], ['/blog', 'Blog'], ['/contact', en ? 'Contact' : 'Contacto']];
+  const links = [['/projects', en ? 'Projects' : 'Proyectos'], ['/blog', 'Blog'], ['/contact', en ? 'Contact' : 'Contacto']];
   return <div className={`${s.root} ${body.variable} ${cond.variable} ${p.root}`}>
     <a className={s.skip} href="#content">{en ? 'Skip to content' : 'Ir al contenido'}</a>
     <header className={p.header}><Link href="/" className="cond">Damián Ponce</Link>

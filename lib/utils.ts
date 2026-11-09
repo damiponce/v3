@@ -108,31 +108,6 @@ export interface ImageProps {
   blurDataUrl?: string;
 }
 
-export interface SharedModalProps {
-  designIndex: number;
-  index: number;
-  images?: DesignImage[];
-  currentPhoto?: DesignImage;
-  changePhotoId: (newVal: number) => void;
-  closeModal: () => void;
-  navigation: boolean;
-  direction?: number;
-}
-
-////////////////////////////////////////////////////////////////////////
-
-import { createGlobalState } from 'react-hooks-global-state';
-import { DesignImage } from '../_sections/designs';
-
-const initialState = { photoToScrollTo: null };
-const { useGlobalState } = createGlobalState(initialState);
-
-export const useLastViewedPhoto = () => {
-  return useGlobalState('photoToScrollTo');
-};
-
-////////////////////////////////////////////////////////////////////////
-
 export function debounce(func: () => any, timeout: number) {
   let timer: NodeJS.Timeout;
   return (...args: any) => {
